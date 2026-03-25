@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guion de kickoff | Rebranding del fondo</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 24mm 22mm 26mm 22mm;
+      }
+
+      :root {
+        --ink: #1a1a1a;
+        --muted: #5a6670;
+        --accent: #0e5a52;
+        --accent-light: #e8f0ef;
+        --accent-soft: rgba(14, 90, 82, 0.07);
+        --line: #d4d8dc;
+        --line-light: #e8eaed;
+        --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0;
+        --warning-border: #e8a820;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+        font-size: 10.5pt;
+        line-height: 1.58;
+        color: var(--ink);
+        background: #fff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* --- COVER --- */
+      .cover {
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 72px 0;
+      }
+
+      .cover__eyebrow {
+        font-size: 10pt;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+
+      .cover h1 {
+        font-size: 38pt;
+        font-weight: 600;
+        line-height: 0.96;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+        max-width: 16ch;
+      }
+
+      .cover__subtitle {
+        font-size: 15pt;
+        color: var(--muted);
+        line-height: 1.4;
+        max-width: 42ch;
+        margin-bottom: 52px;
+      }
+
+      .cover__meta {
+        font-size: 9.5pt;
+        color: var(--muted);
+        line-height: 1.7;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+        max-width: 36ch;
+      }
+
+      /* --- CONTENT --- */
+      h2 {
+        font-size: 20pt;
+        font-weight: 600;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin: 42px 0 8px;
+        color: var(--ink);
+        page-break-after: avoid;
+      }
+
+      h2:first-of-type { margin-top: 0; }
+
+      .lead {
+        font-size: 11.5pt;
+        color: var(--muted);
+        line-height: 1.48;
+        max-width: 60ch;
+        margin-bottom: 24px;
+      }
+
+      h3 {
+        font-size: 13pt;
+        font-weight: 600;
+        margin: 26px 0 10px;
+        page-break-after: avoid;
+      }
+
+      h4 {
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 20px 0 7px;
+        page-break-after: avoid;
+      }
+
+      p { margin-bottom: 9px; max-width: 66ch; }
+
+      ul, ol { padding-left: 1.3rem; margin-bottom: 12px; }
+      li { margin-bottom: 5px; }
+
+      /* --- SCRIPT --- */
+      .script {
+        padding: 18px 22px;
+        background: var(--section-bg);
+        border: 1px solid var(--line-light);
+        border-radius: 5px;
+        margin: 14px 0 18px;
+        font-style: italic;
+        line-height: 1.58;
+        page-break-inside: avoid;
+      }
+
+      /* --- CALLOUT --- */
+      .callout {
+        padding: 14px 18px;
+        border-left: 3px solid var(--accent);
+        background: var(--accent-soft);
+        border-radius: 0 5px 5px 0;
+        margin: 14px 0 18px;
+        page-break-inside: avoid;
+      }
+      .callout p { margin-bottom: 0; }
+
+      .warning {
+        padding: 13px 18px;
+        border-left: 3px solid var(--warning-border);
+        background: var(--warning-bg);
+        border-radius: 0 5px 5px 0;
+        margin: 14px 0 18px;
+        font-size: 10pt;
+        page-break-inside: avoid;
+      }
+
+      /* --- GRID --- */
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin: 14px 0 18px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+        margin: 14px 0 18px;
+      }
+
+      .card {
+        padding: 14px 16px;
+        border: 1px solid var(--line-light);
+        border-radius: 5px;
+        background: var(--section-bg);
+        page-break-inside: avoid;
+      }
+      .card h4 { margin-top: 0; margin-bottom: 6px; }
+      .card p, .card ul { font-size: 9.5pt; margin-bottom: 0; }
+
+      /* --- TABLE --- */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0 18px;
+        font-size: 9.5pt;
+        page-break-inside: avoid;
+      }
+
+      th {
+        text-align: left;
+        padding: 8px 10px;
+        background: var(--accent);
+        color: white;
+        font-size: 8.5pt;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      th:first-child { border-radius: 4px 0 0 0; }
+      th:last-child { border-radius: 0 4px 0 0; }
+
+      td {
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--line-light);
+        vertical-align: top;
+      }
+      tr:nth-child(even) td { background: var(--section-bg); }
+
+      /* --- TIMELINE --- */
+      .timeline {
+        margin: 16px 0 20px;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .timeline li {
+        position: relative;
+        padding: 11px 0 11px 60px;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .timeline li .t {
+        position: absolute;
+        left: 0;
+        top: 11px;
+        font-size: 8.5pt;
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--accent-light);
+        padding: 2px 8px;
+        border-radius: 3px;
+        white-space: nowrap;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 28px 0;
+      }
+
+      .footer {
+        margin-top: 48px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        font-size: 8.5pt;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media print {
+        .cover { min-height: auto; padding: 100px 0; }
+        .grid-2, .grid-3, .card, table { page-break-inside: avoid; }
+      }
+
+      @media screen {
+        body { max-width: 760px; margin: 0 auto; padding: 24px; }
+        .cover { min-height: 75vh; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- COVER -->
+    <div class="cover">
+      <p class="cover__eyebrow">Guion de reunion</p>
+      <h1>Kickoff de proyecto de rebranding</h1>
+      <p class="cover__subtitle">
+        Reunion de arranque con los socios del fondo. Explicacion del proceso, metodologia, fases del proyecto y sesiones individuales 1:1.
+      </p>
+      <div class="cover__meta">
+        Preparado por Zoopa<br>
+        Marzo 2026<br>
+        Duracion estimada: 40 minutos<br>
+        Formato: online o presencial<br>
+        Documento confidencial
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <h2>Objetivo de esta reunion</h2>
+    <p class="lead">
+      Explicar a los socios y decision makers del fondo como vamos a trabajar el proyecto de rebranding, por que este proceso es distinto, que les pediremos y cual es el calendario. No entraremos en estrategia ni en outputs creativos hoy.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Lo que haremos hoy</h4>
+        <ul>
+          <li>Presentar el enfoque del proyecto</li>
+          <li>Explicar por que no es un proceso convencional</li>
+          <li>Describir las fases y el calendario</li>
+          <li>Anunciar las sesiones 1:1 con cada socio</li>
+          <li>Resolver dudas y confirmar disponibilidad</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Lo que no haremos hoy</h4>
+        <ul>
+          <li>No entraremos en debate estrategico</li>
+          <li>No mostraremos propuestas creativas</li>
+          <li>No pediremos opiniones sobre diseno</li>
+          <li>No forzaremos alineamiento sobre la marca</li>
+          <li>No discutiremos naming ni visual</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Estructura de la reunion</h2>
+
+    <ul class="timeline">
+      <li>
+        <span class="t">00-05'</span>
+        <strong>Encuadre y proposito</strong><br>
+        Presentar el mandato del proyecto y por que estamos aqui.
+      </li>
+      <li>
+        <span class="t">05-15'</span>
+        <strong>Enfoque del proceso</strong><br>
+        Explicar la metodologia, que lo hace distinto y que no vamos a hacer.
+      </li>
+      <li>
+        <span class="t">15-25'</span>
+        <strong>Fases y calendario</strong><br>
+        Roadmap completo: entrevistas 1:1, sesion plenaria, sintesis, territorio creativo.
+      </li>
+      <li>
+        <span class="t">25-35'</span>
+        <strong>Sesiones individuales 1:1</strong><br>
+        Formato, razon de ser y lo que pediremos en cada entrevista.
+      </li>
+      <li>
+        <span class="t">35-40'</span>
+        <strong>Preguntas y cierre</strong><br>
+        Dudas, confirmacion de disponibilidad, proximos pasos.
+      </li>
+    </ul>
+
+    <hr>
+
+    <h2>Bloque 1: Encuadre y proposito</h2>
+    <h4>Tiempo: 0 a 5 minutos</h4>
+
+    <p class="script">
+      "Gracias por el tiempo. Vamos a ser directos con lo que os vamos a pedir y por que.
+      <br><br>
+      Este proyecto de rebranding no empieza por el diseno. Empieza por la tesis. Antes de tocar logo, naming, narrativa o identidad visual, necesitamos entender con precision que identidad institucional tiene realmente el fondo, como la lee el mercado y donde hay diferenciacion autentica frente a donde solo hay lenguaje de categoria.
+      <br><br>
+      Nuestro trabajo consiste en llegar a esa claridad antes de abrir cualquier territorio creativo. Si no lo hacemos bien aqui, cualquier solucion visual o verbal sera cosmetica."
+    </p>
+
+    <div class="callout">
+      <p><strong>Tono:</strong> ejecutivo, directo, sin ceremonias. No vender el proceso. Enmarcarlo como trabajo de precision que exige criterio senior.</p>
+    </div>
+
+    <hr>
+
+    <h2>Bloque 2: Enfoque del proceso</h2>
+    <h4>Tiempo: 5 a 15 minutos</h4>
+
+    <p class="script">
+      "Vamos a trabajar de una forma distinta a lo que probablemente habeis visto en otros procesos de branding. No vamos a hacer workshops con post-its, ejercicios de arquetipos ni lluvia de adjetivos. No os vamos a pedir que elijais entre tres moodboards.
+      <br><br>
+      Vamos a tratar este proceso como un trabajo de estrategia institucional. Lo que queremos extraer son hechos, episodios, tensiones y criterio. No opiniones abstractas.
+      <br><br>
+      El desacuerdo entre vosotros, si existe, es una de las senales mas valiosas que podemos capturar. No vamos a forzar consenso. Vamos a producir claridad."
+    </p>
+
+    <h3>Que si haremos</h3>
+    <ul>
+      <li>Partir de hechos y episodios concretos, no de opiniones abstractas</li>
+      <li>Usar comparaciones con el peer set para afinar la diferenciacion</li>
+      <li>Tratar el desacuerdo como senal de calidad, no como problema</li>
+      <li>Convertir cada atributo declarado en evidencia observable</li>
+      <li>Nombrar tensiones que la futura marca debe resolver, no esconder</li>
+    </ul>
+
+    <h3>Que no haremos</h3>
+    <ul>
+      <li>No pediremos "tres palabras para definir la marca"</li>
+      <li>No haremos ejercicios tipo post-it, animal, coche o arquetipo</li>
+      <li>No buscaremos alineamiento cosmetico ni consenso rapido</li>
+      <li>No entraremos en identidad visual o naming hasta tener base estrategica solida</li>
+      <li>No reduciremos la complejidad para salir con una falsa armonia</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Idea clave:</strong> Este proceso respeta vuestro criterio senior. No os vamos a infantilizar con dinamicas de grupo. Os vamos a exigir precision.</p>
+    </div>
+
+    <hr>
+
+    <h2>Bloque 3: Fases y calendario</h2>
+    <h4>Tiempo: 15 a 25 minutos</h4>
+
+    <p>El proyecto se estructura en seis fases. Cada una alimenta la siguiente. No saltaremos fases.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Fase</th>
+          <th>Que hacemos</th>
+          <th>Quienes participan</th>
+          <th>Duracion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Kickoff</strong></td>
+          <td>Presentacion del proceso y alineamiento de expectativas</td>
+          <td>Todos los socios</td>
+          <td>Hoy</td>
+        </tr>
+        <tr>
+          <td><strong>2. Entrevistas 1:1</strong></td>
+          <td>Sesiones individuales con cada socio. Captura de lectura, tesis, tensiones y evidencia</td>
+          <td>Cada socio por separado</td>
+          <td>45-60 min / socio</td>
+        </tr>
+        <tr>
+          <td><strong>3. Analisis</strong></td>
+          <td>Cruce de inputs, identificacion de patrones, contradicciones y territorio competitivo</td>
+          <td>Equipo Zoopa</td>
+          <td>Trabajo interno</td>
+        </tr>
+        <tr>
+          <td><strong>4. Sesion plenaria</strong></td>
+          <td>Sesion de tesis institucional con todos los socios. Formato de 90 minutos, alta exigencia</td>
+          <td>Todos los socios</td>
+          <td>90 minutos</td>
+        </tr>
+        <tr>
+          <td><strong>5. Formulacion</strong></td>
+          <td>Plataforma de posicionamiento, invariantes, narrativa verbal, territorio de marca</td>
+          <td>Zoopa + validacion socios</td>
+          <td>Entrega posterior</td>
+        </tr>
+        <tr>
+          <td><strong>6. Territorio creativo</strong></td>
+          <td>Identidad visual, naming, sistema de marca. Solo si la base estrategica es solida</td>
+          <td>A definir</td>
+          <td>Fase posterior</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="script">
+      "Como veis, la sesion plenaria no es el punto de partida. Es el punto donde ya llegamos con materia prima real. Las entrevistas individuales son el trabajo mas importante de las proximas semanas.
+      <br><br>
+      No abriremos territorio creativo hasta tener base estrategica suficiente. Si al final del proceso descubrimos que aun no hay claridad para avanzar, lo diremos. Preferimos una pausa inteligente a un rebranding elegante pero falso."
+    </p>
+
+    <h3>Logica del proceso</h3>
+    <div class="grid-3">
+      <div class="card">
+        <h4>Entrevistas 1:1</h4>
+        <p>Capturan lo que cada socio piensa realmente, sin filtro de grupo ni jerarquia.</p>
+      </div>
+      <div class="card">
+        <h4>Sesion plenaria</h4>
+        <p>Confronta, cruza y eleva lo capturado en las entrevistas. Produce tension util.</p>
+      </div>
+      <div class="card">
+        <h4>Formulacion</h4>
+        <p>Convierte la materia prima en una plataforma estrategica defendible y diferenciada.</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Bloque 4: Sesiones individuales 1:1</h2>
+    <h4>Tiempo: 25 a 35 minutos</h4>
+
+    <p class="script">
+      "Vamos a reunirnos con cada uno de vosotros por separado. No es una formalidad. Es la parte mas critica del proceso.
+      <br><br>
+      En una sesion grupal, la jerarquia, la diplomacia y el ritmo de la conversacion filtran mucho. En una entrevista individual podemos llegar a donde realmente importa: como piensa cada socio la tesis del fondo, donde ve la diferenciacion real, que tensiones percibe y que lectura tiene del mercado.
+      <br><br>
+      No es un interrogatorio. Es una conversacion de criterio entre profesionales."
+    </p>
+
+    <h3>Formato de las entrevistas</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Logistica</h4>
+        <ul>
+          <li>Duracion: 45-60 minutos</li>
+          <li>Formato: online o presencial</li>
+          <li>No requiere preparacion formal</li>
+          <li>Solo pedimos que piensen en 2-3 episodios reales antes de la sesion</li>
+          <li>Agendaremos esta misma semana</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Que pediremos</h4>
+        <ul>
+          <li>Casos concretos donde el fondo fue bien o mal entendido</li>
+          <li>Lectura personal de la diferenciacion real frente a comparables</li>
+          <li>Tensiones que percibe: internas, de mercado, de narrativa</li>
+          <li>Que deberia ser invariante en la futura marca</li>
+          <li>Que nunca deberia parecer esta firma</li>
+          <li>Que riesgo ve en un rebranding mal planteado</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Por que entrevistas individuales</h3>
+    <ul>
+      <li><strong>Mayor profundidad.</strong> Sin presion de grupo, cada socio puede explorar matices que no aparecerian en un plenario.</li>
+      <li><strong>Mayor libertad.</strong> Permite nombrar tensiones, desacuerdos y lecturas que en publico se suavizarian.</li>
+      <li><strong>Mejor materia prima.</strong> La sesion plenaria sera mucho mas rica si llegamos con inputs reales de cada persona.</li>
+      <li><strong>Deteccion de patrones.</strong> Cruzar las entrevistas revela donde hay alineamiento real y donde hay divergencia significativa.</li>
+    </ul>
+
+    <div class="warning">
+      <strong>Confidencialidad:</strong> Las entrevistas son confidenciales en su atribucion. Usaremos los inputs para construir una sintesis agregada. Nadie vera "Socio X dijo Y". Esto es fundamental para que cada persona hable con libertad real.
+    </div>
+
+    <h3>Tipos de preguntas que apareceran en las 1:1</h3>
+    <p>Para que sepan que esperar:</p>
+    <ul>
+      <li>En que situaciones el mercado os entiende mejor de lo que vosotros mismos explicais</li>
+      <li>Donde se produce la mayor distancia entre como os pensais y como os leen</li>
+      <li>Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando una reunion seria con el fondo</li>
+      <li>Que parte de la reputacion del fondo esta ganada y cual depende de simplificaciones externas</li>
+      <li>Que nunca deberia parecer esta firma, aunque eso facilitara comercializarla</li>
+      <li>Que verdad incomoda la futura marca tendra que asumir</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Nota para el facilitador:</strong> Es probable que alguno pregunte "pero que os vamos a contar que no sepais ya". La respuesta es: "No buscamos informacion que ya tengamos. Buscamos formulaciones que aun no existen. Vuestra forma de pensar la firma es la materia prima del proyecto."</p>
+    </div>
+
+    <hr>
+
+    <h2>Bloque 5: Preguntas y cierre</h2>
+    <h4>Tiempo: 35 a 40 minutos</h4>
+
+    <p class="script">
+      "Antes de cerrar, abro a preguntas. Y quiero ser honesto: si al final de este proceso descubrimos que aun no hay base suficiente para abrir territorio creativo, lo diremos. Preferimos una pausa inteligente a un rebranding elegante pero falso.
+      <br><br>
+      Proximos pasos: os contactaremos esta misma semana para agendar las sesiones individuales. Os enviaremos tambien un documento breve de pre-reading antes de la sesion plenaria.
+      <br><br>
+      Gracias por la confianza. Vamos a hacer un buen trabajo."
+    </p>
+
+    <h3>Preguntas frecuentes y respuestas sugeridas</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Pregunta probable</th>
+          <th>Respuesta sugerida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Cuando veremos diseno?"</td>
+          <td>Despues de la base estrategica. Si intentamos resolver visualmente algo que no esta claro conceptualmente, el resultado sera cosmetico.</td>
+        </tr>
+        <tr>
+          <td>"Por que necesitais hablar con cada uno?"</td>
+          <td>Porque en grupo se filtra mucho. Necesitamos la lectura real de cada persona para construir una sintesis solida.</td>
+        </tr>
+        <tr>
+          <td>"Cuanto durara todo el proceso?"</td>
+          <td>Depende de la claridad que obtengamos. Si las entrevistas y la sesion plenaria producen suficiente materia, avanzaremos rapido. Si no, preferimos afinar antes de abrir territorio creativo.</td>
+        </tr>
+        <tr>
+          <td>"Que necesitais que preparemos?"</td>
+          <td>Nada formal. Solo pensar en 2-3 episodios reales donde el fondo fue bien o mal entendido. Y en 2-3 firmas comparables.</td>
+        </tr>
+        <tr>
+          <td>"Ya tenemos claro lo que somos, no?"</td>
+          <td>Probablemente si, pero nuestro trabajo es verificarlo. Muchas firmas creen tener una identidad clara y el mercado las lee de otra forma. Queremos cerrar esa brecha.</td>
+        </tr>
+        <tr>
+          <td>"Esto es confidencial?"</td>
+          <td>Las entrevistas 1:1 son confidenciales en su atribucion. La sintesis agregada se compartira con todos. Nadie vera citas atribuidas a personas concretas.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Proximos pasos</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Accion</th>
+          <th>Responsable</th>
+          <th>Plazo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Agendar sesiones 1:1 con cada socio</td>
+          <td>Zoopa</td>
+          <td>Esta semana</td>
+        </tr>
+        <tr>
+          <td>Realizar entrevistas individuales</td>
+          <td>Zoopa + cada socio</td>
+          <td>Proximas 2-3 semanas</td>
+        </tr>
+        <tr>
+          <td>Analisis y cruce de inputs</td>
+          <td>Zoopa</td>
+          <td>Tras completar entrevistas</td>
+        </tr>
+        <tr>
+          <td>Enviar pre-reading para sesion plenaria</td>
+          <td>Zoopa</td>
+          <td>48h antes del plenario</td>
+        </tr>
+        <tr>
+          <td>Sesion plenaria de tesis institucional</td>
+          <td>Todos los socios</td>
+          <td>Tras completar analisis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Notas de facilitacion</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <h4>Hacer</h4>
+        <ul>
+          <li>Ser directo y breve</li>
+          <li>Transmitir rigor sin rigidez</li>
+          <li>Dar confianza sobre el proceso</li>
+          <li>Confirmar fechas al cierre</li>
+          <li>Escuchar dudas con atencion</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>No hacer</h4>
+        <ul>
+          <li>No vender el proceso</li>
+          <li>No prometer resultados visuales</li>
+          <li>No entrar en debate estrategico</li>
+          <li>No mostrar ningun output creativo</li>
+          <li>No alargar mas de 40 minutos</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Tono</h4>
+        <ul>
+          <li>Ejecutivo pero cercano</li>
+          <li>Seco pero no frio</li>
+          <li>Seguro pero no arrogante</li>
+          <li>Respetuoso con el nivel de la sala</li>
+          <li>Sin grandilocuencia ni promesas</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Si la reunion se complica</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Si alguien quiere entrar en estrategia</h4>
+        <p>"Es exactamente lo que vamos a trabajar en las sesiones 1:1 y en el plenario. Hoy solo queria asegurarme de que el proceso os parece solido."</p>
+      </div>
+      <div class="card">
+        <h4>Si hay escepticismo sobre el enfoque</h4>
+        <p>"Entiendo la duda. Nuestro compromiso es que si este proceso no produce claridad nueva, lo diremos. No vamos a fabricar un resultado para justificar el proyecto."</p>
+      </div>
+      <div class="card">
+        <h4>Si alguien minimiza la necesidad</h4>
+        <p>"Es posible que ya tengais claridad suficiente. Nuestro trabajo es verificarlo y, si es asi, documentarlo para que la base sea solida. Si no, encontraremos donde esta la brecha."</p>
+      </div>
+      <div class="card">
+        <h4>Si piden timeline cerrado</h4>
+        <p>"Puedo daros un calendario orientativo, pero la velocidad depende de la calidad de los inputs. Preferimos hacerlo bien que hacerlo rapido."</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Guion de kickoff | Rebranding del fondo | Zoopa | Marzo 2026 | Confidencial
+    </div>
+
+  </body>
+</html>
