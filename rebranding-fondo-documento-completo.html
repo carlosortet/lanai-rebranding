@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rebranding del fondo | Documento completo de proyecto</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 22mm 20mm 24mm 20mm;
+      }
+
+      :root {
+        --bg: #ffffff;
+        --ink: #1a1a1a;
+        --muted: #5a6670;
+        --accent: #0e5a52;
+        --accent-light: #e8f0ef;
+        --accent-soft: rgba(14, 90, 82, 0.08);
+        --line: #d4d8dc;
+        --line-light: #e8eaed;
+        --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0;
+        --warning-border: #e8a820;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+        font-size: 10.5pt;
+        line-height: 1.55;
+        color: var(--ink);
+        background: var(--bg);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* --- COVER --- */
+      .cover {
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 60px 48px;
+        background:
+          radial-gradient(circle at 15% 20%, rgba(14, 90, 82, 0.10), transparent 40%),
+          radial-gradient(circle at 85% 80%, rgba(14, 90, 82, 0.06), transparent 35%),
+          linear-gradient(180deg, #fafaf8 0%, #f0eeea 100%);
+      }
+
+      .cover__eyebrow {
+        font-size: 11pt;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 18px;
+      }
+
+      .cover h1 {
+        font-size: 42pt;
+        font-weight: 600;
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        color: var(--ink);
+        margin-bottom: 22px;
+        max-width: 14ch;
+      }
+
+      .cover__subtitle {
+        font-size: 16pt;
+        color: var(--muted);
+        line-height: 1.35;
+        max-width: 38ch;
+        margin-bottom: 48px;
+      }
+
+      .cover__meta {
+        font-size: 9.5pt;
+        color: var(--muted);
+        line-height: 1.7;
+        border-top: 1px solid var(--line);
+        padding-top: 18px;
+        max-width: 40ch;
+      }
+
+      /* --- TOC --- */
+      .toc {
+        page-break-after: always;
+        padding: 48px 0;
+      }
+
+      .toc h2 {
+        font-size: 18pt;
+        margin-bottom: 28px;
+        color: var(--accent);
+        letter-spacing: -0.02em;
+      }
+
+      .toc ol {
+        list-style: none;
+        counter-reset: toc-counter;
+      }
+
+      .toc li {
+        counter-increment: toc-counter;
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--line-light);
+        font-size: 11pt;
+      }
+
+      .toc li::before {
+        content: counter(toc-counter, decimal-leading-zero);
+        font-size: 9pt;
+        font-weight: 700;
+        color: var(--accent);
+        min-width: 24px;
+      }
+
+      .toc li a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .toc .toc__page {
+        margin-left: auto;
+        color: var(--muted);
+        font-size: 9pt;
+      }
+
+      /* --- SECTION --- */
+      .section {
+        page-break-before: always;
+        padding-top: 8px;
+      }
+
+      .section:first-of-type {
+        page-break-before: auto;
+      }
+
+      .section__number {
+        display: inline-block;
+        font-size: 9pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-light);
+        padding: 4px 14px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+      }
+
+      .section h2 {
+        font-size: 22pt;
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.025em;
+        color: var(--ink);
+        margin-bottom: 6px;
+        max-width: 22ch;
+      }
+
+      .section__lead {
+        font-size: 12pt;
+        color: var(--muted);
+        line-height: 1.45;
+        max-width: 62ch;
+        margin-bottom: 28px;
+      }
+
+      h3 {
+        font-size: 13pt;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 28px 0 10px;
+        letter-spacing: -0.01em;
+      }
+
+      h4 {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 22px 0 8px;
+      }
+
+      p {
+        margin-bottom: 10px;
+        max-width: 68ch;
+      }
+
+      ul, ol {
+        padding-left: 1.3rem;
+        margin-bottom: 12px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      li li {
+        margin-bottom: 3px;
+      }
+
+      /* --- SPECIAL BLOCKS --- */
+      .callout {
+        padding: 16px 20px;
+        border-left: 3px solid var(--accent);
+        background: var(--accent-soft);
+        border-radius: 0 6px 6px 0;
+        margin: 16px 0;
+      }
+
+      .callout p {
+        margin-bottom: 0;
+      }
+
+      .warning {
+        padding: 14px 18px;
+        border-left: 3px solid var(--warning-border);
+        background: var(--warning-bg);
+        border-radius: 0 6px 6px 0;
+        margin: 16px 0;
+        font-size: 10pt;
+      }
+
+      .script {
+        padding: 18px 22px;
+        background: var(--section-bg);
+        border: 1px solid var(--line-light);
+        border-radius: 6px;
+        margin: 14px 0;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.55;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 14px 0;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+        margin: 14px 0;
+      }
+
+      .card {
+        padding: 14px 16px;
+        border: 1px solid var(--line-light);
+        border-radius: 6px;
+        background: var(--section-bg);
+      }
+
+      .card h4 {
+        margin-top: 0;
+        margin-bottom: 6px;
+      }
+
+      .card p, .card ul {
+        font-size: 9.5pt;
+        margin-bottom: 0;
+      }
+
+      /* --- TABLE --- */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 14px 0 18px;
+        font-size: 9.5pt;
+      }
+
+      th {
+        text-align: left;
+        padding: 8px 10px;
+        background: var(--accent);
+        color: white;
+        font-size: 8.5pt;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      th:first-child {
+        border-radius: 4px 0 0 0;
+      }
+
+      th:last-child {
+        border-radius: 0 4px 0 0;
+      }
+
+      td {
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--line-light);
+        vertical-align: top;
+      }
+
+      tr:nth-child(even) td {
+        background: var(--section-bg);
+      }
+
+      /* --- TIMELINE --- */
+      .timeline {
+        margin: 18px 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .timeline li {
+        position: relative;
+        padding: 12px 0 12px 52px;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .timeline li::before {
+        position: absolute;
+        left: 0;
+        top: 12px;
+        font-size: 9pt;
+        font-weight: 700;
+        color: var(--accent);
+        background: var(--accent-light);
+        padding: 2px 10px;
+        border-radius: 3px;
+      }
+
+      .timeline li:nth-child(1)::before { content: "00-08'"; }
+      .timeline li:nth-child(2)::before { content: "08-25'"; }
+      .timeline li:nth-child(3)::before { content: "25-40'"; }
+      .timeline li:nth-child(4)::before { content: "40-55'"; }
+      .timeline li:nth-child(5)::before { content: "55-70'"; }
+      .timeline li:nth-child(6)::before { content: "70-83'"; }
+      .timeline li:nth-child(7)::before { content: "83-90'"; }
+
+      .timeline-kickoff li:nth-child(1)::before { content: "00-05'"; }
+      .timeline-kickoff li:nth-child(2)::before { content: "05-15'"; }
+      .timeline-kickoff li:nth-child(3)::before { content: "15-25'"; }
+      .timeline-kickoff li:nth-child(4)::before { content: "25-35'"; }
+      .timeline-kickoff li:nth-child(5)::before { content: "35-40'"; }
+
+      /* --- SEPARATOR --- */
+      hr {
+        border: none;
+        border-top: 1px solid var(--line);
+        margin: 24px 0;
+      }
+
+      /* --- FOOTER --- */
+      .page-footer {
+        margin-top: 40px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        font-size: 8.5pt;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      /* --- PRINT --- */
+      @media print {
+        body {
+          font-size: 10pt;
+        }
+
+        .cover {
+          min-height: auto;
+          padding: 80px 0;
+        }
+
+        .section {
+          page-break-before: always;
+        }
+
+        .no-break {
+          page-break-inside: avoid;
+        }
+
+        .grid-2, .grid-3 {
+          page-break-inside: avoid;
+        }
+      }
+
+      @media screen {
+        body {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+
+        .cover {
+          min-height: 80vh;
+          border-radius: 12px;
+          margin-bottom: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ============================================ -->
+    <!-- COVER -->
+    <!-- ============================================ -->
+    <div class="cover">
+      <p class="cover__eyebrow">Documento de proyecto</p>
+      <h1>Rebranding del fondo</h1>
+      <p class="cover__subtitle">
+        Guion de kickoff, materiales de sesion, frameworks de trabajo
+        y plantillas de sintesis.
+      </p>
+      <div class="cover__meta">
+        Preparado por Zoopa<br>
+        Marzo 2026<br>
+        Documento confidencial. Uso interno del equipo de proyecto.
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- TOC -->
+    <!-- ============================================ -->
+    <div class="toc">
+      <h2>Contenido</h2>
+      <ol>
+        <li><a href="#s0">Guion de la reunion de kickoff</a></li>
+        <li><a href="#s1">Pre-reading para asistentes</a></li>
+        <li><a href="#s2">Deck de sesion (contenido maestro)</a></li>
+        <li><a href="#s3">Guion de facilitacion de la sesion</a></li>
+        <li><a href="#s4">Checklist de objetivos</a></li>
+        <li><a href="#s5">Mapa de stakeholders y dinamica politica</a></li>
+        <li><a href="#s6">Matriz de peer set y territorio</a></li>
+        <li><a href="#s7">Plantilla de sintesis post-sesion</a></li>
+      </ol>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 00: KICKOFF -->
+    <!-- ============================================ -->
+    <div class="section" id="s0">
+      <span class="section__number">Seccion 00</span>
+      <h2>Guion de la reunion de kickoff</h2>
+      <p class="section__lead">
+        Reunion de arranque de proyecto con el equipo del fondo. Objetivo: explicar el proceso completo, establecer expectativas y anunciar las sesiones individuales con cada socio.
+      </p>
+
+      <h3>Contexto de la reunion</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Formato</h4>
+          <ul>
+            <li>Duracion: 40 minutos</li>
+            <li>Formato: online o presencial</li>
+            <li>Asistentes: socios y decision makers clave</li>
+            <li>Tono: ejecutivo, directo, sin ceremonias</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Objetivos del kickoff</h4>
+          <ul>
+            <li>Presentar el enfoque del proceso de rebranding</li>
+            <li>Explicar por que no es un proceso convencional</li>
+            <li>Describir las fases y entregables</li>
+            <li>Anunciar las sesiones 1:1 con cada socio</li>
+            <li>Resolver dudas y alinear expectativas</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Estructura de la reunion</h3>
+      <ul class="timeline timeline-kickoff">
+        <li>
+          <strong>Encuadre y proposito</strong><br>
+          Presentar el mandato del proyecto y por que estamos aqui.
+        </li>
+        <li>
+          <strong>Enfoque del proceso</strong><br>
+          Explicar la metodologia, que lo hace distinto y que no vamos a hacer.
+        </li>
+        <li>
+          <strong>Fases y calendario</strong><br>
+          Describir el roadmap completo: entrevistas 1:1, sesion plenaria, sintesis, territorio creativo.
+        </li>
+        <li>
+          <strong>Sesiones individuales 1:1</strong><br>
+          Explicar el formato, la razon de ser y lo que pediremos en cada entrevista.
+        </li>
+        <li>
+          <strong>Preguntas y cierre</strong><br>
+          Resolver dudas, confirmar disponibilidad y proximos pasos.
+        </li>
+      </ul>
+
+      <h3>Bloque 1: Encuadre y proposito</h3>
+      <p class="script">
+        "Gracias por el tiempo. Vamos a ser directos con lo que os vamos a pedir y por que.
+        <br><br>
+        Este proyecto de rebranding no empieza por el diseno. Empieza por la tesis. Antes de tocar logo, naming, narrativa o identidad visual, necesitamos entender con precision que identidad institucional tiene realmente el fondo, como la lee el mercado y donde hay diferenciacion autentica frente a donde solo hay lenguaje de categoria.
+        <br><br>
+        Nuestro trabajo consiste en llegar a esa claridad antes de abrir cualquier territorio creativo. Si no lo hacemos bien aqui, cualquier solucion visual o verbal sera cosmetica."
+      </p>
+
+      <h3>Bloque 2: Enfoque del proceso</h3>
+      <p class="script">
+        "Vamos a trabajar de una forma distinta a lo que probablemente habeis visto en otros procesos de branding. No vamos a hacer workshops con post-its, ejercicios de arquetipos ni lluvia de adjetivos. No os vamos a pedir que elijais entre tres moodboards.
+        <br><br>
+        Vamos a tratar este proceso como un trabajo de estrategia institucional. Lo que queremos extraer son hechos, episodios, tensiones y criterio. No opiniones abstractas.
+        <br><br>
+        El desacuerdo entre vosotros, si existe, es una de las senales mas valiosas que podemos capturar. No vamos a forzar consenso. Vamos a producir claridad."
+      </p>
+
+      <div class="callout">
+        <p><strong>Idea clave para transmitir:</strong> Este proceso respeta vuestro criterio senior. No os vamos a infantilizar con dinamicas de grupo. Os vamos a exigir precision.</p>
+      </div>
+
+      <h3>Bloque 3: Fases y calendario</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Que hacemos</th>
+            <th>Participacion</th>
+            <th>Duracion estimada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Kickoff</strong></td>
+            <td>Presentacion del proceso y alineamiento de expectativas</td>
+            <td>Todos los socios</td>
+            <td>Hoy</td>
+          </tr>
+          <tr>
+            <td><strong>2. Entrevistas 1:1</strong></td>
+            <td>Sesiones individuales con cada socio para capturar lectura, tesis, tensiones y evidencia</td>
+            <td>Cada socio por separado</td>
+            <td>45-60 min cada una</td>
+          </tr>
+          <tr>
+            <td><strong>3. Analisis y sintesis</strong></td>
+            <td>Cruce de inputs, identificacion de patrones, contradicciones y territorio</td>
+            <td>Equipo Zoopa</td>
+            <td>Trabajo interno</td>
+          </tr>
+          <tr>
+            <td><strong>4. Sesion plenaria</strong></td>
+            <td>Sesion de tesis institucional con todos los socios</td>
+            <td>Todos los socios</td>
+            <td>90 minutos</td>
+          </tr>
+          <tr>
+            <td><strong>5. Formulacion estrategica</strong></td>
+            <td>Plataforma de posicionamiento, invariantes, narrativa</td>
+            <td>Equipo Zoopa + validacion</td>
+            <td>Entrega posterior</td>
+          </tr>
+          <tr>
+            <td><strong>6. Territorio creativo</strong></td>
+            <td>Solo si la base estrategica es suficientemente solida</td>
+            <td>A definir</td>
+            <td>Fase posterior</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="script">
+        "Como veis, la sesion plenaria no es el punto de partida. Es el punto donde ya llegamos con materia prima real. Las entrevistas individuales son el trabajo mas importante de las proximas semanas."
+      </p>
+
+      <h3>Bloque 4: Sesiones individuales 1:1</h3>
+
+      <p>Explicar con detalle el formato y la razon de las entrevistas.</p>
+
+      <p class="script">
+        "Vamos a reunirnos con cada uno de vosotros por separado. No es una formalidad. Es la parte mas critica del proceso.
+        <br><br>
+        En una sesion grupal, la jerarquia, la diplomacia y el ritmo de la conversacion filtran mucho. En una entrevista individual podemos llegar a donde realmente importa: como piensa cada socio la tesis del fondo, donde ve la diferenciacion real, que tensiones percibe y que lectura tiene del mercado.
+        <br><br>
+        No es un interrogatorio. Es una conversacion de criterio entre profesionales."
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>Que pediremos en cada 1:1</h4>
+          <ul>
+            <li>Casos concretos donde el fondo fue bien o mal entendido</li>
+            <li>Lectura personal de la diferenciacion real frente a comparables</li>
+            <li>Tensiones que percibe (internas, de mercado, de narrativa)</li>
+            <li>Que deberia ser invariante en la futura marca</li>
+            <li>Que nunca deberia parecer esta firma</li>
+            <li>Que riesgo ve en un rebranding mal planteado</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Formato de la entrevista</h4>
+          <ul>
+            <li>Duracion: 45-60 minutos</li>
+            <li>Formato: online o presencial</li>
+            <li>Confidencial: no compartiremos atribuciones individuales en el plenario</li>
+            <li>No requiere preparacion formal</li>
+            <li>Solo pedimos que piensen en 2-3 episodios reales antes de la sesion</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warning">
+        <strong>Punto importante sobre confidencialidad:</strong> Las entrevistas son confidenciales en su atribucion. Usaremos los inputs para construir una sintesis agregada. Nadie vera "Socio X dijo Y". Esto es fundamental para que cada persona hable con libertad real.
+      </div>
+
+      <h3>Bloque 5: Preguntas y cierre</h3>
+
+      <p class="script">
+        "Antes de cerrar, abro a preguntas. Y quiero ser honesto: si al final de este proceso descubrimos que aun no hay base suficiente para abrir territorio creativo, lo diremos. Preferimos una pausa inteligente a un rebranding elegante pero falso.
+        <br><br>
+        Proximos pasos: os contactaremos esta misma semana para agendar las sesiones individuales. Os enviaremos tambien un documento breve de pre-reading antes de la sesion plenaria.
+        <br><br>
+        Gracias por la confianza. Vamos a hacer un buen trabajo."
+      </p>
+
+      <h3>Notas de facilitacion para el kickoff</h3>
+
+      <div class="grid-3">
+        <div class="card">
+          <h4>Hacer</h4>
+          <ul>
+            <li>Ser directo y breve</li>
+            <li>Transmitir rigor sin rigidez</li>
+            <li>Dar ejemplos de lo que obtendremos</li>
+            <li>Confirmar fechas al final</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>No hacer</h4>
+          <ul>
+            <li>No vender el proceso</li>
+            <li>No prometer resultados esteticos</li>
+            <li>No entrar en debate estrategico hoy</li>
+            <li>No mostrar ningun output creativo</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Si preguntan</h4>
+          <ul>
+            <li>"Cuando veremos diseno?" &rarr; Despues de la base estrategica</li>
+            <li>"Por que 1:1?" &rarr; Mayor profundidad y libertad</li>
+            <li>"Cuanto durara todo?" &rarr; Depende de la claridad que obtengamos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 01: PRE-READING -->
+    <!-- ============================================ -->
+    <div class="section" id="s1">
+      <span class="section__number">Seccion 01</span>
+      <h2>Pre-reading para asistentes</h2>
+      <p class="section__lead">
+        Documento para enviar a los socios con al menos 48 horas de antelacion a la sesion plenaria.
+      </p>
+
+      <h3>Proposito del encuentro</h3>
+      <p>Esta sesion no busca validar un logo, un claim ni una narrativa prefabricada.</p>
+      <p>Busca extraer con precision:</p>
+      <ul>
+        <li>Que identidad institucional tiene realmente el fondo hoy</li>
+        <li>Que lectura hace el mercado de esa identidad</li>
+        <li>Donde hay diferenciacion autentica y donde solo hay lenguaje de categoria</li>
+        <li>Que tensiones estrategicas debe resolver la futura marca</li>
+        <li>Que debe permanecer estable aunque cambien ciclo, producto o liderazgo</li>
+      </ul>
+      <p>El objetivo no es fabricar consenso rapido. El objetivo es producir claridad util.</p>
+
+      <h3>Por que esta sesion es distinta</h3>
+      <p>No plantearemos una dinamica convencional de branding basada en atributos genericos, ejercicios aspiracionales o lluvia de palabras.</p>
+      <p>La sesion esta pensada para socios y ejecutivos con criterio senior. Por eso seguira una logica distinta:</p>
+      <ul>
+        <li>Partir de hechos y episodios, no de opiniones abstractas</li>
+        <li>Demorar el consenso para evitar respuestas complacientes</li>
+        <li>Tratar el desacuerdo como senal de calidad, no como problema politico</li>
+        <li>Contrastar cada afirmacion con competidores, LPs, founders, talento y mercado</li>
+        <li>Convertir cada atributo declarado en evidencia observable</li>
+      </ul>
+
+      <h3>Que necesitamos de los asistentes</h3>
+      <p>Pedimos una contribucion de criterio, no preparacion pesada.</p>
+      <p>Antes de la sesion, cada asistente deberia pensar en:</p>
+      <ol>
+        <li>Un caso reciente en el que el fondo fue entendido exactamente como queria ser entendido.</li>
+        <li>Un caso reciente en el que el fondo fue mal interpretado, simplificado o leido de forma incompleta.</li>
+        <li>Dos o tres firmas comparables:
+          <ul>
+            <li>Una que el mercado confunde con nosotros</li>
+            <li>Una que compite en un territorio mental similar pero con otra tesis</li>
+            <li>Una cuyo posicionamiento, para bien o para mal, nos obliga a definirnos mejor</li>
+          </ul>
+        </li>
+        <li>Una tension que la futura marca no deberia esconder.</li>
+      </ol>
+      <p>No hace falta preparar slides ni respuestas formales.</p>
+
+      <h3>Que no haremos</h3>
+      <ul>
+        <li>No pediremos "tres palabras para definir la marca"</li>
+        <li>No haremos ejercicios tipo post-it, animal, coche o arquetipo simplificado</li>
+        <li>No buscaremos alineamiento cosmetico en tiempo real</li>
+        <li>No entraremos en identidad visual, naming o slogans salvo que aparezcan como consecuencia estrategica</li>
+      </ul>
+
+      <h3>Estructura de la sesion plenaria</h3>
+      <p>Duracion orientativa: 90 minutos</p>
+      <ol>
+        <li>Apertura y reglas de juego</li>
+        <li>Casos concretos donde la firma fue bien leida o mal leida</li>
+        <li>Comparacion con el peer set y territorio competitivo</li>
+        <li>Identidad ganada: que hace el fondo cuando esta en su mejor version</li>
+        <li>Tensiones, contradicciones y riesgos de sobre simplificacion</li>
+        <li>Premortem: como podria fracasar un rebranding correcto en apariencia pero equivocado en sustancia</li>
+        <li>Cierre con hipotesis de trabajo y cuestiones abiertas</li>
+      </ol>
+
+      <h3>Principios de conversacion</h3>
+      <ul>
+        <li>Primero lo concreto, despues la interpretacion</li>
+        <li>Primero escritura breve individual, despues conversacion</li>
+        <li>Primero diferencia, despues consenso</li>
+        <li>Primero comportamiento observable, despues lenguaje de marca</li>
+      </ul>
+
+      <h3>Tipos de preguntas que apareceran</h3>
+      <ul>
+        <li>En que situaciones el mercado os entiende mejor de lo que vosotros mismos explicais</li>
+        <li>Donde se produce la mayor distancia entre como os pensais y como os leen</li>
+        <li>Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando una reunion seria con el fondo</li>
+        <li>Que parte de vuestra reputacion esta ganada y cual depende de simplificaciones externas</li>
+        <li>Que nunca deberia parecer esta firma, aunque eso facilitara comercializarla</li>
+      </ul>
+
+      <h3>Lo que esperamos obtener</h3>
+      <p>Al cierre de la sesion deberiamos salir con una primera formulacion de:</p>
+      <ul>
+        <li>Invariantes del fondo</li>
+        <li>Diferenciadores defendibles</li>
+        <li>Tensiones sin resolver</li>
+        <li>Riesgos de marca</li>
+        <li>Pruebas o evidencias que la narrativa futura debera sostener</li>
+      </ul>
+
+      <h3>Logistica</h3>
+      <ul>
+        <li>Formato: online</li>
+        <li>Participantes: socios y decision makers clave</li>
+        <li>Dinamica: conversacion guiada con momentos breves de reflexion individual</li>
+        <li>Soporte: deck breve de encuadre y captura estructurada de respuestas</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Lo mas importante:</strong> No necesitamos respuestas diplomaticas. Necesitamos precision. Si una formulacion incomoda pero aclara la tesis institucional del fondo, es mas valiosa que una respuesta perfectamente consensuable.</p>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 02: DECK -->
+    <!-- ============================================ -->
+    <div class="section" id="s2">
+      <span class="section__number">Seccion 02</span>
+      <h2>Deck de sesion</h2>
+      <p class="section__lead">
+        Contenido maestro para las 12 slides de la sesion plenaria. Visualmente sobrio, una idea por slide, sin muros de texto.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Slide</th>
+            <th>Titulo</th>
+            <th>Contenido clave</th>
+            <th>Nota del facilitador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td><strong>Rebranding del fondo</strong></td>
+            <td>No vamos a debatir diseno. Vamos a clarificar identidad, diferenciacion y legibilidad institucional.</td>
+            <td>Abrir con tono seco y ejecutivo. No vender el proceso.</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td><strong>Mandato de la sesion</strong></td>
+            <td>Identificar identidad real. Detectar lectura del mercado. Distinguir atributos ganados de lenguaje de categoria. Nombrar tensiones. Delimitar invariantes.</td>
+            <td>Evitar la palabra "alineamiento". Hablar de "claridad util".</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td><strong>Lo que no haremos</strong></td>
+            <td>No briefing convencional. No ejercicios aspiracionales. No consenso rapido. No reducir la marca a adjetivos.</td>
+            <td>Ayuda a bajar defensas y elevar el liston intelectual.</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td><strong>Reglas de juego</strong></td>
+            <td>Primero hechos, luego interpretacion. Escritura individual primero. Todo atributo requiere evidencia. El desacuerdo es informacion.</td>
+            <td>Pedir ejemplos concretos. Evitar que un socio marque el marco demasiado pronto.</td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td><strong>Agenda</strong></td>
+            <td>7 bloques: apertura, casos, territorio competitivo, identidad ganada, tensiones, premortem, cierre.</td>
+            <td>Recordar que es conversacion con estructura, no debate libre.</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td><strong>Casos concretos</strong></td>
+            <td>Lectura correcta vs incorrecta. Que paso, quien estaba, que se dijo, que consecuencia tuvo.</td>
+            <td>No preguntar "por que" de entrada. Bajar al episodio concreto.</td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td><strong>Distincion real</strong></td>
+            <td>Firma similar con otra tesis. Parecido a A pero no a B. Competidor que obliga a definirse. Confusiones injustas.</td>
+            <td>La comparacion produce mas claridad que la auto descripcion.</td>
+          </tr>
+          <tr>
+            <td>08</td>
+            <td><strong>Identidad ganada</strong></td>
+            <td>Mejor version percibida. Excepcionalidad sostenida. Reputacion ganada de verdad. Rasgos no copiables.</td>
+            <td>Si aparece atributo abstracto, pedir conducta, prueba y contexto.</td>
+          </tr>
+          <tr>
+            <td>09</td>
+            <td><strong>Tensiones</strong></td>
+            <td>Verdad incomoda. Prestigio dependiente de personas. Rasgo que genera confianza y distancia. Simplificacion peligrosa.</td>
+            <td>No resolver tensiones demasiado pronto. Formularlas bien primero.</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>Premortem</strong></td>
+            <td>2029: rebranding fracaso, parecia correcto, bien ejecutado. Que sobreactuamos, simplificamos, rompimos, dejamos fuera.</td>
+            <td>Dos minutos de escritura individual antes de abrir conversacion.</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><strong>Salida esperada</strong></td>
+            <td>Invariantes. Diferenciadores defendibles. Tensiones abiertas. Riesgos de marca. Pruebas necesarias.</td>
+            <td>No prometer cierre total. Prometer un mapa mas inteligente.</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><strong>Criterio de calidad</strong></td>
+            <td>Formulaciones nuevas. Desacuerdo mejor definido. Pruebas y no solo atributos. Tesis mas exigente.</td>
+            <td>Cerrar sin grandilocuencia. Recoger lenguaje literal potente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 03: GUION FACILITACION -->
+    <!-- ============================================ -->
+    <div class="section" id="s3">
+      <span class="section__number">Seccion 03</span>
+      <h2>Guion de facilitacion</h2>
+      <p class="section__lead">
+        Guion completo para conducir la sesion plenaria de 90 minutos. Pensado para un facilitador principal con apoyo de un segundo facilitador o estratega.
+      </p>
+
+      <h3>Roles recomendados</h3>
+      <div class="grid-3">
+        <div class="card">
+          <h4>Facilitador principal</h4>
+          <ul>
+            <li>Conduce la conversacion</li>
+            <li>Regula ritmo y profundidad</li>
+            <li>Protege la exigencia intelectual</li>
+            <li>Evita abstracciones vacias</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Segundo facilitador</h4>
+          <ul>
+            <li>Captura citas y formulaciones</li>
+            <li>Detecta contradicciones</li>
+            <li>Vigila tiempos</li>
+            <li>Propone repreguntas</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Apoyo operativo</h4>
+          <ul>
+            <li>Gestiona videollamada</li>
+            <li>Controla acceso al deck</li>
+            <li>Gestiona turnos si el grupo es grande</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Preparacion previa</h3>
+      <ul>
+        <li>Enviar el pre-reading con al menos 48 horas de antelacion</li>
+        <li>Confirmar asistentes y jerarquia real de la mesa</li>
+        <li>Identificar socios dominantes y perfiles silenciosos</li>
+        <li>Acordar que no se mostraran propuestas creativas</li>
+        <li>Preparar documento de captura en cinco columnas: bloque, afirmacion, evidencia, tension, implicacion para marca</li>
+      </ul>
+
+      <h3>Estructura de la sesion</h3>
+      <ul class="timeline">
+        <li><strong>Apertura</strong> &mdash; Definir mandato y elevar el nivel de conversacion</li>
+        <li><strong>Casos concretos</strong> &mdash; Anclar la conversacion en hechos y episodios</li>
+        <li><strong>Territorio competitivo</strong> &mdash; Hacer emerger diferencias reales mediante contraste</li>
+        <li><strong>Identidad ganada</strong> &mdash; Separar reputacion merecida de lenguaje aspiracional</li>
+        <li><strong>Tensiones</strong> &mdash; Nombrar fricciones que la marca debe resolver</li>
+        <li><strong>Premortem</strong> &mdash; Testar robustez frente a errores de simplificacion</li>
+        <li><strong>Cierre</strong> &mdash; Formulaciones de trabajo claras</li>
+      </ul>
+
+      <hr>
+
+      <h3>Apertura (0-8 min)</h3>
+      <p class="script">
+        "Hoy no estamos aqui para opinar sobre diseno ni para construir lenguaje cosmetico. Estamos aqui para clarificar que identidad institucional tiene realmente el fondo, donde esa identidad es fuerte, donde es confusa y que tendria que ser cierto para que un rebranding sirviera de verdad."
+        <br><br>
+        "No voy a buscar consenso rapido. Me interesa mas que aparezcan formulaciones precisas, incluso si no son del todo comodas."
+        <br><br>
+        "Os pedire casos concretos, comparaciones y tensiones. Si usamos una palabra grande, intentaremos traducirla en conducta, prueba o lectura de mercado."
+      </p>
+
+      <h3>Bloque 1: Casos concretos (8-25 min)</h3>
+      <h4>Preguntas principales</h4>
+      <ul>
+        <li>Habladme de una situacion concreta en la que el fondo fue entendido exactamente como queria ser entendido.</li>
+        <li>Habladme de una situacion concreta en la que el fondo fue leido mal, simplificado o infravalorado.</li>
+      </ul>
+
+      <h4>Repreguntas de profundidad</h4>
+      <ul>
+        <li>Quien estaba en la interaccion</li>
+        <li>Que se dijo exactamente o que se sobreentendio</li>
+        <li>Que parte de vuestro valor se capto y cual no</li>
+        <li>Que consecuencia tuvo en relacion, confianza o decision</li>
+      </ul>
+
+      <h4>Intervenciones utiles</h4>
+      <div class="callout">
+        <p>"Dame el episodio antes de la conclusion."<br>
+        "Eso describe una opinion. Que paso exactamente?"<br>
+        "Que inferencia hizo la otra parte sobre vosotros?"</p>
+      </div>
+
+      <h3>Bloque 2: Territorio competitivo (25-40 min)</h3>
+      <h4>Preguntas principales</h4>
+      <ul>
+        <li>Que firma parece similar a vosotros desde fuera pero en realidad juega a otra cosa</li>
+        <li>En que os pareceis a A pero no a B</li>
+        <li>Que competidor os obliga a definiros mejor porque ocupa un territorio cercano</li>
+        <li>Donde os mete el mercado en una categoria que os queda estrecha</li>
+      </ul>
+
+      <h4>Intervenciones utiles</h4>
+      <div class="callout">
+        <p>"Si un LP sofisticado os confundiera con esa firma, donde estaria el error exacto?"<br>
+        "Que senal o conducta permitiria distinguiros rapido?"</p>
+      </div>
+
+      <h3>Bloque 3: Identidad ganada (40-55 min)</h3>
+      <h4>Preguntas principales</h4>
+      <ul>
+        <li>Cuando la firma esta en su mejor version, que percibe el mercado</li>
+        <li>Que haceis de forma excepcional que otros tambien dicen hacer</li>
+        <li>Que rasgo vuestro no se puede copiar sin cambiar la forma de operar</li>
+        <li>Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando una reunion seria con vosotros</li>
+      </ul>
+
+      <h4>Intervenciones utiles</h4>
+      <div class="callout">
+        <p>"Eso es un atributo. Ahora necesito la prueba."<br>
+        "Como lo reconoceria alguien que no os conoce aun?"<br>
+        "Que evidencia externa sostendria esa afirmacion?"</p>
+      </div>
+
+      <h3>Bloque 4: Tensiones y contradicciones (55-70 min)</h3>
+      <h4>Preguntas principales</h4>
+      <ul>
+        <li>Que verdad incomoda sobre la firma la futura marca tendra que asumir</li>
+        <li>Que parte del prestigio actual depende demasiado de ciertas personas</li>
+        <li>Que rasgo genera confianza en unos stakeholders y distancia en otros</li>
+        <li>Que simplificacion seria comercialmente eficaz pero estrategicamente peligrosa</li>
+      </ul>
+
+      <h4>Intervenciones utiles</h4>
+      <div class="callout">
+        <p>"Estoy oyendo dos tesis distintas. No voy a forzar una sintesis todavia."<br>
+        "Formulemos bien el desacuerdo antes de resolverlo."<br>
+        "Que version superficial de la marca podria esconder este problema en vez de resolverlo?"</p>
+      </div>
+
+      <h3>Bloque 5: Premortem (70-83 min)</h3>
+      <p class="script">
+        "Imaginemos que estamos en 2029. El rebranding se hizo, estaba bien ejecutado y aun asi fracaso. Quiero entender por que."
+      </p>
+      <p>Instruccion: dos minutos de escritura individual en silencio, luego ronda corta.</p>
+
+      <h4>Preguntas principales</h4>
+      <ul>
+        <li>Que sobreactuamos</li>
+        <li>Que simplificamos demasiado</li>
+        <li>Que parte de la firma quedo fuera</li>
+        <li>Que termino pareciendo impostado</li>
+        <li>Que lectura indujimos que luego no pudimos sostener</li>
+      </ul>
+
+      <h4>Intervenciones utiles</h4>
+      <div class="callout">
+        <p>"Que error cometeria aqui una consultora mediocre?"<br>
+        "Que decision visual o verbal seria elegante pero falsa?"<br>
+        "Que parte del mercado castigaria mas rapidamente esa incoherencia?"</p>
+      </div>
+
+      <h3>Cierre (83-90 min)</h3>
+      <p class="script">
+        "No voy a intentar sintetizar de forma artificial lo que aun necesita trabajo. Si la sesion ha funcionado, deberiamos salir con mejor lenguaje, mejor desacuerdo y mejores criterios."
+        <br><br>
+        "Voy a cerrar con cinco salidas provisionales: que parece invariante, que parece diferenciador, que tension sigue abierta, que riesgo de marca aparece con mas fuerza y que afirmaciones futuras exigiran prueba."
+      </p>
+
+      <hr>
+
+      <h3>Tecnicas de moderacion</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Para elevar el nivel</h4>
+          <ul>
+            <li>"Dame el caso, no la doctrina."</li>
+            <li>"Que observador externo podria verificar eso?"</li>
+            <li>"Eso es lenguaje de categoria o diferencia real?"</li>
+            <li>"Que coste tendria sostener esa posicion?"</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Para manejar perfiles dominantes</h4>
+          <ul>
+            <li>Interrumpir con respeto y pedir ejemplo concreto</li>
+            <li>Derivar la pregunta a otra persona antes de cerrar</li>
+            <li>Usar escritura silenciosa para desacoplar pensamiento de jerarquia</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Para activar perfiles silenciosos</h4>
+          <ul>
+            <li>Pedir reaccion corta antes de abrir debate amplio</li>
+            <li>Preguntar por discrepancias, no por opinion general</li>
+            <li>Invitar a completar o tensionar lo ya dicho</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Para evitar respuestas vacias</h4>
+          <ul>
+            <li>No aceptar adjetivos sin conducta</li>
+            <li>No aceptar vision sin trade-off</li>
+            <li>No aceptar diferenciacion sin comparable</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Senales de calidad de la sesion</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Va bien si</h4>
+          <ul>
+            <li>Aparecen frases no formuladas asi antes</li>
+            <li>Se nombra al menos una tension estructural</li>
+            <li>Emergen diferencias reales frente al peer set</li>
+            <li>Los socios corrigen lenguaje generico</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Se degrada si</h4>
+          <ul>
+            <li>Se habla en terminos demasiado abstractos</li>
+            <li>Se defiende la reputacion en vez de examinarla</li>
+            <li>Aparece consenso demasiado rapido</li>
+            <li>Caen palabras como excelencia, cercania, innovacion sin pruebas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 04: CHECKLIST -->
+    <!-- ============================================ -->
+    <div class="section" id="s4">
+      <span class="section__number">Seccion 04</span>
+      <h2>Checklist de objetivos</h2>
+      <p class="section__lead">
+        Usar al cierre de la sesion plenaria y en la sintesis posterior. Marcar cada punto como: si, parcialmente o no.
+      </p>
+
+      <h3>1. Claridad sobre identidad institucional</h3>
+      <ul>
+        <li>Se identificaron al menos 3 rasgos que parecen invariantes del fondo</li>
+        <li>Esos rasgos quedaron formulados con precision, no como lenguaje generico</li>
+        <li>Cada rasgo quedo asociado a comportamiento, decision o evidencia observable</li>
+        <li>Se distinguio entre reputacion real y autoimagen interna</li>
+      </ul>
+
+      <h3>2. Lectura del mercado y stakeholders</h3>
+      <ul>
+        <li>Aparecio lectura clara de como ven al fondo los LPs</li>
+        <li>Aparecio lectura clara de como ven al fondo founders, management teams o deal ecosystem</li>
+        <li>Se nombraron diferencias entre percepcion interna y externa</li>
+        <li>Se recogio al menos un caso de lectura correcta y uno de incorrecta</li>
+      </ul>
+
+      <h3>3. Diferenciacion competitiva</h3>
+      <ul>
+        <li>Se identificaron comparables que ayudan a definir el territorio</li>
+        <li>Se formulo al menos una diferencia real frente a cada comparable clave</li>
+        <li>El grupo distinguio prestigio de diferenciacion</li>
+        <li>Se detectaron territorios donde el fondo suena indistinguible</li>
+      </ul>
+
+      <h3>4. Tensiones y contradicciones</h3>
+      <ul>
+        <li>Se nombro al menos una tension estructural</li>
+        <li>Esa tension no quedo maquillada por lenguaje diplomatico</li>
+        <li>Se identifico al menos un riesgo de simplificacion excesiva</li>
+        <li>Se identifico si el capital reputacional depende demasiado de ciertas personas</li>
+      </ul>
+
+      <h3>5. Robustez del futuro rebranding</h3>
+      <ul>
+        <li>El premortem produjo riesgos concretos</li>
+        <li>Se identificaron senales de un rebranding elegante pero falso</li>
+        <li>Se detectaron atributos que el fondo no podria sostener</li>
+        <li>Quedo claro que debe permanecer estable</li>
+      </ul>
+
+      <h3>6. Calidad de la conversacion</h3>
+      <ul>
+        <li>La sesion se sostuvo sobre hechos y episodios</li>
+        <li>Se protegieron momentos de reflexion individual</li>
+        <li>El desacuerdo se trato como informacion util</li>
+        <li>No hubo cierre artificial ni consenso apresurado</li>
+        <li>El facilitador exigio evidencia ante atributos abstractos</li>
+      </ul>
+
+      <h3>7. Salidas minimas al cierre</h3>
+      <ul>
+        <li>Existe una primera lista de invariantes</li>
+        <li>Existe una primera lista de diferenciadores defendibles</li>
+        <li>Existe una primera lista de tensiones abiertas</li>
+        <li>Existe una primera lista de riesgos de marca</li>
+        <li>Existe una primera lista de afirmaciones que requeriran prueba</li>
+      </ul>
+
+      <h3>8. Criterio de exito global</h3>
+      <div class="callout">
+        <p>La sesion puede considerarse conseguida si el equipo puede completar con suficiente calidad esta frase:</p>
+        <p><strong>"La futura marca del fondo debera expresar _____, evitar _____, sostener con evidencia _____ y resolver inteligentemente la tension entre _____ y _____."</strong></p>
+        <p>Si esa frase no puede completarse con precision, aun no hay base suficiente para pasar a territorio creativo.</p>
+      </div>
+
+      <h3>9. Decisiones de siguiente fase</h3>
+      <ul>
+        <li>Hace falta hacer entrevistas 1:1 adicionales con algunos socios</li>
+        <li>Hace falta validar hipotesis con stakeholders externos</li>
+        <li>Ya hay base suficiente para construir plataforma de posicionamiento</li>
+        <li>Aun no hay base suficiente para abrir narrativa verbal o identidad visual</li>
+      </ul>
+
+      <h3>10. Veredicto final</h3>
+      <ul>
+        <li>La sesion produjo claridad nueva</li>
+        <li>La sesion produjo mejor desacuerdo</li>
+        <li>La sesion produjo criterios utiles para la siguiente fase</li>
+        <li>La sesion no se parecio a un briefing convencional</li>
+      </ul>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 05: STAKEHOLDERS -->
+    <!-- ============================================ -->
+    <div class="section" id="s5">
+      <span class="section__number">Seccion 05</span>
+      <h2>Mapa de stakeholders y dinamica politica</h2>
+      <p class="section__lead">
+        Herramienta para preparar la sesion con una lectura realista de la mesa. La calidad de la sesion depende de quien tiene poder real, quien puede bloquear y quien fijara el marco.
+      </p>
+
+      <h3>1. Ficha individual por participante</h3>
+      <p>Completar para cada asistente relevante:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nombre</td><td></td></tr>
+          <tr><td>Rol formal</td><td></td></tr>
+          <tr><td>Poder real en decision de marca</td><td></td></tr>
+          <tr><td>Nivel de influencia en la sala</td><td></td></tr>
+          <tr><td>Relacion con CEO / managing partner</td><td></td></tr>
+          <tr><td>Actitud probable</td><td>Impulsor / Pragmatico / Esceptico / Bloqueador silencioso / Bloqueador explicito</td></tr>
+          <tr><td>Tipo de lenguaje</td><td>Financiero / Institucional / Comercial / Intelectual / Operativo</td></tr>
+          <tr><td>Sesgo probable</td><td>Conservador / Expansionista / Defensivo / Reputacional / Fundraising / Dealflow</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2. Preguntas de lectura politica previa</h3>
+      <ul>
+        <li>Quien puede legitimar el proceso en los primeros 10 minutos</li>
+        <li>Quien puede desactivar la conversacion si la considera superficial</li>
+        <li>Quien dira en publico algo distinto de lo que diria en una entrevista 1:1</li>
+        <li>Quien esta mas invertido en la marca actual porque la confunde con su propia reputacion</li>
+        <li>Quien necesitara evidencia externa para aceptar una conclusion</li>
+        <li>Quien podria sentirse amenazado si la futura marca desplaza protagonismo desde personas hacia institucion</li>
+      </ul>
+
+      <h3>3. Tipologia de stakeholders internos</h3>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4>A. Quien fija marco</h4>
+          <p>Habla pronto, formula bien, puede elevar o arruinar el debate. No darle primer turno. Hacer escritura previa.</p>
+        </div>
+        <div class="card">
+          <h4>B. Quien tiene veto silencioso</h4>
+          <p>Habla poco pero puede frenar despues. Activarlo directamente. Pedirle reaccion puntual sobre riesgos.</p>
+        </div>
+        <div class="card">
+          <h4>C. Quien protege el legado</h4>
+          <p>Defiende historia y estilo actual. No confrontar. Llevarlo a casos concretos.</p>
+        </div>
+        <div class="card">
+          <h4>D. Quien empuja cambio</h4>
+          <p>Quiere evolucion, puede simplificar. Usarlo para abrir posibilidades pero exigirle prueba.</p>
+        </div>
+        <div class="card">
+          <h4>E. Quien traduce al mercado</h4>
+          <p>Mejor lectura de LPs, founders, talento. Pedirle evidencia de mercado. Proteger su voz de jerarquias.</p>
+        </div>
+      </div>
+
+      <h3>4. Mapa de tensiones probables</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tension</th>
+            <th>Polo A</th>
+            <th>Polo B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Personalismo vs institucion</td><td>Identidad ligada a socios</td><td>Marca institucional autonoma</td></tr>
+          <tr><td>Sofisticacion vs legibilidad</td><td>Profundidad intelectual</td><td>Claridad comercial</td></tr>
+          <tr><td>Exclusividad vs cercania</td><td>Distancia selectiva</td><td>Proximidad operativa</td></tr>
+          <tr><td>Track record vs tesis futura</td><td>Prestigio historico</td><td>Relevancia prospectiva</td></tr>
+          <tr><td>Consistencia vs autonomia</td><td>Firma unificada</td><td>Autonomia de socios</td></tr>
+          <tr><td>Narrativa LPs vs founders</td><td>Lenguaje financiero</td><td>Lenguaje emprendedor</td></tr>
+        </tbody>
+      </table>
+
+      <h3>5. Riesgos politicos de la sesion</h3>
+      <ul>
+        <li>Dominacion por una voz senior</li>
+        <li>Consenso diplomatico demasiado rapido</li>
+        <li>Proteccion con lenguaje abstracto</li>
+        <li>Desplazamiento a conversacion estetica</li>
+        <li>Conversion en debate de poder interno</li>
+        <li>Desacreditacion del proceso si se percibe consultoria blanda</li>
+      </ul>
+
+      <h3>6. Contramedidas de facilitacion</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Si hay figura dominante</h4>
+          <ul>
+            <li>Abrir con escritura individual</li>
+            <li>No darle primera ni ultima palabra</li>
+            <li>Pedir ejemplos antes de marcos generales</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Si hay resistencia pasiva</h4>
+          <ul>
+            <li>Hacer preguntas de riesgo, no de preferencia</li>
+            <li>Pedir escenarios de fracaso</li>
+            <li>Formular como decision de criterio</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Si la sala es muy diplomatica</h4>
+          <ul>
+            <li>Usar incidentes concretos</li>
+            <li>Introducir comparables que obliguen a precisar</li>
+            <li>Preguntar que error cometeria una consultora mediocre</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Si emerge conflicto real</h4>
+          <ul>
+            <li>No resolver en vivo demasiado pronto</li>
+            <li>Separar: lectura vs interes vs poder</li>
+            <li>Capturar como tension estructural</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>7. Orden recomendado de intervencion</h3>
+      <ol>
+        <li>Abrir con marco facilitador</li>
+        <li>Pedir escritura breve</li>
+        <li>Invitar primero a perfil con criterio alto pero no dominante</li>
+        <li>Activar despues a alguien con lectura de mercado</li>
+        <li>Dejar a la figura dominante intervenir con materia ya abierta</li>
+        <li>Antes de cerrar cada bloque, pedir reaccion a quien suele vetar en silencio</li>
+      </ol>
+
+      <h3>8. Frase de prueba previa</h3>
+      <div class="callout">
+        <p>Completar antes de entrar en la sesion:</p>
+        <p><strong>"La dificultad principal de esta mesa no es ______. La dificultad principal es ______."</strong></p>
+        <p>Si esta frase no esta clara, el equipo facilitador aun no ha leido bien la dinamica politica.</p>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 06: PEER SET -->
+    <!-- ============================================ -->
+    <div class="section" id="s6">
+      <span class="section__number">Seccion 06</span>
+      <h2>Matriz de peer set y territorio</h2>
+      <p class="section__lead">
+        Framework para ordenar el peer set y evitar comparaciones vagas. Responde tres preguntas: con quien nos confunden, contra quien competimos mentalmente y que territorio esta libre o saturado.
+      </p>
+
+      <h3>1. Categorias de comparables</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>A. Competidores directos</h4>
+          <p>Compiten por LP attention, asignacion de capital, acceso a oportunidades, talento senior.</p>
+        </div>
+        <div class="card">
+          <h4>B. Competidores perceptuales</h4>
+          <p>El mercado os puede agrupar aunque la estrategia no sea igual. Contaminan la lectura externa.</p>
+        </div>
+        <div class="card">
+          <h4>C. Referentes aspiracionales</h4>
+          <p>Posicionamiento, prestigio o legibilidad que puede servir de referencia sin competir directamente.</p>
+        </div>
+        <div class="card">
+          <h4>D. Anti-referentes</h4>
+          <p>Lectura superficial de la categoria. Territorio saturado. Promesa elegante pero intercambiable.</p>
+        </div>
+      </div>
+
+      <h3>2. Ficha por comparable</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nombre de la firma</td><td></td></tr>
+          <tr><td>Categoria</td><td>Directo / Perceptual / Aspiracional / Anti-referente</td></tr>
+          <tr><td>Por que importa</td><td></td></tr>
+          <tr><td>Como se posiciona hoy</td><td></td></tr>
+          <tr><td>Territorios de lenguaje</td><td></td></tr>
+          <tr><td>Senales de prestigio</td><td></td></tr>
+          <tr><td>Promesa implicita</td><td></td></tr>
+          <tr><td>Riesgos de su posicionamiento</td><td></td></tr>
+          <tr><td>Donde podria confundirse con nosotros</td><td></td></tr>
+          <tr><td>Donde deberiamos marcar diferencia</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>3. Columnas de la matriz comparativa</h3>
+      <p>Firma, tipo de comparable, tesis aparente, tono institucional, sofisticacion percibida, claridad de propuesta, dependencia de figuras visibles, territorio verbal dominante, territorio visual dominante, principal fortaleza, principal debilidad, nivel de cercania con nuestra percepcion.</p>
+
+      <h3>4. Ejes de territorio</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Eje</th>
+            <th>Polo A</th>
+            <th>Polo B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Legibilidad</td><td>Sofisticacion intelectual</td><td>Claridad comercial</td></tr>
+          <tr><td>Personalidad</td><td>Institucionalidad</td><td>Personalidad visible</td></tr>
+          <tr><td>Narrativa</td><td>Rigor analitico</td><td>Narrativa comercial</td></tr>
+          <tr><td>Foco</td><td>Especializacion</td><td>Amplitud</td></tr>
+          <tr><td>Proximidad</td><td>Distancia exclusiva</td><td>Proximidad operativa</td></tr>
+          <tr><td>Tiempo</td><td>Herencia y prestigio</td><td>Energia y tesis futura</td></tr>
+        </tbody>
+      </table>
+      <p>Para cada eje: donde estamos hoy, donde creemos que estamos, donde nos pone el mercado, donde no conviene ir.</p>
+
+      <h3>5. Test de diferencia real</h3>
+      <p>Una diferencia solo cuenta si cumple estos criterios:</p>
+      <ul>
+        <li>Se puede formular con precision</li>
+        <li>Se puede observar desde fuera</li>
+        <li>Se puede sostener con evidencia</li>
+        <li>Tiene coste o trade-off</li>
+        <li>No depende solo de estilo verbal</li>
+        <li>No puede copiarse facilmente sin cambiar la forma de operar</li>
+      </ul>
+      <div class="warning">
+        <p>Si no pasa este test, probablemente no es diferenciacion. Es decoracion discursiva.</p>
+      </div>
+
+      <h3>6. Lista roja de lenguaje de categoria</h3>
+      <p>Expresiones que suelen sonar intercambiables y deben justificarse si se usan:</p>
+      <div class="grid-3">
+        <div class="card"><p>Excelencia</p></div>
+        <div class="card"><p>Partnership</p></div>
+        <div class="card"><p>Conviction</p></div>
+        <div class="card"><p>Insight-driven</p></div>
+        <div class="card"><p>Long-term</p></div>
+        <div class="card"><p>Trusted</p></div>
+        <div class="card"><p>Differentiated</p></div>
+        <div class="card"><p>Disciplined</p></div>
+        <div class="card"><p>Entrepreneur-friendly</p></div>
+      </div>
+
+      <h3>7. Territorios de riesgo</h3>
+      <p>Vigilar si el fondo corre el riesgo de ser leido como:</p>
+      <ul>
+        <li>Otro fondo serio pero indistinguible</li>
+        <li>Una firma sofisticada pero opaca</li>
+        <li>Una casa prestigiosa demasiado dependiente del pasado</li>
+        <li>Una plataforma comercial con retorica intelectual</li>
+        <li>Una boutique con narrativa elegante pero escala dudosa</li>
+      </ul>
+
+      <h3>8. Frase de prueba final</h3>
+      <div class="callout">
+        <p><strong>"Si el mercado nos sigue leyendo como ______, perderemos ______. Si logramos ser leidos como ______, ganaremos ______."</strong></p>
+        <p>Si esa frase aun no puede formularse con precision, el trabajo competitivo sigue inmaduro.</p>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- SECCION 07: SINTESIS POST-SESION -->
+    <!-- ============================================ -->
+    <div class="section" id="s7">
+      <span class="section__number">Seccion 07</span>
+      <h2>Plantilla de sintesis post-sesion</h2>
+      <p class="section__lead">
+        Plantilla para transformar la sesion en sintesis accionable en las 24 horas posteriores. No transcripcion elegante; criterio util para decidir si hay base para avanzar.
+      </p>
+
+      <h3>1. Datos de contexto</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fecha de la sesion</td><td></td></tr>
+          <tr><td>Duracion</td><td></td></tr>
+          <tr><td>Asistentes</td><td></td></tr>
+          <tr><td>Facilitadores</td><td></td></tr>
+          <tr><td>Documentos utilizados</td><td></td></tr>
+          <tr><td>Contexto relevante</td><td>Tension visible / Tema sensible / Ausencia importante / Condicion politica</td></tr>
+        </tbody>
+      </table>
+
+      <h3>2. Resumen ejecutivo</h3>
+      <p>Redactar en 8 a 12 lineas: que se aclaro, que sigue abierto, que contradicciones importan mas, si hay base suficiente para avanzar.</p>
+
+      <h3>3. Formulaciones literales mas valiosas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Cita o formulacion</th>
+            <th>Quien la dijo</th>
+            <th>Por que importa</th>
+            <th>Implicacion para marca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>4. Invariantes detectados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Formulacion</th>
+            <th>Evidencia</th>
+            <th>Quien lo sostuvo</th>
+            <th>Consenso</th>
+            <th>Implicacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td>Alto / Medio / Bajo</td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>Alto / Medio / Bajo</td><td></td></tr>
+          <tr><td></td><td></td><td></td><td>Alto / Medio / Bajo</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>5. Diferenciadores defendibles</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Formulacion</th>
+            <th>Comparable</th>
+            <th>Evidencia</th>
+            <th>Riesgo de sobreactuacion</th>
+            <th>Implicacion narrativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>6. Tensiones abiertas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tension</th>
+            <th>Como aparecio</th>
+            <th>Polos</th>
+            <th>Riesgo para rebranding</th>
+            <th>Requiere 1:1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td>Si / No</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td>Si / No</td></tr>
+          <tr><td></td><td></td><td></td><td></td><td>Si / No</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7. Riesgos de marca identificados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Riesgo</th>
+            <th>Gravedad</th>
+            <th>Stakeholder afectado</th>
+            <th>Recomendacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Simplificacion excesiva</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+          <tr><td>Sonar indistinguible</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+          <tr><td>Promesa insostenible</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+          <tr><td>Dependencia de personas</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+          <tr><td>Perdida de legibilidad</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+          <tr><td>Estetizar un problema institucional</td><td>Alta / Media / Baja</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>8. Lectura por stakeholder</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Stakeholder</th>
+            <th>Lectura actual</th>
+            <th>Desajuste con autoimagen</th>
+            <th>Oportunidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>LPs</td><td></td><td></td><td></td></tr>
+          <tr><td>Founders</td><td></td><td></td><td></td></tr>
+          <tr><td>Management teams</td><td></td><td></td><td></td></tr>
+          <tr><td>Talento</td><td></td><td></td><td></td></tr>
+          <tr><td>Mercado ampliado</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>9. Hipotesis preliminar de posicionamiento</h3>
+      <ul>
+        <li><strong>Parece que la firma deberia expresar:</strong> ______</li>
+        <li><strong>Parece que la firma deberia evitar:</strong> ______</li>
+        <li><strong>Parece que la firma puede reclamar con legitimidad:</strong> ______</li>
+        <li><strong>Parece que la firma no deberia intentar ocupar:</strong> ______</li>
+      </ul>
+
+      <h3>10. Condiciones para pasar a fase creativa</h3>
+      <ul>
+        <li>Ya tenemos suficiente claridad para abrir narrativa verbal</li>
+        <li>Ya tenemos suficiente claridad para abrir identidad visual</li>
+        <li>Aun faltan entrevistas 1:1</li>
+        <li>Aun falta validacion externa</li>
+        <li>Aun falta afinar territorio competitivo</li>
+      </ul>
+
+      <h3>11. Decisiones y siguientes pasos</h3>
+      <ul>
+        <li>Hacer entrevistas individuales adicionales</li>
+        <li>Contrastar hipotesis con stakeholders externos</li>
+        <li>Desarrollar plataforma de posicionamiento</li>
+        <li>Redactar principios de narrativa verbal</li>
+        <li>Preparar briefing para identidad visual</li>
+        <li>Posponer fase creativa hasta resolver tensiones estructurales</li>
+      </ul>
+
+      <h3>12. Veredicto final</h3>
+      <div class="callout">
+        <ul>
+          <li><strong>Lo mas valioso que produjo la sesion fue:</strong> ______</li>
+          <li><strong>La contradiccion mas importante que sigue abierta es:</strong> ______</li>
+          <li><strong>El mayor riesgo si avanzamos demasiado pronto es:</strong> ______</li>
+          <li><strong>La siguiente decision correcta es:</strong> ______</li>
+        </ul>
+      </div>
+
+      <h3>13. Anexo: resumen de una pagina</h3>
+      <p>Si hace falta circular una version corta:</p>
+      <div class="grid-2">
+        <div class="card">
+          <h4>3 invariantes</h4>
+          <ol><li>______</li><li>______</li><li>______</li></ol>
+        </div>
+        <div class="card">
+          <h4>3 diferenciadores</h4>
+          <ol><li>______</li><li>______</li><li>______</li></ol>
+        </div>
+        <div class="card">
+          <h4>3 tensiones</h4>
+          <ol><li>______</li><li>______</li><li>______</li></ol>
+        </div>
+        <div class="card">
+          <h4>3 riesgos</h4>
+          <ol><li>______</li><li>______</li><li>______</li></ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <div class="page-footer">
+      Documento de proyecto | Rebranding del fondo | Preparado por Zoopa | Marzo 2026 | Confidencial
+    </div>
+
+  </body>
+</html>
