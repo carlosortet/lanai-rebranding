@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guion de kickoff | Rebranding del fondo</title>
+    <title>Guion de kickoff | LANAI</title>
     <style>
       @page {
         size: A4;
@@ -35,7 +35,6 @@
         print-color-adjust: exact;
       }
 
-      /* --- COVER --- */
       .cover {
         page-break-after: always;
         display: flex;
@@ -59,14 +58,14 @@
         line-height: 0.96;
         letter-spacing: -0.03em;
         margin-bottom: 16px;
-        max-width: 16ch;
+        max-width: 18ch;
       }
 
       .cover__subtitle {
         font-size: 15pt;
         color: var(--muted);
         line-height: 1.4;
-        max-width: 42ch;
+        max-width: 44ch;
         margin-bottom: 52px;
       }
 
@@ -79,7 +78,6 @@
         max-width: 36ch;
       }
 
-      /* --- CONTENT --- */
       h2 {
         font-size: 20pt;
         font-weight: 600;
@@ -96,7 +94,7 @@
         font-size: 11.5pt;
         color: var(--muted);
         line-height: 1.48;
-        max-width: 60ch;
+        max-width: 62ch;
         margin-bottom: 24px;
       }
 
@@ -122,7 +120,6 @@
       ul, ol { padding-left: 1.3rem; margin-bottom: 12px; }
       li { margin-bottom: 5px; }
 
-      /* --- SCRIPT --- */
       .script {
         padding: 18px 22px;
         background: var(--section-bg);
@@ -134,7 +131,6 @@
         page-break-inside: avoid;
       }
 
-      /* --- CALLOUT --- */
       .callout {
         padding: 14px 18px;
         border-left: 3px solid var(--accent);
@@ -155,7 +151,6 @@
         page-break-inside: avoid;
       }
 
-      /* --- GRID --- */
       .grid-2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -180,7 +175,6 @@
       .card h4 { margin-top: 0; margin-bottom: 6px; }
       .card p, .card ul { font-size: 9.5pt; margin-bottom: 0; }
 
-      /* --- TABLE --- */
       table {
         width: 100%;
         border-collapse: collapse;
@@ -209,7 +203,6 @@
       }
       tr:nth-child(even) td { background: var(--section-bg); }
 
-      /* --- TIMELINE --- */
       .timeline {
         margin: 16px 0 20px;
         padding-left: 0;
@@ -265,33 +258,72 @@
 
     <!-- COVER -->
     <div class="cover">
-      <p class="cover__eyebrow">Guion de reunion</p>
-      <h1>Kickoff de proyecto de rebranding</h1>
+      <p class="cover__eyebrow">Guion interno de reunion</p>
+      <h1>LANAI &mdash; Primera reunion con los socios</h1>
       <p class="cover__subtitle">
-        Reunion de arranque con los socios del fondo. Explicacion del proceso, metodologia, fases del proyecto y sesiones individuales 1:1.
+        Presentacion del equipo, explicacion del proceso de marca, fases del proyecto y sesiones individuales 1:1 con cada socio.
       </p>
       <div class="cover__meta">
-        Preparado por Zoopa<br>
+        Preparado por 498AS<br>
         Marzo 2026<br>
-        Duracion estimada: 40 minutos<br>
-        Formato: online o presencial<br>
-        Documento confidencial
+        Duracion estimada: 45 minutos<br>
+        Formato: online<br>
+        Documento interno &mdash; no compartir con el cliente
       </div>
     </div>
 
-    <!-- CONTENT -->
-    <h2>Objetivo de esta reunion</h2>
+    <!-- CONTEXTO INTERNO -->
+    <h2>Contexto para el equipo facilitador</h2>
     <p class="lead">
-      Explicar a los socios y decision makers del fondo como vamos a trabajar el proyecto de rebranding, por que este proceso es distinto, que les pediremos y cual es el calendario. No entraremos en estrategia ni en outputs creativos hoy.
+      Esta es la primera reunion con todos los socios de LANAI. No nos conocen. Guille Llibre ha sido nuestro interlocutor hasta ahora: hemos hecho una recogida de briefing (formulario + reunion de 48 min el 4 de marzo) y tenemos una base de trabajo solida. Pero para el resto de socios, esta reunion es el primer contacto real con nosotros y con el proyecto.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4>Lo que ya sabemos</h4>
+        <ul>
+          <li>LANAI SCR: fondo early-stage, sector-agnostico, tickets 300k-1M</li>
+          <li>5 personas: 4 socios (2 full-time, 2 part-time) + 1 mas</li>
+          <li>25M AUM, 10 anos de historia organica</li>
+          <li>80% del capital viene de founders-inversores</li>
+          <li>Valores core: horizontales, respetuosos, autenticos</li>
+          <li>Diferenciadores iniciales: feedback en KOs, founders que quebraron, aconsejar no buscar capital</li>
+          <li>Tension detectada: concepto "chusquero" genera resistencia</li>
+          <li>Claim propuesto sin validar: "Operadores como tu"</li>
+          <li>Arquitectura: LANAI (marca visible) / Ohana (paraguas interno)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Lo que no debemos hacer</h4>
+        <ul>
+          <li>No revelar insights especificos del briefing con Guille</li>
+          <li>No hacer ver que ya tenemos conclusiones</li>
+          <li>No mencionar tensiones internas detectadas</li>
+          <li>No nombrar el claim "Operadores como tu" (es hipotesis, no decision)</li>
+          <li>No dar la impresion de que Guille ha definido el proceso por todos</li>
+          <li>No hacer sentir a nadie que llega tarde al proyecto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Equilibrio clave de esta reunion:</strong> Transmitir que hemos hecho los deberes (genera confianza y profesionalidad) sin hacer sentir a los demas socios que el proyecto ya esta encaminado sin ellos. El mensaje es: "Tenemos contexto, pero necesitamos la lectura de cada uno de vosotros para que esto funcione."
+    </div>
+
+    <hr>
+
+    <h2>Objetivo de la reunion</h2>
+    <p class="lead">
+      Presentarnos, explicar como vamos a trabajar el proyecto de marca de LANAI, describir las fases y anunciar que nos reuniremos individualmente con cada socio. Es una reunion de encuadre, no de estrategia.
     </p>
 
     <div class="grid-2">
       <div class="card">
         <h4>Lo que haremos hoy</h4>
         <ul>
-          <li>Presentar el enfoque del proyecto</li>
-          <li>Explicar por que no es un proceso convencional</li>
-          <li>Describir las fases y el calendario</li>
+          <li>Presentar brevemente al equipo de 498AS</li>
+          <li>Explicar el enfoque del proyecto y por que es distinto</li>
+          <li>Describir las fases y lo que esperamos de cada una</li>
           <li>Anunciar las sesiones 1:1 con cada socio</li>
           <li>Resolver dudas y confirmar disponibilidad</li>
         </ul>
@@ -299,11 +331,11 @@
       <div class="card">
         <h4>Lo que no haremos hoy</h4>
         <ul>
-          <li>No entraremos en debate estrategico</li>
-          <li>No mostraremos propuestas creativas</li>
-          <li>No pediremos opiniones sobre diseno</li>
-          <li>No forzaremos alineamiento sobre la marca</li>
-          <li>No discutiremos naming ni visual</li>
+          <li>No entraremos en debate sobre identidad o posicionamiento</li>
+          <li>No mostraremos propuestas ni referencias creativas</li>
+          <li>No pediremos opiniones sobre diseno, naming ni visual</li>
+          <li>No compartiremos conclusiones del briefing previo</li>
+          <li>No forzaremos ninguna toma de posicion</li>
         </ul>
       </div>
     </div>
@@ -315,46 +347,46 @@
     <ul class="timeline">
       <li>
         <span class="t">00-05'</span>
-        <strong>Encuadre y proposito</strong><br>
-        Presentar el mandato del proyecto y por que estamos aqui.
+        <strong>Presentacion y encuadre</strong><br>
+        Quienes somos, por que estamos aqui, que hemos hecho hasta ahora.
       </li>
       <li>
         <span class="t">05-15'</span>
         <strong>Enfoque del proceso</strong><br>
-        Explicar la metodologia, que lo hace distinto y que no vamos a hacer.
+        Como planteamos el proyecto, que lo hace distinto, que no vamos a hacer.
       </li>
       <li>
-        <span class="t">15-25'</span>
+        <span class="t">15-28'</span>
         <strong>Fases y calendario</strong><br>
-        Roadmap completo: entrevistas 1:1, sesion plenaria, sintesis, territorio creativo.
+        Las tres fases del proyecto: estrategia, identidad visual, web.
       </li>
       <li>
-        <span class="t">25-35'</span>
+        <span class="t">28-38'</span>
         <strong>Sesiones individuales 1:1</strong><br>
-        Formato, razon de ser y lo que pediremos en cada entrevista.
+        Por que, como, que pediremos, confidencialidad.
       </li>
       <li>
-        <span class="t">35-40'</span>
+        <span class="t">38-45'</span>
         <strong>Preguntas y cierre</strong><br>
-        Dudas, confirmacion de disponibilidad, proximos pasos.
+        Dudas, confirmacion de disponibilidad, proximos pasos inmediatos.
       </li>
     </ul>
 
     <hr>
 
-    <h2>Bloque 1: Encuadre y proposito</h2>
+    <h2>Bloque 1: Presentacion y encuadre</h2>
     <h4>Tiempo: 0 a 5 minutos</h4>
 
     <p class="script">
-      "Gracias por el tiempo. Vamos a ser directos con lo que os vamos a pedir y por que.
+      "Gracias por hacer hueco. Para los que no nos conoceis aun, somos 498AS. Nos dedicamos a estrategia de marca e innovacion aplicada. Trabajamos con empresas que necesitan que su identidad refleje lo que realmente son, no una version simplificada.
       <br><br>
-      Este proyecto de rebranding no empieza por el diseno. Empieza por la tesis. Antes de tocar logo, naming, narrativa o identidad visual, necesitamos entender con precision que identidad institucional tiene realmente el fondo, como la lee el mercado y donde hay diferenciacion autentica frente a donde solo hay lenguaje de categoria.
+      Hemos tenido la oportunidad de hacer un primer trabajo de recogida de contexto con Guille durante las ultimas semanas. Eso nos ha dado una base para entender LANAI, su historia, su forma de operar y su posicion en el mercado. Pero ese contexto tiene un limite claro: es la lectura de una persona.
       <br><br>
-      Nuestro trabajo consiste en llegar a esa claridad antes de abrir cualquier territorio creativo. Si no lo hacemos bien aqui, cualquier solucion visual o verbal sera cosmetica."
+      Y ese es exactamente el motivo de esta reunion. Un proyecto de marca que funcione de verdad necesita la vision de todos los que deciden, no solo la de quien lo coordina. Por eso estamos aqui: para explicaros como vamos a trabajar y que necesitaremos de cada uno."
     </p>
 
     <div class="callout">
-      <p><strong>Tono:</strong> ejecutivo, directo, sin ceremonias. No vender el proceso. Enmarcarlo como trabajo de precision que exige criterio senior.</p>
+      <p><strong>Nota de facilitacion:</strong> La presentacion del equipo debe ser breve, 30 segundos. Nombres, roles, y a trabajar. No hacer pitch de la agencia. La credibilidad la damos con el nivel de la conversacion, no con un reel de clientes.</p>
     </div>
 
     <hr>
@@ -363,41 +395,43 @@
     <h4>Tiempo: 5 a 15 minutos</h4>
 
     <p class="script">
-      "Vamos a trabajar de una forma distinta a lo que probablemente habeis visto en otros procesos de branding. No vamos a hacer workshops con post-its, ejercicios de arquetipos ni lluvia de adjetivos. No os vamos a pedir que elijais entre tres moodboards.
+      "Antes de explicar el calendario, quiero ser claro con el planteamiento. Esto no es un proceso de branding convencional. No vamos a hacer workshops con post-its, ni ejercicios de arquetipos, ni lluvia de adjetivos. No vamos a pediros que elijais entre tres moodboards.
       <br><br>
-      Vamos a tratar este proceso como un trabajo de estrategia institucional. Lo que queremos extraer son hechos, episodios, tensiones y criterio. No opiniones abstractas.
+      Lo que vamos a hacer es un trabajo de estrategia institucional. Queremos entender que identidad tiene realmente LANAI hoy, como la lee el mercado, donde hay diferenciacion autentica y donde hay lenguaje que podria ser de cualquier fondo. Y a partir de ahi, construir una base solida.
       <br><br>
-      El desacuerdo entre vosotros, si existe, es una de las senales mas valiosas que podemos capturar. No vamos a forzar consenso. Vamos a producir claridad."
+      Lo que nos interesa son hechos, episodios, tensiones y criterio. No opiniones abstractas. Si en algun momento del proceso hay desacuerdo entre vosotros, eso es una de las senales mas valiosas que podemos capturar. No vamos a forzar consenso. Vamos a producir claridad."
     </p>
 
     <h3>Que si haremos</h3>
     <ul>
-      <li>Partir de hechos y episodios concretos, no de opiniones abstractas</li>
-      <li>Usar comparaciones con el peer set para afinar la diferenciacion</li>
-      <li>Tratar el desacuerdo como senal de calidad, no como problema</li>
-      <li>Convertir cada atributo declarado en evidencia observable</li>
+      <li>Partir de hechos y episodios concretos: reuniones reales con founders, conversaciones con LPs, situaciones de mercado</li>
+      <li>Comparar con el peer set para entender donde esta LANAI frente a otras firmas</li>
+      <li>Convertir cada atributo declarado en evidencia observable &mdash; si no se puede demostrar, no es diferenciacion</li>
       <li>Nombrar tensiones que la futura marca debe resolver, no esconder</li>
+      <li>Validar que la narrativa futura pueda sostenerse con la operativa real</li>
     </ul>
 
     <h3>Que no haremos</h3>
     <ul>
-      <li>No pediremos "tres palabras para definir la marca"</li>
-      <li>No haremos ejercicios tipo post-it, animal, coche o arquetipo</li>
+      <li>No pediremos "tres palabras para definir LANAI"</li>
+      <li>No haremos dinamicas tipo post-it, animal, ni arquetipos simplificados</li>
       <li>No buscaremos alineamiento cosmetico ni consenso rapido</li>
-      <li>No entraremos en identidad visual o naming hasta tener base estrategica solida</li>
-      <li>No reduciremos la complejidad para salir con una falsa armonia</li>
+      <li>No tocaremos identidad visual hasta tener la base estrategica cerrada</li>
+      <li>No fabricaremos un resultado bonito si la base no da para ello</li>
     </ul>
 
     <div class="callout">
-      <p><strong>Idea clave:</strong> Este proceso respeta vuestro criterio senior. No os vamos a infantilizar con dinamicas de grupo. Os vamos a exigir precision.</p>
+      <p><strong>Mensaje subyacente:</strong> Este proceso respeta que sois profesionales senior con criterio propio. No os vamos a poner a jugar. Os vamos a pedir precision.</p>
     </div>
 
     <hr>
 
     <h2>Bloque 3: Fases y calendario</h2>
-    <h4>Tiempo: 15 a 25 minutos</h4>
+    <h4>Tiempo: 15 a 28 minutos</h4>
 
-    <p>El proyecto se estructura en seis fases. Cada una alimenta la siguiente. No saltaremos fases.</p>
+    <p class="script">
+      "El proyecto tiene tres grandes fases. Cada una alimenta la siguiente y no saltaremos ninguna. Ahora mismo estamos al inicio de la primera."
+    </p>
 
     <table>
       <thead>
@@ -405,82 +439,107 @@
           <th>Fase</th>
           <th>Que hacemos</th>
           <th>Quienes participan</th>
-          <th>Duracion</th>
+          <th>Estimacion</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>1. Kickoff</strong></td>
-          <td>Presentacion del proceso y alineamiento de expectativas</td>
-          <td>Todos los socios</td>
-          <td>Hoy</td>
+          <td><strong>Fase 1: Estrategia de marca</strong></td>
+          <td>Entrevistas 1:1 con cada socio, analisis y cruce de inputs, sesion plenaria de tesis institucional, plataforma de posicionamiento</td>
+          <td>Todos los socios + 498AS</td>
+          <td>~4 semanas</td>
         </tr>
         <tr>
-          <td><strong>2. Entrevistas 1:1</strong></td>
-          <td>Sesiones individuales con cada socio. Captura de lectura, tesis, tensiones y evidencia</td>
-          <td>Cada socio por separado</td>
-          <td>45-60 min / socio</td>
+          <td><strong>Fase 2: Identidad visual</strong></td>
+          <td>Direccion de arte, sistema visual, logotipo, aplicaciones basicas</td>
+          <td>498AS + validacion socios</td>
+          <td>~5 semanas</td>
         </tr>
         <tr>
-          <td><strong>3. Analisis</strong></td>
-          <td>Cruce de inputs, identificacion de patrones, contradicciones y territorio competitivo</td>
-          <td>Equipo Zoopa</td>
-          <td>Trabajo interno</td>
+          <td><strong>Fase 3: Web</strong></td>
+          <td>Diseno y desarrollo en Webflow, contenido, lanzamiento</td>
+          <td>498AS + Sandra + validacion</td>
+          <td>~5 semanas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Detalle de la Fase 1 (donde estamos ahora)</h3>
+
+    <p>La fase de estrategia es la que requiere mas participacion directa de los socios. Se compone de estos pasos:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Paso</th>
+          <th>Que ocurre</th>
+          <th>Para que sirve</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Kickoff con socios</strong></td>
+          <td>Esta reunion. Presentacion del proceso y expectativas</td>
+          <td>Que todos sepan como vamos a trabajar</td>
         </tr>
         <tr>
-          <td><strong>4. Sesion plenaria</strong></td>
-          <td>Sesion de tesis institucional con todos los socios. Formato de 90 minutos, alta exigencia</td>
-          <td>Todos los socios</td>
-          <td>90 minutos</td>
+          <td><strong>Entrevistas 1:1</strong></td>
+          <td>Sesion individual con cada socio (45-60 min)</td>
+          <td>Capturar la lectura real de cada persona sin filtro de grupo</td>
         </tr>
         <tr>
-          <td><strong>5. Formulacion</strong></td>
-          <td>Plataforma de posicionamiento, invariantes, narrativa verbal, territorio de marca</td>
-          <td>Zoopa + validacion socios</td>
-          <td>Entrega posterior</td>
+          <td><strong>Analisis y cruce</strong></td>
+          <td>Trabajo interno del equipo 498AS</td>
+          <td>Identificar patrones, divergencias, territorio y tensiones</td>
         </tr>
         <tr>
-          <td><strong>6. Territorio creativo</strong></td>
-          <td>Identidad visual, naming, sistema de marca. Solo si la base estrategica es solida</td>
-          <td>A definir</td>
-          <td>Fase posterior</td>
+          <td><strong>Sesion plenaria</strong></td>
+          <td>Reunion con todos los socios (90 min)</td>
+          <td>Confrontar, validar y elevar las hipotesis. Producir la tesis institucional</td>
+        </tr>
+        <tr>
+          <td><strong>Plataforma de marca</strong></td>
+          <td>Documento estrategico de posicionamiento</td>
+          <td>Base para abrir identidad visual y narrativa</td>
         </tr>
       </tbody>
     </table>
 
     <p class="script">
-      "Como veis, la sesion plenaria no es el punto de partida. Es el punto donde ya llegamos con materia prima real. Las entrevistas individuales son el trabajo mas importante de las proximas semanas.
-      <br><br>
-      No abriremos territorio creativo hasta tener base estrategica suficiente. Si al final del proceso descubrimos que aun no hay claridad para avanzar, lo diremos. Preferimos una pausa inteligente a un rebranding elegante pero falso."
+      "La sesion plenaria no es el punto de partida. Es el punto donde ya llegamos con materia prima real de las entrevistas. Por eso las conversaciones individuales son la pieza mas importante de las proximas semanas."
     </p>
 
     <h3>Logica del proceso</h3>
     <div class="grid-3">
       <div class="card">
         <h4>Entrevistas 1:1</h4>
-        <p>Capturan lo que cada socio piensa realmente, sin filtro de grupo ni jerarquia.</p>
+        <p>Capturan lo que cada socio piensa realmente, sin filtro de grupo ni jerarquia. Materia prima pura.</p>
       </div>
       <div class="card">
         <h4>Sesion plenaria</h4>
-        <p>Confronta, cruza y eleva lo capturado en las entrevistas. Produce tension util.</p>
+        <p>Confronta, cruza y eleva lo capturado. Produce tension util y formulaciones que no existian antes.</p>
       </div>
       <div class="card">
-        <h4>Formulacion</h4>
-        <p>Convierte la materia prima en una plataforma estrategica defendible y diferenciada.</p>
+        <h4>Plataforma de marca</h4>
+        <p>Convierte todo en una base estrategica defendible y diferenciada. Solo entonces se abre lo creativo.</p>
       </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Idea clave para transmitir:</strong> No abriremos identidad visual hasta que la base estrategica sea solida. Si al final del proceso descubrimos que aun falta claridad, lo diremos. Preferimos una pausa inteligente a un resultado cosmetico.</p>
     </div>
 
     <hr>
 
     <h2>Bloque 4: Sesiones individuales 1:1</h2>
-    <h4>Tiempo: 25 a 35 minutos</h4>
+    <h4>Tiempo: 28 a 38 minutos</h4>
 
     <p class="script">
-      "Vamos a reunirnos con cada uno de vosotros por separado. No es una formalidad. Es la parte mas critica del proceso.
+      "Vamos a reunirnos con cada uno de vosotros por separado. No es una formalidad ni un tramite. Es la parte mas critica del proceso.
       <br><br>
-      En una sesion grupal, la jerarquia, la diplomacia y el ritmo de la conversacion filtran mucho. En una entrevista individual podemos llegar a donde realmente importa: como piensa cada socio la tesis del fondo, donde ve la diferenciacion real, que tensiones percibe y que lectura tiene del mercado.
+      En una sesion de grupo, la jerarquia, la diplomacia y el ritmo de la conversacion filtran mucho. Cada uno de vosotros tiene una lectura distinta de LANAI, del mercado, de los founders, de los LPs. Esas lecturas individuales son exactamente lo que necesitamos.
       <br><br>
-      No es un interrogatorio. Es una conversacion de criterio entre profesionales."
+      No es un interrogatorio. Es una conversacion de criterio. Nos interesa como pensais la firma, donde veis la diferencia real y que os preocupa del proceso."
     </p>
 
     <h3>Formato de las entrevistas</h3>
@@ -491,61 +550,62 @@
           <li>Duracion: 45-60 minutos</li>
           <li>Formato: online o presencial</li>
           <li>No requiere preparacion formal</li>
-          <li>Solo pedimos que piensen en 2-3 episodios reales antes de la sesion</li>
-          <li>Agendaremos esta misma semana</li>
+          <li>Solo pedimos pensar antes en 2-3 episodios reales donde LANAI fue bien o mal entendida</li>
+          <li>Agendaremos en los proximos dias</li>
         </ul>
       </div>
       <div class="card">
-        <h4>Que pediremos</h4>
+        <h4>Que exploraremos</h4>
         <ul>
-          <li>Casos concretos donde el fondo fue bien o mal entendido</li>
-          <li>Lectura personal de la diferenciacion real frente a comparables</li>
-          <li>Tensiones que percibe: internas, de mercado, de narrativa</li>
-          <li>Que deberia ser invariante en la futura marca</li>
+          <li>Casos concretos donde LANAI fue bien leida o mal interpretada</li>
+          <li>Vuestra lectura personal de la diferenciacion frente a otros fondos</li>
+          <li>Tensiones que percibis: de mercado, internas, de narrativa</li>
+          <li>Que deberia ser invariante en la futura marca de LANAI</li>
           <li>Que nunca deberia parecer esta firma</li>
-          <li>Que riesgo ve en un rebranding mal planteado</li>
+          <li>Que os preocupa de un proceso de rebranding</li>
         </ul>
       </div>
     </div>
 
-    <h3>Por que entrevistas individuales</h3>
+    <h3>Por que individuales y no en grupo</h3>
     <ul>
-      <li><strong>Mayor profundidad.</strong> Sin presion de grupo, cada socio puede explorar matices que no aparecerian en un plenario.</li>
-      <li><strong>Mayor libertad.</strong> Permite nombrar tensiones, desacuerdos y lecturas que en publico se suavizarian.</li>
+      <li><strong>Profundidad.</strong> Sin presion de grupo, cada socio puede explorar matices que en un plenario no aparecerian.</li>
+      <li><strong>Libertad.</strong> Permite nombrar tensiones, lecturas y divergencias que en publico se suavizan.</li>
       <li><strong>Mejor materia prima.</strong> La sesion plenaria sera mucho mas rica si llegamos con inputs reales de cada persona.</li>
-      <li><strong>Deteccion de patrones.</strong> Cruzar las entrevistas revela donde hay alineamiento real y donde hay divergencia significativa.</li>
+      <li><strong>Deteccion de patrones.</strong> Cruzar las entrevistas revela donde hay alineamiento real y donde hay divergencia significativa. Esa informacion es oro.</li>
     </ul>
 
     <div class="warning">
-      <strong>Confidencialidad:</strong> Las entrevistas son confidenciales en su atribucion. Usaremos los inputs para construir una sintesis agregada. Nadie vera "Socio X dijo Y". Esto es fundamental para que cada persona hable con libertad real.
+      <strong>Confidencialidad:</strong> Las entrevistas son confidenciales en su atribucion. Usaremos los inputs para construir una sintesis agregada. Nadie vera "el socio X dijo Y". Esto es fundamental para que cada persona hable con libertad real.
     </div>
 
-    <h3>Tipos de preguntas que apareceran en las 1:1</h3>
-    <p>Para que sepan que esperar:</p>
+    <h3>Ejemplo de preguntas que apareceran</h3>
+    <p>Para que sepan que esperar sin sentir que es un examen:</p>
     <ul>
-      <li>En que situaciones el mercado os entiende mejor de lo que vosotros mismos explicais</li>
-      <li>Donde se produce la mayor distancia entre como os pensais y como os leen</li>
-      <li>Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando una reunion seria con el fondo</li>
-      <li>Que parte de la reputacion del fondo esta ganada y cual depende de simplificaciones externas</li>
-      <li>Que nunca deberia parecer esta firma, aunque eso facilitara comercializarla</li>
-      <li>Que verdad incomoda la futura marca tendra que asumir</li>
+      <li>Contadme una situacion concreta en la que un founder o un LP entendio LANAI exactamente como queriais</li>
+      <li>Y una en la que os simplificaron, os leyeron mal o no captaron lo que os hace distintos</li>
+      <li>Que fondo parece similar a LANAI desde fuera pero en realidad juega a otra cosa</li>
+      <li>Que parte de la reputacion de LANAI esta ganada de verdad y cual depende de simplificaciones externas</li>
+      <li>Que nunca deberia parecer esta firma, aunque eso facilitara vender</li>
     </ul>
 
     <div class="callout">
-      <p><strong>Nota para el facilitador:</strong> Es probable que alguno pregunte "pero que os vamos a contar que no sepais ya". La respuesta es: "No buscamos informacion que ya tengamos. Buscamos formulaciones que aun no existen. Vuestra forma de pensar la firma es la materia prima del proyecto."</p>
+      <p><strong>Nota de facilitacion:</strong> Es probable que alguien diga "pero si Guille ya os ha contado todo". La respuesta: "Guille nos ha dado un contexto muy valioso. Pero cada socio tiene una lectura distinta de la firma, del mercado y de las prioridades. Esa diversidad de perspectivas es lo que hace que el proceso funcione. Si solo usaramos una voz, el resultado seria parcial."</p>
     </div>
 
     <hr>
 
     <h2>Bloque 5: Preguntas y cierre</h2>
-    <h4>Tiempo: 35 a 40 minutos</h4>
+    <h4>Tiempo: 38 a 45 minutos</h4>
 
     <p class="script">
-      "Antes de cerrar, abro a preguntas. Y quiero ser honesto: si al final de este proceso descubrimos que aun no hay base suficiente para abrir territorio creativo, lo diremos. Preferimos una pausa inteligente a un rebranding elegante pero falso.
+      "Antes de cerrar, abro a preguntas o dudas sobre como vamos a trabajar.
       <br><br>
-      Proximos pasos: os contactaremos esta misma semana para agendar las sesiones individuales. Os enviaremos tambien un documento breve de pre-reading antes de la sesion plenaria.
+      Y quiero ser directo: si en algun momento del proceso descubrimos que aun no hay base suficiente para avanzar a lo visual, lo diremos. Preferimos una pausa inteligente a un rebranding que parezca bien pero no represente lo que LANAI es de verdad.
       <br><br>
-      Gracias por la confianza. Vamos a hacer un buen trabajo."
+      Proximos pasos: os contactaremos en los proximos dias para agendar las sesiones individuales. Antes de la sesion plenaria os enviaremos un documento breve de contexto.
+      <br><br>
+      Gracias por la confianza y por el tiempo. Vamos a hacer un buen trabajo."
     </p>
 
     <h3>Preguntas frecuentes y respuestas sugeridas</h3>
@@ -559,27 +619,31 @@
       <tbody>
         <tr>
           <td>"Cuando veremos diseno?"</td>
-          <td>Despues de la base estrategica. Si intentamos resolver visualmente algo que no esta claro conceptualmente, el resultado sera cosmetico.</td>
+          <td>Cuando la base estrategica este cerrada. Si intentamos resolver visualmente algo que no esta claro conceptualmente, el resultado sera cosmetico. Es cuestion de semanas, no meses.</td>
         </tr>
         <tr>
-          <td>"Por que necesitais hablar con cada uno?"</td>
-          <td>Porque en grupo se filtra mucho. Necesitamos la lectura real de cada persona para construir una sintesis solida.</td>
+          <td>"Guille ya os ha contado todo, no?"</td>
+          <td>Nos ha dado un contexto muy bueno. Pero cada socio tiene una lectura distinta de LANAI. Esas diferencias de perspectiva son exactamente lo que necesitamos para que la marca sea completa, no parcial.</td>
         </tr>
         <tr>
-          <td>"Cuanto durara todo el proceso?"</td>
-          <td>Depende de la claridad que obtengamos. Si las entrevistas y la sesion plenaria producen suficiente materia, avanzaremos rapido. Si no, preferimos afinar antes de abrir territorio creativo.</td>
+          <td>"Cuanto durara todo?"</td>
+          <td>La fase de estrategia, unas 4 semanas. Luego identidad visual, unas 5 semanas. Y web, otras 5. Pero la velocidad depende de la claridad que obtengamos y de la disponibilidad para las sesiones.</td>
         </tr>
         <tr>
-          <td>"Que necesitais que preparemos?"</td>
-          <td>Nada formal. Solo pensar en 2-3 episodios reales donde el fondo fue bien o mal entendido. Y en 2-3 firmas comparables.</td>
+          <td>"Tenemos que preparar algo?"</td>
+          <td>Nada formal. Solo pensar en 2-3 situaciones reales donde LANAI fue bien o mal entendida. Y en 2-3 fondos con los que el mercado os pueda comparar.</td>
         </tr>
         <tr>
-          <td>"Ya tenemos claro lo que somos, no?"</td>
-          <td>Probablemente si, pero nuestro trabajo es verificarlo. Muchas firmas creen tener una identidad clara y el mercado las lee de otra forma. Queremos cerrar esa brecha.</td>
+          <td>"Ya sabemos lo que somos."</td>
+          <td>Probablemente si. Pero muchas firmas creen tener una identidad clara y el mercado las lee de otra forma. Nuestro trabajo es verificar donde coincide y donde no, y cerrar esa brecha.</td>
         </tr>
         <tr>
-          <td>"Esto es confidencial?"</td>
-          <td>Las entrevistas 1:1 son confidenciales en su atribucion. La sintesis agregada se compartira con todos. Nadie vera citas atribuidas a personas concretas.</td>
+          <td>"Son confidenciales las entrevistas?"</td>
+          <td>Totalmente en su atribucion. Usaremos los inputs para una sintesis agregada. Nadie vera citas con nombre. Es la unica forma de que cada uno hable con libertad real.</td>
+        </tr>
+        <tr>
+          <td>"Que pasa con el logo del pajaro?"</td>
+          <td>Todo lo visual se decide en la fase 2, una vez tengamos claro que tiene que expresar la marca. Ahora mismo no descartamos ni confirmamos nada visual.</td>
         </tr>
       </tbody>
     </table>
@@ -598,29 +662,34 @@
       </thead>
       <tbody>
         <tr>
-          <td>Agendar sesiones 1:1 con cada socio</td>
-          <td>Zoopa</td>
+          <td>Enviar propuesta de fechas para sesiones 1:1</td>
+          <td>498AS</td>
           <td>Esta semana</td>
         </tr>
         <tr>
-          <td>Realizar entrevistas individuales</td>
-          <td>Zoopa + cada socio</td>
+          <td>Realizar entrevistas individuales con cada socio</td>
+          <td>498AS + cada socio</td>
           <td>Proximas 2-3 semanas</td>
         </tr>
         <tr>
-          <td>Analisis y cruce de inputs</td>
-          <td>Zoopa</td>
+          <td>Analisis, cruce de inputs e identificacion de patrones</td>
+          <td>498AS</td>
           <td>Tras completar entrevistas</td>
         </tr>
         <tr>
           <td>Enviar pre-reading para sesion plenaria</td>
-          <td>Zoopa</td>
+          <td>498AS</td>
           <td>48h antes del plenario</td>
         </tr>
         <tr>
-          <td>Sesion plenaria de tesis institucional</td>
+          <td>Sesion plenaria de tesis institucional (90 min)</td>
           <td>Todos los socios</td>
           <td>Tras completar analisis</td>
+        </tr>
+        <tr>
+          <td>Entrega de plataforma de posicionamiento</td>
+          <td>498AS</td>
+          <td>Tras plenario</td>
         </tr>
       </tbody>
     </table>
@@ -633,31 +702,53 @@
       <div class="card">
         <h4>Hacer</h4>
         <ul>
-          <li>Ser directo y breve</li>
-          <li>Transmitir rigor sin rigidez</li>
-          <li>Dar confianza sobre el proceso</li>
-          <li>Confirmar fechas al cierre</li>
-          <li>Escuchar dudas con atencion</li>
+          <li>Presentarse brevemente y con naturalidad</li>
+          <li>Transmitir que hemos hecho los deberes</li>
+          <li>Tratar a todos como iguales, no solo a Guille</li>
+          <li>Ser directo sobre el proceso</li>
+          <li>Confirmar disponibilidad al cierre</li>
         </ul>
       </div>
       <div class="card">
         <h4>No hacer</h4>
         <ul>
-          <li>No vender el proceso</li>
-          <li>No prometer resultados visuales</li>
-          <li>No entrar en debate estrategico</li>
+          <li>No hacer pitch de la agencia</li>
+          <li>No revelar insights del briefing con Guille</li>
+          <li>No adelantar hipotesis o conclusiones</li>
           <li>No mostrar ningun output creativo</li>
-          <li>No alargar mas de 40 minutos</li>
+          <li>No alargar mas de 45 minutos</li>
         </ul>
       </div>
       <div class="card">
         <h4>Tono</h4>
         <ul>
-          <li>Ejecutivo pero cercano</li>
-          <li>Seco pero no frio</li>
-          <li>Seguro pero no arrogante</li>
+          <li>Profesional pero cercano</li>
+          <li>Seguro sin ser arrogante</li>
           <li>Respetuoso con el nivel de la sala</li>
+          <li>Directo, sin rodeos ni formalismos</li>
           <li>Sin grandilocuencia ni promesas</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Dinamica de la mesa: lo que sabemos</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Estructura del equipo LANAI</h4>
+        <ul>
+          <li>4 socios: 2 full-time, 2 part-time</li>
+          <li>Decision colaborativa</li>
+          <li>Guille Llibre: interlocutor principal, ha liderado el briefing</li>
+          <li>Los part-time pueden tener menos contexto o inversion emocional en el proceso</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Riesgos de esta reunion</h4>
+        <ul>
+          <li>Que los socios que no conocen el proyecto lo vean como "cosa de Guille"</li>
+          <li>Que alguien quiera entrar ya en debate sobre identidad</li>
+          <li>Que los part-time no vean por que deben dedicar tiempo a las 1:1</li>
+          <li>Que alguien cuestione el enfoque ("esto es mucho proceso")</li>
         </ul>
       </div>
     </div>
@@ -666,24 +757,24 @@
     <div class="grid-2">
       <div class="card">
         <h4>Si alguien quiere entrar en estrategia</h4>
-        <p>"Es exactamente lo que vamos a trabajar en las sesiones 1:1 y en el plenario. Hoy solo queria asegurarme de que el proceso os parece solido."</p>
+        <p>"Es exactamente lo que vamos a trabajar en las sesiones 1:1 y en el plenario. Hoy queria asegurarme de que el proceso os parece solido y de que contamos con vuestro tiempo."</p>
       </div>
       <div class="card">
         <h4>Si hay escepticismo sobre el enfoque</h4>
-        <p>"Entiendo la duda. Nuestro compromiso es que si este proceso no produce claridad nueva, lo diremos. No vamos a fabricar un resultado para justificar el proyecto."</p>
+        <p>"Entiendo. Nuestro compromiso es que si este proceso no produce claridad nueva, lo diremos. No vamos a fabricar un resultado para justificar el proyecto."</p>
       </div>
       <div class="card">
-        <h4>Si alguien minimiza la necesidad</h4>
-        <p>"Es posible que ya tengais claridad suficiente. Nuestro trabajo es verificarlo y, si es asi, documentarlo para que la base sea solida. Si no, encontraremos donde esta la brecha."</p>
+        <h4>Si un part-time duda de dedicar tiempo</h4>
+        <p>"La entrevista dura 45 minutos. Es la mejor inversion de tiempo posible para que la marca refleje tambien vuestra lectura de la firma, no solo la de quienes estan en el dia a dia."</p>
       </div>
       <div class="card">
-        <h4>Si piden timeline cerrado</h4>
-        <p>"Puedo daros un calendario orientativo, pero la velocidad depende de la calidad de los inputs. Preferimos hacerlo bien que hacerlo rapido."</p>
+        <h4>Si preguntan por el pajaro / logo</h4>
+        <p>"Todo lo visual se decide mas adelante, cuando la base estrategica este clara. Ahora mismo no estamos en ese punto, ni debemos estarlo."</p>
       </div>
     </div>
 
     <div class="footer">
-      Guion de kickoff | Rebranding del fondo | Zoopa | Marzo 2026 | Confidencial
+      Guion interno | Primera reunion con socios LANAI | 498AS | Marzo 2026 | No compartir con el cliente
     </div>
 
   </body>
