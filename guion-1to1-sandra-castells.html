@@ -3,756 +3,252 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guion 1:1 | Sandra Castells | LANAI</title>
+    <title>1:1 Sandra Castells | LANAI</title>
     <style>
-      @page {
-        size: A4;
-        margin: 24mm 22mm 26mm 22mm;
-      }
-
+      @page { size: A4; margin: 20mm 18mm 22mm 18mm; }
       :root {
-        --ink: #1a1a1a;
-        --muted: #5a6670;
-        --accent: #0e5a52;
-        --accent-light: #e8f0ef;
-        --accent-soft: rgba(14, 90, 82, 0.07);
-        --line: #d4d8dc;
-        --line-light: #e8eaed;
-        --section-bg: #f7f8f9;
-        --warning-bg: #fef9f0;
-        --warning-border: #e8a820;
-        --highlight-bg: #f0f4ff;
-        --highlight-border: #4a6fa5;
+        --ink: #1a1a1a; --muted: #5a6670; --accent: #0e5a52;
+        --accent-light: #e8f0ef; --accent-soft: rgba(14,90,82,0.07);
+        --line: #d4d8dc; --line-light: #e8eaed; --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0; --warning-border: #e8a820;
+        --q-bg: #f0f7f6; --q-border: #0e5a52;
       }
-
       * { box-sizing: border-box; margin: 0; padding: 0; }
-
       body {
-        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-        font-size: 10.5pt;
-        line-height: 1.58;
-        color: var(--ink);
-        background: #fff;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+        font-size: 10pt; line-height: 1.52; color: var(--ink); background: #fff;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
       }
 
-      .cover {
-        page-break-after: always;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 72px 0;
-      }
+      /* COVER */
+      .cover { page-break-after: always; padding: 72px 0; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+      .cover__eyebrow { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+      .cover h1 { font-size: 34pt; font-weight: 600; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 12px; max-width: 20ch; }
+      .cover__subtitle { font-size: 14pt; color: var(--muted); line-height: 1.35; max-width: 44ch; margin-bottom: 44px; }
+      .cover__meta { font-size: 9pt; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 16px; max-width: 36ch; }
 
-      .cover__eyebrow {
-        font-size: 10pt;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 20px;
-      }
-
-      .cover h1 {
-        font-size: 36pt;
-        font-weight: 600;
-        line-height: 0.96;
-        letter-spacing: -0.03em;
-        margin-bottom: 16px;
-        max-width: 20ch;
-      }
-
-      .cover__subtitle {
-        font-size: 15pt;
-        color: var(--muted);
-        line-height: 1.4;
-        max-width: 46ch;
-        margin-bottom: 52px;
-      }
-
-      .cover__meta {
-        font-size: 9.5pt;
-        color: var(--muted);
-        line-height: 1.7;
-        border-top: 1px solid var(--line);
-        padding-top: 18px;
-        max-width: 36ch;
-      }
-
-      h2 {
-        font-size: 20pt;
-        font-weight: 600;
-        line-height: 1.08;
-        letter-spacing: -0.02em;
-        margin: 42px 0 8px;
-        color: var(--ink);
-        page-break-after: avoid;
-      }
-
+      /* HEADINGS */
+      h2 { font-size: 18pt; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 36px 0 6px; page-break-after: avoid; }
       h2:first-of-type { margin-top: 0; }
+      .lead { font-size: 10.5pt; color: var(--muted); line-height: 1.45; max-width: 60ch; margin-bottom: 18px; }
+      h3 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; page-break-after: avoid; }
+      h4 { font-size: 9pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; page-break-after: avoid; }
+      p { margin-bottom: 7px; max-width: 66ch; }
+      ul, ol { padding-left: 1.2rem; margin-bottom: 10px; }
+      li { margin-bottom: 4px; }
 
-      .lead {
-        font-size: 11.5pt;
-        color: var(--muted);
-        line-height: 1.48;
-        max-width: 62ch;
-        margin-bottom: 24px;
+      /* QUESTION BLOCK - optimizado para lectura rapida en pantalla */
+      .q {
+        padding: 10px 14px; margin: 6px 0;
+        border-left: 3px solid var(--q-border); background: var(--q-bg);
+        border-radius: 0 4px 4px 0; font-size: 10.5pt; line-height: 1.45;
+        page-break-inside: avoid;
       }
+      .q strong { color: var(--accent); }
+      .q-secondary { border-left-color: var(--line); background: var(--section-bg); font-size: 9.5pt; color: var(--muted); }
 
-      h3 {
-        font-size: 13pt;
-        font-weight: 600;
-        margin: 26px 0 10px;
-        page-break-after: avoid;
-      }
-
-      h4 {
-        font-size: 9.5pt;
-        font-weight: 700;
-        color: var(--accent);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin: 20px 0 7px;
-        page-break-after: avoid;
-      }
-
-      p { margin-bottom: 9px; max-width: 66ch; }
-
-      ul, ol { padding-left: 1.3rem; margin-bottom: 12px; }
-      li { margin-bottom: 5px; }
-
+      /* SCRIPT */
       .script {
-        padding: 18px 22px;
-        background: var(--section-bg);
-        border: 1px solid var(--line-light);
-        border-radius: 5px;
-        margin: 14px 0 18px;
-        font-style: italic;
-        line-height: 1.58;
+        padding: 14px 18px; background: var(--section-bg); border: 1px solid var(--line-light);
+        border-radius: 4px; margin: 10px 0 14px; font-style: italic; line-height: 1.5;
         page-break-inside: avoid;
       }
 
-      .callout {
-        padding: 14px 18px;
-        border-left: 3px solid var(--accent);
-        background: var(--accent-soft);
-        border-radius: 0 5px 5px 0;
-        margin: 14px 0 18px;
-        page-break-inside: avoid;
-      }
+      /* CALLOUT / WARNING */
+      .callout { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; margin: 10px 0 14px; page-break-inside: avoid; }
       .callout p { margin-bottom: 0; }
+      .warning { padding: 10px 14px; border-left: 3px solid var(--warning-border); background: var(--warning-bg); border-radius: 0 4px 4px 0; margin: 10px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
 
-      .warning {
-        padding: 13px 18px;
-        border-left: 3px solid var(--warning-border);
-        background: var(--warning-bg);
-        border-radius: 0 5px 5px 0;
-        margin: 14px 0 18px;
-        font-size: 10pt;
-        page-break-inside: avoid;
-      }
+      /* GRID */
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 14px; }
+      .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
+      .card { padding: 10px 12px; border: 1px solid var(--line-light); border-radius: 4px; background: var(--section-bg); page-break-inside: avoid; }
+      .card h4 { margin-top: 0; margin-bottom: 5px; }
+      .card p, .card ul { font-size: 9pt; margin-bottom: 0; }
 
-      .highlight {
-        padding: 14px 18px;
-        border-left: 3px solid var(--highlight-border);
-        background: var(--highlight-bg);
-        border-radius: 0 5px 5px 0;
-        margin: 14px 0 18px;
-        page-break-inside: avoid;
-      }
-      .highlight p { margin-bottom: 0; }
-
-      .grid-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-        margin: 14px 0 18px;
-      }
-
-      .grid-3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 12px;
-        margin: 14px 0 18px;
-      }
-
-      .card {
-        padding: 14px 16px;
-        border: 1px solid var(--line-light);
-        border-radius: 5px;
-        background: var(--section-bg);
-        page-break-inside: avoid;
-      }
-      .card h4 { margin-top: 0; margin-bottom: 6px; }
-      .card p, .card ul { font-size: 9.5pt; margin-bottom: 0; }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 14px 0 18px;
-        font-size: 9.5pt;
-        page-break-inside: avoid;
-      }
-
-      th {
-        text-align: left;
-        padding: 8px 10px;
-        background: var(--accent);
-        color: white;
-        font-size: 8.5pt;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        font-weight: 600;
-      }
-      th:first-child { border-radius: 4px 0 0 0; }
-      th:last-child { border-radius: 0 4px 0 0; }
-
-      td {
-        padding: 8px 10px;
-        border-bottom: 1px solid var(--line-light);
-        vertical-align: top;
-      }
+      /* TABLE */
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 9pt; page-break-inside: avoid; }
+      th { text-align: left; padding: 6px 8px; background: var(--accent); color: white; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+      th:first-child { border-radius: 3px 0 0 0; } th:last-child { border-radius: 0 3px 0 0; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--line-light); vertical-align: top; }
       tr:nth-child(even) td { background: var(--section-bg); }
 
-      .timeline {
-        margin: 16px 0 20px;
-        padding-left: 0;
-        list-style: none;
-      }
+      /* TIMELINE - compacto */
+      .timeline { margin: 12px 0 16px; padding-left: 0; list-style: none; }
+      .timeline li { position: relative; padding: 8px 0 8px 56px; border-bottom: 1px solid var(--line-light); font-size: 10pt; }
+      .timeline li .t { position: absolute; left: 0; top: 8px; font-size: 8pt; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
 
-      .timeline li {
-        position: relative;
-        padding: 11px 0 11px 60px;
-        border-bottom: 1px solid var(--line-light);
-      }
+      hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+      .footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--muted); text-align: center; }
 
-      .timeline li .t {
-        position: absolute;
-        left: 0;
-        top: 11px;
-        font-size: 8.5pt;
-        font-weight: 700;
-        color: var(--accent);
-        background: var(--accent-light);
-        padding: 2px 8px;
-        border-radius: 3px;
-        white-space: nowrap;
-      }
-
-      hr {
-        border: none;
-        border-top: 1px solid var(--line);
-        margin: 28px 0;
-      }
-
-      .footer {
-        margin-top: 48px;
-        padding-top: 14px;
-        border-top: 1px solid var(--line);
-        font-size: 8.5pt;
-        color: var(--muted);
-        text-align: center;
-      }
-
-      @media print {
-        .cover { min-height: auto; padding: 100px 0; }
-        .grid-2, .grid-3, .card, table { page-break-inside: avoid; }
-      }
-
-      @media screen {
-        body { max-width: 760px; margin: 0 auto; padding: 24px; }
-        .cover { min-height: 75vh; }
-      }
+      /* PRINT + SCREEN */
+      @media print { .cover { min-height: auto; padding: 80px 0; } .grid-2,.grid-3,.card,table { page-break-inside: avoid; } }
+      @media screen { body { max-width: 760px; margin: 0 auto; padding: 20px; } .cover { min-height: 70vh; } }
     </style>
   </head>
   <body>
 
-    <!-- COVER -->
     <div class="cover">
-      <p class="cover__eyebrow">Guion interno &mdash; Entrevista 1:1</p>
+      <p class="cover__eyebrow">Entrevista 1:1 &mdash; Documento interno</p>
       <h1>Sandra Castells</h1>
-      <p class="cover__subtitle">
-        Investment Analyst en LANAI Partners. Primera entrevista individual del proceso de marca.
-      </p>
+      <p class="cover__subtitle">Investment Analyst en LANAI. Primera linea de deal flow. Responsable de la nueva web.</p>
       <div class="cover__meta">
-        Preparado por 498AS<br>
-        Marzo 2026<br>
-        Duracion estimada: 45-60 minutos<br>
-        Formato: online o presencial<br>
-        Documento interno &mdash; no compartir con el cliente
+        498AS | Marzo 2026<br>
+        Duracion: 40 minutos | Online<br>
+        No compartir con el cliente
       </div>
     </div>
 
-    <!-- FICHA -->
-    <h2>Ficha de la entrevistada</h2>
-
+    <!-- FICHA + CONTEXTO -->
+    <h2>Ficha y contexto</h2>
     <div class="grid-2">
       <div class="card">
-        <h4>Datos profesionales</h4>
+        <h4>Perfil</h4>
         <ul>
-          <li><strong>Nombre:</strong> Sandra Castells</li>
-          <li><strong>Rol en LANAI:</strong> Investment Analyst</li>
+          <li><strong>Rol:</strong> Investment Analyst</li>
           <li><strong>Funcion:</strong> Analisis y gestion del deal flow</li>
           <li><strong>Formacion:</strong> BBA, Universidad Carlos III de Madrid</li>
-          <li><strong>Background previo:</strong> Consultora tecnologica para multinacionales (IT, finanzas, travel)</li>
-          <li><strong>Ubicacion:</strong> Barcelona</li>
+          <li><strong>Background:</strong> Consultora tech para multinacionales (IT, finanzas, travel)</li>
+          <li><strong>Otro:</strong> Responsable nueva web (Webflow, verano 2026)</li>
+          <li><strong>Personal:</strong> Buceadora, curiosa, entusiasta del oceano</li>
         </ul>
       </div>
       <div class="card">
-        <h4>Contexto adicional</h4>
+        <h4>Por que importa esta entrevista</h4>
         <ul>
-          <li><strong>Rol adicional:</strong> Responsable de la nueva web (Webflow), objetivo verano 2026</li>
-          <li><strong>No es socia:</strong> Es parte del equipo de inversion, no del partnership</li>
-          <li><strong>Perfil personal:</strong> Buceadora, curiosa, entusiasta del oceano</li>
-          <li><strong>Dato relevante:</strong> Llego al VC desde consultoría tech, no desde finanzas puras</li>
-          <li><strong>LinkedIn:</strong> linkedin.com/in/sandra-castells</li>
+          <li>Es quien mas founders ve de toda la firma</li>
+          <li>Perspectiva de primera linea: que perciben los founders al llegar</li>
+          <li>Responsable de la web: necesidad operativa directa del proyecto</li>
+          <li>Viene de consultoría tech, no de finanzas: lectura distinta</li>
+          <li>No es socia: puede ver cosas que los socios no ven</li>
         </ul>
       </div>
     </div>
-
-    <hr>
-
-    <h2>Por que esta entrevista importa</h2>
-    <p class="lead">
-      Sandra no es socia, pero tiene una posicion unica en el proceso: es la persona que gestiona el deal flow, la primera linea de contacto con founders. Ve cosas que los socios no ven. Ademas, es responsable de la nueva web, con lo que tiene una necesidad operativa directa del output de este proyecto.
-    </p>
-
-    <div class="grid-3">
-      <div class="card">
-        <h4>Lo que puede aportar</h4>
-        <ul>
-          <li>Lectura real de como los founders perciben LANAI en el primer contacto</li>
-          <li>Que preguntas hacen los founders sobre el fondo</li>
-          <li>Donde la marca actual no ayuda o confunde</li>
-          <li>Que tipo de founders se acercan y cuales no</li>
-          <li>Perspectiva operativa de la web y los materiales</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Lo que quizas no pueda aportar</h4>
-        <ul>
-          <li>Decisiones de tesis de inversion a nivel partnership</li>
-          <li>Dinamica interna entre socios</li>
-          <li>Historia fundacional (llego despues)</li>
-          <li>Relacion con LPs (probablemente no su ambito)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Riesgos de la entrevista</h4>
-        <ul>
-          <li>Que se sienta "menos importante" por no ser socia</li>
-          <li>Que responda lo que cree que los socios querrian oir</li>
-          <li>Que se centre solo en la web y no en la marca</li>
-          <li>Que no se atreva a nombrar tensiones internas</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout">
-      <p><strong>Enfoque clave:</strong> Tratar a Sandra como lo que es: la persona que mas founders ve de toda la firma. Su perspectiva de primera linea es insustituible. No es una entrevista "menor" porque no sea socia. Es una entrevista distinta, y potencialmente mas reveladora sobre como el mercado lee a LANAI.</p>
-    </div>
-
-    <hr>
-
-    <h2>Hipotesis del briefing a validar con Sandra</h2>
-    <p>Del trabajo previo con Guille tenemos hipotesis que Sandra puede confirmar, matizar o contradecir desde su posicion operativa.</p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Hipotesis del briefing</th>
-          <th>Que puede aportar Sandra</th>
-          <th>Pregunta asociada</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>"El protagonista es siempre el emprendedor, no el fondo"</td>
-          <td>Validar si los founders realmente lo perciben asi en el primer contacto</td>
-          <td>Cuando un founder llega a LANAI, que impresion se lleva de la primera interaccion?</td>
-        </tr>
-        <tr>
-          <td>"Feedback detallado incluso en los KOs"</td>
-          <td>Como funciona operativamente, si ella participa, que reaccion genera</td>
-          <td>Contame un KO reciente donde disteis feedback detallado. Que paso despues?</td>
-        </tr>
-        <tr>
-          <td>"Operadores, no financiadores pasivos"</td>
-          <td>Si los founders perciben esa diferencia o si suena a claim de cualquier fondo</td>
-          <td>Cuando un founder compara LANAI con otros fondos, que os dice que le parecio distinto?</td>
-        </tr>
-        <tr>
-          <td>"Concepto chusquero" como diferenciador</td>
-          <td>Si ella usa esa palabra, si le genera comodidad o incomodidad, si los founders la captan</td>
-          <td>Si tuvieras que describir el estilo de LANAI a un founder que no os conoce, como lo harias?</td>
-        </tr>
-        <tr>
-          <td>"80% del capital viene de founders-inversores"</td>
-          <td>Si eso se comunica o se percibe, si los founders lo saben antes de entrar</td>
-          <td>Los founders saben que la mayoria de los LPs de LANAI son founders? Cuando se enteran, cambia algo?</td>
-        </tr>
-        <tr>
-          <td>"Visualmente somos como todos los demas"</td>
-          <td>Perspectiva directa como responsable de la nueva web</td>
-          <td>Cuando miras la web actual y los materiales, que te chirria? Que no representa lo que LANAI es?</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <hr>
-
-    <h2>Estructura de la entrevista</h2>
-
-    <ul class="timeline">
-      <li>
-        <span class="t">00-03'</span>
-        <strong>Apertura y encuadre</strong><br>
-        Contexto, confidencialidad, que esperamos de la conversacion.
-      </li>
-      <li>
-        <span class="t">03-15'</span>
-        <strong>La primera linea: deal flow y percepcion de founders</strong><br>
-        Como llegan los founders, que ven, que preguntan, que les sorprende.
-      </li>
-      <li>
-        <span class="t">15-28'</span>
-        <strong>Identidad y diferenciacion</strong><br>
-        Que hace distinta a LANAI, como lo explicaria, donde se queda corta la narrativa actual.
-      </li>
-      <li>
-        <span class="t">28-40'</span>
-        <strong>Tensiones, web y materiales</strong><br>
-        Que no funciona hoy, que necesita la web, que deberia transmitir la marca.
-      </li>
-      <li>
-        <span class="t">40-50'</span>
-        <strong>Premortem y cierre</strong><br>
-        Que podria salir mal en el rebranding, que le preocupa, que no deberia perderse.
-      </li>
-    </ul>
-
-    <hr>
-
-    <h2>Bloque 1: Apertura y encuadre</h2>
-    <h4>Tiempo: 0 a 3 minutos</h4>
-
-    <p class="script">
-      "Sandra, gracias por el rato. Esta conversacion es parte del proceso de marca que estamos haciendo con LANAI. Estamos hablando con cada persona del equipo por separado porque cada uno tiene una perspectiva distinta, y la tuya es especialmente valiosa: eres la persona que mas founders ve de la firma.
-      <br><br>
-      No hay respuestas correctas ni incorrectas. Me interesan tu lectura real, tus observaciones y lo que percibes desde tu posicion. Todo lo que hablemos es confidencial en su atribucion: usaremos los inputs para una sintesis agregada, pero nadie vera 'Sandra dijo X'.
-      <br><br>
-      No necesito que prepares nada. Es una conversacion de criterio."
-    </p>
 
     <div class="warning">
-      <strong>Importante:</strong> No posicionar la entrevista como "la de la analista" frente a "la de los socios". Posicionarla como "la de la persona que esta en primera linea con founders". Eso es real y le da autoridad para hablar con propiedad.
+      <strong>Equilibrio:</strong> No tratar como entrevista "menor". Posicionarla como "la persona que mas founders ve". No introducir lenguaje del briefing de Guille. No preguntar por decisiones de partnership. Dejar que use su propio vocabulario.
     </div>
 
     <hr>
 
-    <h2>Bloque 2: La primera linea</h2>
-    <h4>Tiempo: 3 a 15 minutos</h4>
-    <p>Sandra gestiona el deal flow. Ve founders todos los dias. Esta es la parte mas valiosa de su entrevista.</p>
-
-    <h3>Preguntas principales</h3>
-
-    <h4>Llegada y primer contacto</h4>
-    <ul>
-      <li>Como llegan los founders a LANAI normalmente? Que canal, que via, que referencia?</li>
-      <li>Cuando un founder llega por primera vez, que impresion se lleva? Que te suelen decir despues del primer contacto?</li>
-      <li>Hay founders que os dicen "ah, pensaba que erais otra cosa"? Que esperaban?</li>
+    <!-- ESTRUCTURA -->
+    <h2>Estructura (40 min)</h2>
+    <ul class="timeline">
+      <li><span class="t">00-03'</span><strong>Apertura</strong> &mdash; Encuadre, confidencialidad, posicionar su perspectiva</li>
+      <li><span class="t">03-14'</span><strong>Primera linea</strong> &mdash; Deal flow, percepcion de founders, feedback en KOs</li>
+      <li><span class="t">14-24'</span><strong>Identidad y peer set</strong> &mdash; Que hace distinta a LANAI, comparables, lenguaje</li>
+      <li><span class="t">24-34'</span><strong>Tensiones y web</strong> &mdash; Que no funciona, que necesita la marca, la web</li>
+      <li><span class="t">34-40'</span><strong>Premortem y cierre</strong> &mdash; Riesgos, invariantes, pregunta abierta</li>
     </ul>
-
-    <h4>Percepcion de mercado</h4>
-    <ul>
-      <li>Que tipo de founders os llegan? Hay un perfil que se repite?</li>
-      <li>Hay founders que deberian llegaros y no lo hacen? Por que crees que no os consideran?</li>
-      <li>Cuando un founder viene de hablar con otros fondos, que os dice que le parecio distinto de LANAI?</li>
-    </ul>
-
-    <h4>El KO y el feedback</h4>
-    <ul>
-      <li>Contame un KO reciente donde disteis feedback detallado al founder. Como fue? Que reaccion tuvo?</li>
-      <li>Todos los fondos dicen que dan feedback. Que haceis vosotros que sea realmente distinto?</li>
-      <li>Has visto que ese feedback genere algo despues? Que el founder vuelva, recomiende, cambie algo?</li>
-    </ul>
-
-    <div class="highlight">
-      <p><strong>Repreguntas de profundidad:</strong><br>
-      "Dame un ejemplo concreto, un founder real."<br>
-      "Que palabras uso exactamente?"<br>
-      "Eso pasa siempre o fue excepcional?"<br>
-      "Lo hacen otros fondos tambien o es algo vuestro?"</p>
-    </div>
 
     <hr>
 
-    <h2>Bloque 3: Identidad y diferenciacion</h2>
-    <h4>Tiempo: 15 a 28 minutos</h4>
-
-    <h3>Preguntas principales</h3>
-
-    <h4>Auto-percepcion</h4>
-    <ul>
-      <li>Si tuvieras que explicar a un founder que no conoce LANAI que es lo que os hace distintos, que le dirias en 30 segundos?</li>
-      <li>Y si tuvieras que ser brutalmente honesta: que parte de eso es verdad verificable y que parte es aspiracional?</li>
-      <li>Que hace LANAI cuando esta en su mejor version?</li>
-    </ul>
-
-    <h4>Comparacion con el peer set</h4>
-    <ul>
-      <li>Con que fondos os confunden los founders? Por que crees que pasa?</li>
-      <li>Que fondo hace algo parecido a vosotros pero con otro enfoque o estilo?</li>
-      <li>Si un founder sofisticado os comparara con JME, con Kfund o con 4Founders, donde estaria la diferencia real?</li>
-      <li>Hay algun fondo cuyo posicionamiento o marca admires? Que tiene que LANAI no?</li>
-    </ul>
-
-    <h4>Narrativa y lenguaje</h4>
-    <ul>
-      <li>Hay palabras que usais internamente para describir LANAI que crees que un founder no entenderia?</li>
-      <li>Hay algo que LANAI es de verdad pero que no se comunica bien o directamente no se dice?</li>
-      <li>Los founders saben que el 80% de los LPs son otros founders? Cuando lo descubren, como reaccionan?</li>
-    </ul>
-
-    <div class="callout">
-      <p><strong>Nota de facilitacion:</strong> Si Sandra usa la palabra "chusquero" o "cercano" de forma natural, dejar que fluya y luego preguntar: "Si un founder oyera esa palabra, que entenderia?" Si no la usa, no introducirla. Observar que lenguaje elige espontaneamente.</p>
-    </div>
-
-    <hr>
-
-    <h2>Bloque 4: Tensiones, web y materiales</h2>
-    <h4>Tiempo: 28 a 40 minutos</h4>
-
-    <h3>Tensiones y marca actual</h3>
-    <ul>
-      <li>Que es lo que mas te chirria de como LANAI se presenta hoy? Web, materiales, redes, lo que sea.</li>
-      <li>Hay algo que LANAI dice de si misma que tu no dirias, o que dirias de otra forma?</li>
-      <li>Hay alguna tension entre como os ven por dentro y como os ven por fuera?</li>
-      <li>Que parte de la identidad de LANAI depende demasiado de personas concretas? Se podria sostener sin ellas?</li>
-    </ul>
-
-    <h3>Web y materiales (perspectiva operativa)</h3>
-    <p>Sandra es responsable de la nueva web. Esta parte conecta marca con ejecucion.</p>
-    <ul>
-      <li>Cuando miras la web actual de LANAI, que no representa lo que la firma es realmente?</li>
-      <li>Que deberia transmitir la web a un founder que la visita por primera vez?</li>
-      <li>Que informacion buscan los founders cuando entran en lanai.vc? La encuentran?</li>
-      <li>Hay algo en las webs de otros fondos que funcione bien y LANAI no tenga?</li>
-      <li>Si pudieras cambiar una sola cosa de como LANAI se presenta visualmente, cual seria?</li>
-    </ul>
-
-    <h3>Marca y ecosistema</h3>
-    <ul>
-      <li>Como usa LANAI las redes sociales? Funciona? Que os aporta y que no?</li>
-      <li>Hay coherencia entre lo que se dice en redes, en la web, en eventos y en las reuniones con founders?</li>
-      <li>Cuando vas a un evento de ecosistema, como reaccionan cuando dices que eres de LANAI?</li>
-    </ul>
-
-    <div class="highlight">
-      <p><strong>Repreguntas utiles:</strong><br>
-      "Si un founder entra en vuestra web y en la de Kfund, que diferencia ve?"<br>
-      "Que le sobra a la web actual? Que le falta?"<br>
-      "Cuando mandas un deck o un email a un founder, sientes que los materiales te representan?"</p>
-    </div>
-
-    <hr>
-
-    <h2>Bloque 5: Premortem y cierre</h2>
-    <h4>Tiempo: 40 a 50 minutos</h4>
-
+    <!-- BLOQUE 1 -->
+    <h2>Apertura (0-3')</h2>
     <p class="script">
-      "Para ir cerrando, quiero hacerte una pregunta distinta. Imaginate que estamos en 2028. El rebranding de LANAI se hizo, la web nueva esta lanzada, todo parecia bien ejecutado. Pero algo fallo. Que crees que podria haber salido mal?"
-    </p>
-
-    <h3>Preguntas de cierre</h3>
-    <ul>
-      <li>Que es lo que mas te preocupa de este proceso de rebranding?</li>
-      <li>Que deberia ser invariante en LANAI pase lo que pase? Que no se deberia tocar?</li>
-      <li>Que nunca deberia parecer LANAI, aunque eso la hiciera mas "profesional" o "institucional"?</li>
-      <li>Si pudieras garantizar que una sola cosa se resuelva con este proyecto, cual seria?</li>
-      <li>Hay algo que no te he preguntado y que crees que deberia saber?</li>
-    </ul>
-
-    <p class="script">
-      "Muchas gracias, Sandra. Tu perspectiva de primera linea es exactamente lo que necesitamos para que este proyecto no se quede en la capa superficial. Todo lo que hemos hablado es confidencial en su atribucion."
+      "Sandra, gracias por el rato. Estamos hablando con cada persona del equipo por separado porque cada uno tiene una perspectiva distinta. La tuya es especialmente valiosa: eres quien mas founders ve de la firma. Me interesa tu lectura real, no respuestas oficiales. Todo es confidencial en su atribucion."
     </p>
 
     <hr>
 
-    <h2>Guia de captura durante la entrevista</h2>
-    <p>Usar esta estructura para tomar notas en tiempo real:</p>
+    <!-- BLOQUE 2 -->
+    <h2>Primera linea (3-14')</h2>
+    <p class="lead">Deal flow, primer contacto con founders, el KO y el feedback.</p>
+
+    <div class="q"><strong>1.</strong> Como llegan los founders a LANAI normalmente? Que via, que referencia?</div>
+    <div class="q"><strong>2.</strong> Cuando un founder llega por primera vez, que impresion se lleva? Que te suelen decir despues?</div>
+    <div class="q"><strong>3.</strong> Hay founders que os dicen "pensaba que erais otra cosa"? Que esperaban?</div>
+    <div class="q"><strong>4.</strong> Que tipo de founders os llegan? Hay founders que deberian llegaros y no lo hacen?</div>
+    <div class="q"><strong>5.</strong> Cuando un founder viene de hablar con otros fondos, que dice que le parecio distinto de LANAI?</div>
+    <div class="q"><strong>6.</strong> Contame un KO reciente donde disteis feedback detallado. Que paso despues?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Dame un founder concreto." / "Que palabras uso exactamente?" / "Eso pasa siempre o fue excepcional?" / "Lo hacen otros fondos tambien?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 3 -->
+    <h2>Identidad y peer set (14-24')</h2>
+    <p class="lead">Que hace distinta a LANAI, comparacion con otros fondos, lenguaje natural.</p>
+
+    <div class="q"><strong>7.</strong> Si tuvieras que explicar a un founder que no conoce LANAI que os hace distintos, que le dirias en 30 segundos?</div>
+    <div class="q"><strong>8.</strong> Y si fueras brutalmente honesta: que parte de eso es verdad verificable y que parte es aspiracional?</div>
+    <div class="q"><strong>9.</strong> Con que fondos os confunden los founders? Por que crees que pasa?</div>
+    <div class="q"><strong>10.</strong> Si un founder sofisticado comparara LANAI con JME, Kfund o 4Founders, donde estaria la diferencia real?</div>
+    <div class="q"><strong>11.</strong> Los founders saben que el 80% de los LPs son otros founders? Cuando se enteran, cambia algo?</div>
+    <div class="q"><strong>12.</strong> Hay algo que LANAI es de verdad pero que no se comunica o no se dice?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es diferenciacion real o lo dicen todos?" / "Como lo reconoceria alguien que no os conoce?" / "Que evidencia lo demuestra?"</div>
+
+    <div class="callout"><p><strong>Atencion:</strong> Si Sandra usa "chusquero", "cercano" u otra palabra de forma natural, dejar que fluya. Despues preguntar: "Si un founder oyera esa palabra, que entenderia?" Si no la usa, no introducirla.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 4 -->
+    <h2>Tensiones y web (24-34')</h2>
+    <p class="lead">Que no funciona, que deberia transmitir la marca, perspectiva operativa de la web.</p>
+
+    <div class="q"><strong>13.</strong> Que es lo que mas te chirria de como LANAI se presenta hoy? Web, materiales, redes, lo que sea.</div>
+    <div class="q"><strong>14.</strong> Hay algo que LANAI dice de si misma que tu no dirias, o que dirias de otra forma?</div>
+    <div class="q"><strong>15.</strong> Que parte de la identidad de LANAI depende demasiado de personas concretas?</div>
+    <div class="q"><strong>16.</strong> Cuando miras la web actual, que no representa lo que la firma es? Que deberia transmitir a un founder que entra por primera vez?</div>
+    <div class="q"><strong>17.</strong> Que informacion buscan los founders en lanai.vc? La encuentran?</div>
+    <div class="q"><strong>18.</strong> Si pudieras cambiar una sola cosa de como LANAI se presenta visualmente, cual seria?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Si un founder entra en vuestra web y en la de Kfund, que diferencia ve?" / "Cuando mandas un email a un founder, sientes que los materiales te representan?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 5 -->
+    <h2>Premortem y cierre (34-40')</h2>
+
+    <div class="q"><strong>19.</strong> Imaginate 2028: el rebranding se hizo, la web esta lanzada, todo parecia bien. Pero algo fallo. Que crees que habria salido mal?</div>
+    <div class="q"><strong>20.</strong> Que deberia ser invariante en LANAI pase lo que pase? Que no se deberia tocar?</div>
+    <div class="q"><strong>21.</strong> Que nunca deberia parecer LANAI, aunque eso la hiciera mas "profesional"?</div>
+    <div class="q"><strong>22.</strong> Si pudieras garantizar que una sola cosa se resuelva con este proyecto, cual seria?</div>
+    <div class="q"><strong>23.</strong> Hay algo que no te he preguntado y que crees que deberia saber?</div>
+
+    <p class="script">"Muchas gracias, Sandra. Tu perspectiva de primera linea es exactamente lo que necesitamos. Todo confidencial en su atribucion."</p>
+
+    <div class="callout"><p><strong>Pregunta de reserva</strong> (si se queda en la superficie): "Olvidate de lo oficial. Si un amigo tuyo founder te preguntara en una cena 'oye, y LANAI que tal, como es de verdad?', que le dirias?"</p></div>
+
+    <hr>
+
+    <!-- CAPTURA -->
+    <h2>Captura en vivo</h2>
 
     <table>
-      <thead>
-        <tr>
-          <th>Bloque</th>
-          <th>Afirmacion / cita</th>
-          <th>Evidencia</th>
-          <th>Tension detectada</th>
-          <th>Implicacion para marca</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Bloque</th><th>Afirmacion / cita</th><th>Evidencia</th><th>Tension</th><th>Implicacion marca</th></tr></thead>
       <tbody>
         <tr><td>Primera linea</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Diferenciacion</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Identidad</td><td></td><td></td><td></td><td></td></tr>
         <tr><td>Peer set</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Web / materiales</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Tensiones</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tensiones / web</td><td></td><td></td><td></td><td></td></tr>
         <tr><td>Premortem</td><td></td><td></td><td></td><td></td></tr>
       </tbody>
     </table>
 
-    <h3>Captura especifica: lenguaje espontaneo</h3>
-    <p>Anotar las palabras exactas que Sandra usa para describir LANAI sin que se las sugiramos. Este lenguaje natural es una de las salidas mas valiosas de la entrevista.</p>
-
+    <h3>Lenguaje espontaneo</h3>
     <table>
-      <thead>
-        <tr>
-          <th>Momento</th>
-          <th>Palabra / expresion literal</th>
-          <th>Contexto</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td></tr>
-      </tbody>
+      <thead><tr><th>Palabra / expresion literal</th><th>Contexto</th></tr></thead>
+      <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody>
     </table>
 
     <hr>
 
+    <!-- VALIDACION CRUZADA -->
     <h2>Validacion cruzada post-entrevista</h2>
-    <p>Tras la entrevista, cruzar las respuestas de Sandra con el briefing de Guille:</p>
-
     <table>
-      <thead>
-        <tr>
-          <th>Dimension</th>
-          <th>Version Guille (briefing)</th>
-          <th>Version Sandra</th>
-          <th>Coincide?</th>
-          <th>Implicacion</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Dimension</th><th>Briefing Guille</th><th>Sandra</th><th>Coincide?</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Diferenciador principal</td>
-          <td>Feedback en KOs, operadores, founders que quebraron</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Como llegan los founders</td>
-          <td>Referencia, circulo magico</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Percepcion del mercado</td>
-          <td>"Fondo generico, la identidad chusquera no llega"</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Lenguaje natural para describir LANAI</td>
-          <td>Cercano, directo, chusquero, llano</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Que nunca deberia parecer</td>
-          <td>Smart money, fondo de inversion, capital</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Problemas de marca actual</td>
-          <td>"El pajaro chungo", visualmente como todos</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Tension principal</td>
-          <td>"Chusquero" genera resistencia en algunos</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Aspiracion de marca</td>
-          <td>"Operadores como tu", boutique, founder first</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+        <tr><td>Diferenciador principal</td><td>Feedback KOs, operadores, founders que quebraron</td><td></td><td></td></tr>
+        <tr><td>Percepcion del mercado</td><td>"Fondo generico, identidad chusquera no llega"</td><td></td><td></td></tr>
+        <tr><td>Lenguaje natural</td><td>Cercano, directo, chusquero, llano</td><td></td><td></td></tr>
+        <tr><td>Que nunca deberia parecer</td><td>Smart money, fondo de inversion, capital</td><td></td><td></td></tr>
+        <tr><td>Problemas marca actual</td><td>"Pajaro chungo", visualmente como todos</td><td></td><td></td></tr>
+        <tr><td>Aspiracion</td><td>"Operadores como tu", boutique, founder first</td><td></td><td></td></tr>
       </tbody>
     </table>
 
-    <hr>
-
-    <h2>Notas de facilitacion especificas para Sandra</h2>
-
-    <div class="grid-2">
-      <div class="card">
-        <h4>Hacer</h4>
-        <ul>
-          <li>Darle autoridad desde el principio: "Eres quien mas founders ve"</li>
-          <li>Pedir siempre episodios concretos, founders reales</li>
-          <li>Explorar la perspectiva web/materiales: tiene opinion formada</li>
-          <li>Preguntar que lenguaje usa ella, no que lenguaje usan los socios</li>
-          <li>Dejar espacio para que nombre incomodidades</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>No hacer</h4>
-        <ul>
-          <li>No tratar la entrevista como "la menor" del proceso</li>
-          <li>No introducir el lenguaje del briefing de Guille</li>
-          <li>No preguntar por decisiones de partnership que no le competen</li>
-          <li>No dirigir hacia respuestas "correctas"</li>
-          <li>No centrarse solo en la web (es tentador pero hay mas)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Senales de que va bien</h4>
-        <ul>
-          <li>Cuenta anecdotas de founders concretos</li>
-          <li>Usa lenguaje propio, no el de los socios</li>
-          <li>Nombra algo que "no se dice pero se sabe"</li>
-          <li>Compara con otros fondos desde la experiencia de deal flow</li>
-          <li>Senala una inconsistencia entre narrativa y operativa</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Senales de que se degrada</h4>
-        <ul>
-          <li>Responde lo que cree que los socios querrian oir</li>
-          <li>Se queda en generalidades sin casos concretos</li>
-          <li>Solo habla de la web y los materiales</li>
-          <li>Repite el discurso oficial sin matices propios</li>
-          <li>Se muestra cautelosa con las tensiones</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout">
-      <p><strong>Pregunta de reserva</strong> (si la conversacion se queda en la superficie):<br>
-      "Sandra, olvidate un momento de lo oficial. Si un amigo tuyo founder te preguntara en una cena 'oye, y LANAI que tal, como es de verdad?', que le dirias?"</p>
-    </div>
-
-    <div class="footer">
-      Guion interno | Entrevista 1:1 Sandra Castells | LANAI | 498AS | Marzo 2026 | No compartir con el cliente
-    </div>
-
+    <div class="footer">Entrevista 1:1 Sandra Castells | LANAI | 498AS | Marzo 2026 | Interno</div>
   </body>
 </html>
