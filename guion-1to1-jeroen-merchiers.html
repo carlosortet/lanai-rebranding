@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1 Jeroen Merchiers | LANAI</title>
+    <style>
+      @page { size: A4; margin: 20mm 18mm 22mm 18mm; }
+      :root {
+        --ink: #1a1a1a; --muted: #5a6670; --accent: #0e5a52;
+        --accent-light: #e8f0ef; --accent-soft: rgba(14,90,82,0.07);
+        --line: #d4d8dc; --line-light: #e8eaed; --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0; --warning-border: #e8a820;
+        --q-bg: #f0f7f6; --q-border: #0e5a52;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+        font-size: 10pt; line-height: 1.52; color: var(--ink); background: #fff;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      .cover { page-break-after: always; padding: 72px 0; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+      .cover__eyebrow { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+      .cover h1 { font-size: 34pt; font-weight: 600; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 12px; max-width: 20ch; }
+      .cover__subtitle { font-size: 14pt; color: var(--muted); line-height: 1.35; max-width: 46ch; margin-bottom: 44px; }
+      .cover__meta { font-size: 9pt; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 16px; max-width: 36ch; }
+
+      h2 { font-size: 18pt; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 36px 0 6px; page-break-after: avoid; }
+      h2:first-of-type { margin-top: 0; }
+      .lead { font-size: 10.5pt; color: var(--muted); line-height: 1.45; max-width: 60ch; margin-bottom: 18px; }
+      h3 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; page-break-after: avoid; }
+      h4 { font-size: 9pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; page-break-after: avoid; }
+      p { margin-bottom: 7px; max-width: 66ch; }
+      ul, ol { padding-left: 1.2rem; margin-bottom: 10px; }
+      li { margin-bottom: 4px; }
+
+      .q { padding: 10px 14px; margin: 6px 0; border-left: 3px solid var(--q-border); background: var(--q-bg); border-radius: 0 4px 4px 0; font-size: 10.5pt; line-height: 1.45; page-break-inside: avoid; }
+      .q strong { color: var(--accent); }
+      .q-secondary { border-left-color: var(--line); background: var(--section-bg); font-size: 9.5pt; color: var(--muted); }
+
+      .script { padding: 14px 18px; background: var(--section-bg); border: 1px solid var(--line-light); border-radius: 4px; margin: 10px 0 14px; font-style: italic; line-height: 1.5; page-break-inside: avoid; }
+
+      .callout { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; margin: 10px 0 14px; page-break-inside: avoid; }
+      .callout p { margin-bottom: 0; }
+      .warning { padding: 10px 14px; border-left: 3px solid var(--warning-border); background: var(--warning-bg); border-radius: 0 4px 4px 0; margin: 10px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
+
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 14px; }
+      .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
+      .card { padding: 10px 12px; border: 1px solid var(--line-light); border-radius: 4px; background: var(--section-bg); page-break-inside: avoid; }
+      .card h4 { margin-top: 0; margin-bottom: 5px; }
+      .card p, .card ul { font-size: 9pt; margin-bottom: 0; }
+
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 9pt; page-break-inside: avoid; }
+      th { text-align: left; padding: 6px 8px; background: var(--accent); color: white; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+      th:first-child { border-radius: 3px 0 0 0; } th:last-child { border-radius: 0 3px 0 0; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+      tr:nth-child(even) td { background: var(--section-bg); }
+
+      .timeline { margin: 12px 0 16px; padding-left: 0; list-style: none; }
+      .timeline li { position: relative; padding: 8px 0 8px 56px; border-bottom: 1px solid var(--line-light); font-size: 10pt; }
+      .timeline li .t { position: absolute; left: 0; top: 8px; font-size: 8pt; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+
+      hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+      .footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--muted); text-align: center; }
+
+      @media print { .cover { min-height: auto; padding: 80px 0; } .grid-2,.grid-3,.card,table { page-break-inside: avoid; } }
+      @media screen { body { max-width: 760px; margin: 0 auto; padding: 20px; } .cover { min-height: 70vh; } }
+    </style>
+  </head>
+  <body>
+
+    <div class="cover">
+      <p class="cover__eyebrow">Entrevista 1:1 &mdash; Documento interno</p>
+      <h1>Jeroen Merchiers</h1>
+      <p class="cover__subtitle">General Partner y cofundador de LANAI. Ex-Managing Director de Airbnb EMEA. CEO de Zazume. El perfil internacional y corporativo del partnership.</p>
+      <div class="cover__meta">
+        498AS | Abril 2026<br>
+        Duracion: 40 minutos | Online<br>
+        No compartir con el cliente
+      </div>
+    </div>
+
+    <!-- FICHA + CONTEXTO -->
+    <h2>Ficha y contexto</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Perfil</h4>
+        <ul>
+          <li><strong>Rol en LANAI:</strong> General Partner, cofundador</li>
+          <li><strong>Otra actividad:</strong> CEO y cofundador de Zazume (proptech, +4M levantados)</li>
+          <li><strong>Ex-Airbnb:</strong> Managing Director EMEA, 8 anos, desde primeras oficinas hasta IPO</li>
+          <li><strong>Ex-Groupalia:</strong> COO</li>
+          <li><strong>Consultoria:</strong> 10 anos en manufacturing y supply chain internacional</li>
+          <li><strong>Formacion:</strong> Ingenieria Industrial (Solvay, Bruselas), EMBA (IESE)</li>
+          <li><strong>Origen:</strong> Belga, residente en Barcelona</li>
+          <li><strong>Personal:</strong> Padre de tres hijos. Intereses: tecnologia, disrupcion, viajes, personas</li>
+          <li><strong>Inversiones angel:</strong> 21Buttons, Jeff, Trip4Real (vendida a Airbnb)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Por que importa esta entrevista</h4>
+        <ul>
+          <li>Es el socio con mayor proyeccion internacional y perfil corporativo</li>
+          <li>Su experiencia en Airbnb le da una referencia de marca de primer nivel mundial</li>
+          <li>Sabe lo que es construir marca desde cero (Zazume) y escalar una existente (Airbnb)</li>
+          <li>Tiene perspectiva doble: founder activo (Zazume) e inversor (LANAI)</li>
+          <li>Su perfil internacional puede chocar o complementar el posicionamiento "cercano/chusquero"</li>
+          <li>Puede tener la vision mas exigente sobre como deberia leerse LANAI a nivel global</li>
+          <li>Es GP part-time: su nivel de implicacion en la narrativa puede ser distinto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Perfil especifico:</strong> Jeroen es probablemente el socio con el ego profesional mas justificado de la mesa: Airbnb EMEA, IPO, Groupalia, IESE, Solvay. Eso lo convierte en un perfil exigente. No aceptara un proceso que le parezca superficial. Pero tambien es el mas expuesto a la tension personalismo vs institucion: su nombre aporta credibilidad individual que puede eclipsar la marca colectiva. Explorar eso con cuidado.
+    </div>
+
+    <hr>
+
+    <!-- HIPOTESIS -->
+    <h2>Hipotesis a validar con Jeroen</h2>
+    <p>Su perfil permite testear hipotesis que con Sandra o Pau no se pueden explorar de la misma forma.</p>
+
+    <table>
+      <thead><tr><th>Hipotesis del briefing</th><th>Angulo Jeroen</th></tr></thead>
+      <tbody>
+        <tr><td>"Operadores, no financiadores"</td><td>El fue operador a escala global (Airbnb). Su definicion de "operador" puede ser muy distinta a la del resto. Que entiende el por esa palabra?</td></tr>
+        <tr><td>"Cercano / chusquero"</td><td>Viene de corporacion internacional. Ese lenguaje le encaja? Lo usaria? Le incomoda?</td></tr>
+        <tr><td>"El protagonista es el emprendedor"</td><td>Su perfil es el mas visible del partnership. Como vive la tension entre su marca personal y la de LANAI?</td></tr>
+        <tr><td>"Visualmente somos como todos"</td><td>Ha visto marcas de clase mundial desde dentro. Que nivel de exigencia tiene?</td></tr>
+        <tr><td>"80% LPs son founders"</td><td>El propio Jeroen es el tipo de LP que LANAI busca. Como explicaria LANAI a alguien como el?</td></tr>
+        <tr><td>Arquitectura LANAI / Ohana</td><td>Como GP y cofundador, que opina de la simplificacion monolitica? Ohana tiene valor o confunde?</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- ESTRUCTURA -->
+    <h2>Estructura (40 min)</h2>
+    <ul class="timeline">
+      <li><span class="t">00-03'</span><strong>Apertura</strong> &mdash; Encuadre, confidencialidad, posicionar como GP fundador</li>
+      <li><span class="t">03-14'</span><strong>Vision fundacional y tesis</strong> &mdash; Por que LANAI, que deberia ser, como lo penso</li>
+      <li><span class="t">14-24'</span><strong>Marca, mercado y peer set</strong> &mdash; Lectura del mercado, comparables, diferenciacion real</li>
+      <li><span class="t">24-34'</span><strong>Tensiones y escala</strong> &mdash; Personalismo vs institucion, local vs global, cercano vs sofisticado</li>
+      <li><span class="t">34-40'</span><strong>Premortem y cierre</strong> &mdash; Riesgos, invariantes, ambicion</li>
+    </ul>
+
+    <hr>
+
+    <!-- BLOQUE 1 -->
+    <h2>Apertura (0-3')</h2>
+    <p class="script">
+      "Jeroen, gracias por el tiempo. Estamos hablando con cada persona del equipo por separado porque cada uno tiene una lectura distinta de LANAI. La tuya es particularmente interesante: has visto desde dentro como se construye una marca global con Airbnb, y estas construyendo otra con Zazume. Ese criterio es exactamente lo que necesitamos.
+      <br><br>
+      No busco respuestas oficiales. Me interesa tu lectura real, incluso las partes que no estan del todo resueltas. Todo confidencial en su atribucion."
+    </p>
+
+    <div class="callout"><p><strong>Tono:</strong> Con Jeroen no funciona ser pedagogico. Es un perfil senior con criterio formado. Ir directo, tratar como par, no explicar demasiado el proceso. Si percibe tono de consultoria blanda, se desconecta.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 2 -->
+    <h2>Vision fundacional y tesis (3-14')</h2>
+    <p class="lead">Jeroen es cofundador. Tiene la vision de por que existe LANAI y que deberia ser.</p>
+
+    <div class="q"><strong>1.</strong> Cuando cofundaste LANAI, que queriais que fuera? Que vacio veiamos en el mercado?</div>
+    <div class="q"><strong>2.</strong> De esa vision original, que se ha cumplido y que ha cambiado?</div>
+    <div class="q"><strong>3.</strong> Cuando le explicas LANAI a alguien de tu red internacional &mdash; un ex-colega de Airbnb, un founder europeo &mdash; que les dices? Que entienden?</div>
+    <div class="q"><strong>4.</strong> Has construido marca dentro de Airbnb y ahora con Zazume. Que deberia aprender LANAI de esas experiencias?</div>
+    <div class="q"><strong>5.</strong> Si LANAI fuera una empresa de tu portfolio, que le dirias sobre su marca?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Que reaccion especifica genera cuando dices 'LANAI' fuera de Espana?" / "Un founder europeo que no conozca el ecosistema espanol, que entenderia?" / "Airbnb tenia un proposito claro. Cual es el de LANAI?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 3 -->
+    <h2>Marca, mercado y peer set (14-24')</h2>
+    <p class="lead">Su experiencia internacional le da perspectiva unica sobre posicionamiento.</p>
+
+    <div class="q"><strong>6.</strong> Si miras el ecosistema VC espanol desde fuera, donde esta LANAI? Que posicion ocupa realmente?</div>
+    <div class="q"><strong>7.</strong> Con que fondos os confunde el mercado? Donde esta el error de esa confusion?</div>
+    <div class="q"><strong>8.</strong> Si comparas LANAI con JME, Kfund o 4Founders, donde esta la diferencia que un founder sofisticado deberia ver?</div>
+    <div class="q"><strong>9.</strong> Has visto fondos internacionales cuyo posicionamiento o marca admires? Que tienen que LANAI no?</div>
+    <div class="q"><strong>10.</strong> Que dice LANAI de si misma que cualquier fondo early-stage tambien dice? Donde es lenguaje de categoria?</div>
+    <div class="q"><strong>11.</strong> Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando que un founder os eligiera?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es diferenciacion real o prestigio de los socios?" / "Se sostiene sin vuestros nombres?" / "Que fondo tiene el posicionamiento que os gustaria tener?"</div>
+
+    <div class="callout"><p><strong>Atencion:</strong> Jeroen puede responder desde una logica de marca internacional (Airbnb) que no necesariamente aplica a un fondo boutique espanol. Si eso ocurre, anclar: "Y en el contexto espanol, con el tipo de founder que os llega, eso funciona igual?"</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 4 -->
+    <h2>Tensiones y escala (24-34')</h2>
+    <p class="lead">El bloque mas importante con Jeroen. Las tensiones que encarna son las del fondo.</p>
+
+    <h4>Personalismo vs institucion</h4>
+    <div class="q"><strong>12.</strong> Que parte de la reputacion de LANAI depende de los nombres de los socios? Se podria sostener sin ellos?</div>
+    <div class="q"><strong>13.</strong> Tu perfil personal es muy visible: Airbnb, Zazume, IESE. Eso ayuda o complica la marca de LANAI?</div>
+
+    <h4>Local vs internacional</h4>
+    <div class="q"><strong>14.</strong> LANAI se posiciona en Espana. Deberia tener ambicion de lectura internacional? O eso la diluiria?</div>
+    <div class="q"><strong>15.</strong> Cuando un founder europeo o un LP de fuera mira a LANAI, que percibe? Que deberia percibir?</div>
+
+    <h4>Cercano vs sofisticado</h4>
+    <div class="q"><strong>16.</strong> Internamente se describe LANAI como "cercana", "directa", incluso "chusquera". Esas palabras te representan? Las usarias tu?</div>
+    <div class="q"><strong>17.</strong> Hay una tension entre ser un fondo cercano y boutique y parecer suficientemente serio para ciertos LPs o founders?</div>
+    <div class="q"><strong>18.</strong> Que perderia LANAI si se volviera mas "institucional"? Y que ganaria?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Si un LP de fuera te preguntara 'que tipo de fondo es LANAI', que le dirias en una frase?" / "El estilo chusquero funciona con founders, pero con LPs institucionales?" / "Airbnb era cercano y global a la vez. LANAI puede serlo?"</div>
+
+    <div class="warning"><strong>Zona sensible:</strong> La pregunta 13 toca directamente la tension personalismo/institucion. Jeroen es el socio cuyo perfil mas puede eclipsar la marca colectiva. No confrontar, pero si llega a formular la tension, profundizar. Su respuesta puede ser la mas reveladora de todo el proceso.</div>
+
+    <hr>
+
+    <!-- BLOQUE 5 -->
+    <h2>Premortem y cierre (34-40')</h2>
+
+    <div class="q"><strong>19.</strong> Imaginate 2028: el rebranding se hizo, parecia bien ejecutado. Pero fallo. Que crees que habria salido mal?</div>
+    <div class="q"><strong>20.</strong> Que deberia ser invariante en LANAI pase lo que pase? Que no se deberia tocar?</div>
+    <div class="q"><strong>21.</strong> Que nunca deberia parecer LANAI, aunque eso la hiciera mas facil de escalar?</div>
+    <div class="q"><strong>22.</strong> Cual es tu ambicion real para esta marca? No la respuesta diplomatica, la de verdad.</div>
+    <div class="q"><strong>23.</strong> Hay algo que no te he preguntado y que crees que deberia saber?</div>
+
+    <p class="script">"Muchas gracias, Jeroen. Tu perspectiva de fundador con experiencia en marca global es exactamente lo que necesitamos para que esto no sea un ejercicio generico. Todo confidencial en su atribucion."</p>
+
+    <div class="callout"><p><strong>Pregunta de reserva</strong> (si se queda en lo corporativo): "Jeroen, si tuvieras que apostar: dentro de 5 anos, la gente va a recordar LANAI por la marca del fondo o por los nombres de los socios? Cual de las dos cosas merece mas inversion ahora?"</p></div>
+
+    <hr>
+
+    <!-- CAPTURA -->
+    <h2>Captura en vivo</h2>
+
+    <table>
+      <thead><tr><th>Bloque</th><th>Afirmacion / cita</th><th>Evidencia</th><th>Tension</th><th>Implicacion marca</th></tr></thead>
+      <tbody>
+        <tr><td>Vision fundacional</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tesis / proposito</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Peer set</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Personal vs institucion</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Local vs global</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Cercano vs sofisticado</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Premortem</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Lenguaje espontaneo</h3>
+    <table>
+      <thead><tr><th>Palabra / expresion literal</th><th>Contexto</th></tr></thead>
+      <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody>
+    </table>
+
+    <hr>
+
+    <!-- VALIDACION CRUZADA -->
+    <h2>Validacion cruzada post-entrevista</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Briefing Guille</th><th>Sandra</th><th>Pau</th><th>Jeroen</th><th>Patron?</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador principal</td><td>Feedback KOs, operadores, founders que quebraron</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion founders</td><td>"Fondo generico, identidad chusquera no llega"</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion LPs</td><td>80% founders-inversores, "circulo magico"</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Lenguaje natural</td><td>Cercano, directo, chusquero, llano</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tension principal</td><td>"Chusquero" genera resistencia</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Persona vs institucion</td><td>No explorado con Guille</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Local vs global</td><td>Espana, pre-seed</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Que nunca deberia parecer</td><td>Smart money, fondo de inversion</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Aspiracion</td><td>"Operadores como tu", boutique</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">Entrevista 1:1 Jeroen Merchiers | LANAI | 498AS | Abril 2026 | Interno</div>
+  </body>
+</html>
