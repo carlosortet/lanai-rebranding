@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1 Guillermo Llibre | LANAI</title>
+    <style>
+      @page { size: A4; margin: 20mm 18mm 22mm 18mm; }
+      :root {
+        --ink: #1a1a1a; --muted: #5a6670; --accent: #0e5a52;
+        --accent-light: #e8f0ef; --accent-soft: rgba(14,90,82,0.07);
+        --line: #d4d8dc; --line-light: #e8eaed; --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0; --warning-border: #e8a820;
+        --q-bg: #f0f7f6; --q-border: #0e5a52;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+        font-size: 10pt; line-height: 1.52; color: var(--ink); background: #fff;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+
+      .cover { page-break-after: always; padding: 72px 0; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+      .cover__eyebrow { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+      .cover h1 { font-size: 34pt; font-weight: 600; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 12px; max-width: 20ch; }
+      .cover__subtitle { font-size: 14pt; color: var(--muted); line-height: 1.35; max-width: 46ch; margin-bottom: 44px; }
+      .cover__meta { font-size: 9pt; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 16px; max-width: 36ch; }
+
+      h2 { font-size: 18pt; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 36px 0 6px; page-break-after: avoid; }
+      h2:first-of-type { margin-top: 0; }
+      .lead { font-size: 10.5pt; color: var(--muted); line-height: 1.45; max-width: 60ch; margin-bottom: 18px; }
+      h3 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; page-break-after: avoid; }
+      h4 { font-size: 9pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; page-break-after: avoid; }
+      p { margin-bottom: 7px; max-width: 66ch; }
+      ul, ol { padding-left: 1.2rem; margin-bottom: 10px; }
+      li { margin-bottom: 4px; }
+
+      .q { padding: 10px 14px; margin: 6px 0; border-left: 3px solid var(--q-border); background: var(--q-bg); border-radius: 0 4px 4px 0; font-size: 10.5pt; line-height: 1.45; page-break-inside: avoid; }
+      .q strong { color: var(--accent); }
+      .q-secondary { border-left-color: var(--line); background: var(--section-bg); font-size: 9.5pt; color: var(--muted); }
+
+      .script { padding: 14px 18px; background: var(--section-bg); border: 1px solid var(--line-light); border-radius: 4px; margin: 10px 0 14px; font-style: italic; line-height: 1.5; page-break-inside: avoid; }
+
+      .callout { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; margin: 10px 0 14px; page-break-inside: avoid; }
+      .callout p { margin-bottom: 0; }
+      .warning { padding: 10px 14px; border-left: 3px solid var(--warning-border); background: var(--warning-bg); border-radius: 0 4px 4px 0; margin: 10px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
+
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 14px; }
+      .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
+      .card { padding: 10px 12px; border: 1px solid var(--line-light); border-radius: 4px; background: var(--section-bg); page-break-inside: avoid; }
+      .card h4 { margin-top: 0; margin-bottom: 5px; }
+      .card p, .card ul { font-size: 9pt; margin-bottom: 0; }
+
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 9pt; page-break-inside: avoid; }
+      th { text-align: left; padding: 6px 8px; background: var(--accent); color: white; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+      th:first-child { border-radius: 3px 0 0 0; } th:last-child { border-radius: 0 3px 0 0; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+      tr:nth-child(even) td { background: var(--section-bg); }
+
+      .timeline { margin: 12px 0 16px; padding-left: 0; list-style: none; }
+      .timeline li { position: relative; padding: 8px 0 8px 56px; border-bottom: 1px solid var(--line-light); font-size: 10pt; }
+      .timeline li .t { position: absolute; left: 0; top: 8px; font-size: 8pt; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+
+      hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+      .footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--muted); text-align: center; }
+
+      @media print { .cover { min-height: auto; padding: 80px 0; } .grid-2,.grid-3,.card,table { page-break-inside: avoid; } }
+      @media screen { body { max-width: 760px; margin: 0 auto; padding: 20px; } .cover { min-height: 70vh; } }
+    </style>
+  </head>
+  <body>
+
+    <div class="cover">
+      <p class="cover__eyebrow">Entrevista 1:1 &mdash; Documento interno</p>
+      <h1>Guillermo Llibre</h1>
+      <p class="cover__subtitle">General Partner y cofundador de LANAI. CEO y fundador de Housell. Emprendedor serial. Nuestro interlocutor principal en el briefing previo.</p>
+      <div class="cover__meta">
+        498AS | Abril 2026<br>
+        Duracion: 40 minutos | Online<br>
+        No compartir con el cliente
+      </div>
+    </div>
+
+    <!-- FICHA + CONTEXTO -->
+    <h2>Ficha y contexto</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Perfil</h4>
+        <ul>
+          <li><strong>Rol en LANAI:</strong> General Partner, cofundador</li>
+          <li><strong>Otra actividad:</strong> CEO y fundador de Housell (proptech)</li>
+          <li><strong>Empresas fundadas:</strong> Housell, Groupalia (cofundador), GymForLess (adquirida por Sodexo)</li>
+          <li><strong>+15 anos:</strong> en empresas de internet (Glovo, DogBuddy/Rover, TViso, Akiles, Gratix, SecondProp, Zazume...)</li>
+          <li><strong>ONGs:</strong> Cofundador de Adama, ALL1team, Blum</li>
+          <li><strong>Formacion:</strong> Informatica + Master en Finanzas (UPC)</li>
+          <li><strong>Especialidad:</strong> Ventas, marketing, crecimiento con tecnologia</li>
+          <li><strong>Mentor:</strong> SeedRocket</li>
+          <li><strong>Personal:</strong> Padre de tres hijos, casado +20 anos, trail running</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Por que esta entrevista es distinta</h4>
+        <ul>
+          <li><strong>Es nuestro interlocutor principal:</strong> hizo el briefing inicial (formulario + reunion 4 marzo, 48 min)</li>
+          <li>Ya nos ha dado su lectura de LANAI, valores, diferenciadores, tensiones</li>
+          <li>Esta entrevista NO es una repeticion del briefing</li>
+          <li>Es una oportunidad de profundizar donde el briefing se quedo en la superficie</li>
+          <li>Es el socio mas "founder puro" del partnership: Housell, Groupalia, GymForLess</li>
+          <li>Probablemente encarna la narrativa "chusquera" mas que nadie</li>
+          <li>Su vision esta inevitablemente mas presente en el briefing: hay que equilibrar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Riesgo principal de esta entrevista:</strong> Guille ya nos ha dado mucho. Puede sentir que "esto ya lo hemos hablado". El encuadre debe ser claro: esta sesion no es para repetir el briefing, es para ir mas profundo en las zonas que quedaron sin explorar, y para darle el mismo formato que al resto del equipo, de modo que su input sea comparable y cruzable con los demas.
+    </div>
+
+    <hr>
+
+    <!-- QUE YA SABEMOS -->
+    <h2>Lo que ya dijo en el briefing</h2>
+    <p class="lead">Resumen de las posiciones que Guille ya ha articulado. No repetir estas preguntas. Usarlas como punto de partida para profundizar.</p>
+
+    <table>
+      <thead><tr><th>Tema</th><th>Posicion en el briefing</th><th>Donde profundizar</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador</td><td>Feedback detallado en KOs, founders que quebraron como "estrellas" ante LPs, a veces aconsejan NO buscar capital</td><td>Que tan sistematico es esto? Pasa con todos o solo con el? Otros socios lo harian igual?</td></tr>
+        <tr><td>Identidad</td><td>"Chusquero", cercano, directo, horizontal</td><td>Todos los socios se identifican con esto? O es mas su estilo personal?</td></tr>
+        <tr><td>Claim</td><td>"Operadores como tu" propuesto sin validar</td><td>Se lo ha dicho a alguien? Que reaccion genero?</td></tr>
+        <tr><td>Audiencia</td><td>"El protagonista es siempre el emprendedor, no el fondo"</td><td>Los demas socios estan igual de comprometidos con eso?</td></tr>
+        <tr><td>Arquitectura</td><td>LANAI visible / Ohana paraguas interno. Simplificacion monolitica</td><td>Hay resistencia interna a eliminar Ohana?</td></tr>
+        <tr><td>Tension detectada</td><td>"Chusquero" genera resistencia en algunos socios</td><td>Quienes? Por que? Que alternativa proponen?</td></tr>
+        <tr><td>Evitar</td><td>"Smart money", "fondo de inversion", "capital"</td><td>Que pasa cuando un LP o un intermediario usa esas palabras?</td></tr>
+        <tr><td>Visual</td><td>"Un pajaro chungo", "visualmente como todos los demas"</td><td>Que nivel de cambio visual espera? Evolucion o ruptura?</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- ESTRUCTURA -->
+    <h2>Estructura (40 min)</h2>
+    <ul class="timeline">
+      <li><span class="t">00-03'</span><strong>Apertura</strong> &mdash; Reencuadre: no repetir el briefing, ir mas profundo</li>
+      <li><span class="t">03-14'</span><strong>Lo que el briefing no capturo</strong> &mdash; Episodios, matices, zonas sin explorar</li>
+      <li><span class="t">14-24'</span><strong>El partnership y la diversidad interna</strong> &mdash; Alineamiento real, divergencias, dinamica</li>
+      <li><span class="t">24-34'</span><strong>Marca, ambicion y limites</strong> &mdash; Hasta donde, que nivel de cambio, que riesgos</li>
+      <li><span class="t">34-40'</span><strong>Premortem y cierre</strong> &mdash; Miedos reales, invariantes, expectativa del proceso</li>
+    </ul>
+
+    <hr>
+
+    <!-- BLOQUE 1 -->
+    <h2>Apertura (0-3')</h2>
+    <p class="script">
+      "Guille, gracias. Ya sabes como trabajamos porque hemos tenido el briefing juntos. Esta conversacion es distinta: no vamos a repetir lo que ya hablamos. Lo que quiero es ir a las zonas que quedaron sin explorar, y hacerlo con el mismo formato que estamos usando con el resto del equipo, para poder cruzar las lecturas.
+      <br><br>
+      Ademas, tu eres quien mas ha pensado en esto. Eso es una ventaja pero tambien un riesgo: tu lectura puede estar tan formada que cueste distinguir tu opinion personal de la identidad real de la firma. Hoy quiero ayudarte a separar ambas cosas."
+    </p>
+
+    <div class="callout"><p><strong>Tono:</strong> Con Guille hay confianza. Usarla para ser mas directo que con los demas. El encuadre "separar tu opinion de la identidad real" es provocador pero honesto, y eleva la conversacion desde el principio.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 2 -->
+    <h2>Lo que el briefing no capturo (3-14')</h2>
+    <p class="lead">Ir a episodios concretos y matices que un formulario y una reunion de 48 minutos no pueden captar.</p>
+
+    <h4>Episodios concretos</h4>
+    <div class="q"><strong>1.</strong> Dame el mejor episodio que tengas de un founder que entendio LANAI exactamente como queriais. Que paso, quien estaba, que se dijo.</div>
+    <div class="q"><strong>2.</strong> Y el peor: un momento donde os leyeron mal, os simplificaron o os confundieron con otro fondo. Que consecuencia tuvo.</div>
+    <div class="q"><strong>3.</strong> Hay algun founder que os dijera algo sobre LANAI que os sorprendiera, para bien o para mal? Algo que no esperabais oir.</div>
+
+    <h4>El feedback como diferenciador</h4>
+    <div class="q"><strong>4.</strong> En el briefing dijiste que dais feedback detallado incluso en los KOs. Esto lo haceis todos por igual o depende de quien lleve el deal?</div>
+    <div class="q"><strong>5.</strong> Si un founder recibe un KO con feedback detallado de LANAI y un KO seco de otro fondo, que efecto tiene eso a medio plazo?</div>
+
+    <h4>La narrativa de origen</h4>
+    <div class="q"><strong>6.</strong> "Emprendedores que quebraron, vendieron, invirtieron mal y aprendieron." Eso nos lo dijiste en el briefing. Pero se le cuenta a los founders? Aparece en algun sitio? O es una verdad interna que no se comunica?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Que hiciste tu exactamente en ese momento?" / "Eso es algo que haces tu o algo que hace LANAI como firma?" / "Si tu no estuvieras, seguiria pasando?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 3 -->
+    <h2>El partnership y la diversidad interna (14-24')</h2>
+    <p class="lead">Guille ha definido mucho del briefing. Ahora toca explorar si esa definicion es compartida o es su lectura personal.</p>
+
+    <div class="q"><strong>7.</strong> De todo lo que nos contaste en el briefing, que crees que los otros socios suscribirian palabra por palabra? Y que matizarian o dirian distinto?</div>
+    <div class="q"><strong>8.</strong> En el briefing aparecio que "chusquero" genera resistencia en algunos socios. Quien y por que? Que alternativa proponen ellos?</div>
+    <div class="q"><strong>9.</strong> Los cuatro GPs teneis perfiles muy distintos: tu eres el founder serial puro, Jeroen es Airbnb/corporacion global, Ruben es el business angel veterano, Diego es estrategia/Uber. Esas cuatro identidades, como conviven dentro de LANAI?</div>
+    <div class="q"><strong>10.</strong> Hay alguna lectura de la firma que un socio tenga y que creas que es incorrecta pero no hayas querido confrontar?</div>
+    <div class="q"><strong>11.</strong> Si la futura marca tuviera que representar a los cuatro por igual, que se perderia de cada uno? Que se ganaria?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso lo habeis hablado entre vosotros o es tu percepcion?" / "Si le pregunto a Jeroen esto mismo, que crees que me dira?" / "Donde esta la mayor distancia de lectura entre socios?"</div>
+
+    <div class="warning"><strong>Zona sensible:</strong> Este bloque puede revelar tensiones internas que Guille no quiera nombrar. No forzar, pero si abre la puerta, profundizar. Las preguntas 8 y 10 son las mas delicadas. Usar tono de curiosidad, no de interrogatorio. Recordar que todo es confidencial.</div>
+
+    <hr>
+
+    <!-- BLOQUE 4 -->
+    <h2>Marca, ambicion y limites (24-34')</h2>
+    <p class="lead">Guille ha liderado el proceso. Explorar su nivel de ambicion, sus limites y su expectativa real.</p>
+
+    <h4>Ambicion y territorio</h4>
+    <div class="q"><strong>12.</strong> En el briefing propusiste "Operadores como tu" como claim. Se lo has dicho a alguien? Que reaccion tuvo?</div>
+    <div class="q"><strong>13.</strong> Si pudieras definir el territorio de marca que LANAI deberia ocupar &mdash; no un slogan, sino un espacio mental &mdash; cual seria?</div>
+    <div class="q"><strong>14.</strong> Que fondo tiene hoy el posicionamiento que te gustaria para LANAI? Que le envidias?</div>
+
+    <h4>Nivel de cambio</h4>
+    <div class="q"><strong>15.</strong> Que nivel de cambio esperas de este proceso? Evolucion, actualizacion o ruptura?</div>
+    <div class="q"><strong>16.</strong> Dijiste que el pajaro "es chungo". Que nivel de cambio visual esperas? Conservar esencia o empezar de cero?</div>
+    <div class="q"><strong>17.</strong> Hay algo del LANAI actual que deberia sobrevivir al rebranding sin tocarse?</div>
+
+    <h4>Expectativa del proceso</h4>
+    <div class="q"><strong>18.</strong> Como sabras que este proceso ha funcionado? Que tendria que pasar para que digas "ha valido la pena"?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es lo que tu quieres o lo que crees que el equipo quiere?" / "Si el resultado final no te convence a ti pero convence a los demas, que harias?" / "Que es mas importante: que la marca te represente a ti o que represente a la firma?"</div>
+
+    <div class="callout"><p><strong>Atencion:</strong> Guille puede tener una vision muy formada y querer dirigir el resultado. La pregunta 18 es clave: revela si su criterio de exito es personal o institucional. Si dice "que me guste", la tension personalismo/institucion esta viva. Si dice "que funcione en el mercado", hay madurez de proceso.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 5 -->
+    <h2>Premortem y cierre (34-40')</h2>
+
+    <div class="q"><strong>19.</strong> Imaginate 2028: el rebranding se hizo, parecia bien, pero fallo. Que habria salido mal? Y se honesto: cual seria tu parte de culpa en ese fracaso?</div>
+    <div class="q"><strong>20.</strong> Que es lo que mas te preocupa de este proceso? No del resultado, del proceso en si.</div>
+    <div class="q"><strong>21.</strong> Que nunca deberia parecer LANAI? Y que deberia parecer siempre, pase lo que pase?</div>
+    <div class="q"><strong>22.</strong> Si solo pudiera salir una cosa bien de todo este proyecto, que elegirias?</div>
+    <div class="q"><strong>23.</strong> Hay algo que no me hayas contado ni en el briefing ni ahora y que creas que deberia saber antes de hablar con los demas?</div>
+
+    <p class="script">"Guille, gracias. Eres quien mas contexto nos ha dado de todo el equipo y eso ha sido clave para arrancar. Ahora el reto es complementar tu lectura con la del resto para que el resultado sea de todos, no solo tuyo. Todo confidencial en su atribucion."</p>
+
+    <div class="callout"><p><strong>Pregunta de reserva</strong> (si se queda en lo ya dicho): "Guille, si yo hablara con los cuatro socios y les pidiera que definieran LANAI en una frase, obtendria cuatro frases parecidas o cuatro frases distintas? Cual seria la tuya y cual crees que seria la mas diferente?"</p></div>
+
+    <hr>
+
+    <!-- CAPTURA -->
+    <h2>Captura en vivo</h2>
+
+    <table>
+      <thead><tr><th>Bloque</th><th>Afirmacion / cita</th><th>Evidencia</th><th>Tension</th><th>Implicacion marca</th></tr></thead>
+      <tbody>
+        <tr><td>Episodios nuevos</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Feedback / KOs</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Partnership</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tension chusquero</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Ambicion / territorio</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Nivel de cambio</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Premortem</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Lenguaje espontaneo</h3>
+    <p>Especialmente relevante: anotar si Guille usa lenguaje distinto al del briefing. Si ha refinado o cambiado su discurso, eso es una senal.</p>
+    <table>
+      <thead><tr><th>Palabra / expresion literal</th><th>Contexto</th><th>Ya aparecio en briefing?</th></tr></thead>
+      <tbody><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody>
+    </table>
+
+    <hr>
+
+    <!-- VALIDACION CRUZADA -->
+    <h2>Validacion cruzada post-entrevista</h2>
+    <p>Con Guille la validacion cruzada es doble: briefing vs 1:1 (consistencia interna) y Guille vs resto del equipo (consistencia colectiva).</p>
+
+    <h4>Briefing vs 1:1 (consistencia de Guille)</h4>
+    <table>
+      <thead><tr><th>Dimension</th><th>Briefing (4 marzo)</th><th>1:1</th><th>Cambio?</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador principal</td><td>Feedback KOs, operadores, founders que quebraron</td><td></td><td></td></tr>
+        <tr><td>Lenguaje / estilo</td><td>Chusquero, cercano, directo</td><td></td><td></td></tr>
+        <tr><td>Claim</td><td>"Operadores como tu"</td><td></td><td></td></tr>
+        <tr><td>Tension principal</td><td>"Chusquero" genera resistencia</td><td></td><td></td></tr>
+        <tr><td>Visual</td><td>"Pajaro chungo", como todos</td><td></td><td></td></tr>
+        <tr><td>Criterio de exito</td><td>No definido en briefing</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h4>Guille vs resto del equipo</h4>
+    <table>
+      <thead><tr><th>Dimension</th><th>Guille</th><th>Sandra</th><th>Pau</th><th>Jeroen</th><th>Patron?</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador principal</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion founders</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion LPs</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Lenguaje natural</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tension principal</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Persona vs institucion</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Que nunca deberia parecer</td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Nivel de cambio esperado</td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">Entrevista 1:1 Guillermo Llibre | LANAI | 498AS | Abril 2026 | Interno</div>
+  </body>
+</html>
