@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1 Ruben Ferreiro | LANAI</title>
+    <style>
+      @page { size: A4; margin: 20mm 18mm 22mm 18mm; }
+      :root {
+        --ink: #1a1a1a; --muted: #5a6670; --accent: #0e5a52;
+        --accent-light: #e8f0ef; --accent-soft: rgba(14,90,82,0.07);
+        --line: #d4d8dc; --line-light: #e8eaed; --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0; --warning-border: #e8a820;
+        --q-bg: #f0f7f6; --q-border: #0e5a52;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+        font-size: 10pt; line-height: 1.52; color: var(--ink); background: #fff;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .cover { page-break-after: always; padding: 72px 0; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+      .cover__eyebrow { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+      .cover h1 { font-size: 34pt; font-weight: 600; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 12px; max-width: 20ch; }
+      .cover__subtitle { font-size: 14pt; color: var(--muted); line-height: 1.35; max-width: 46ch; margin-bottom: 44px; }
+      .cover__meta { font-size: 9pt; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 16px; max-width: 36ch; }
+      h2 { font-size: 18pt; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 36px 0 6px; page-break-after: avoid; }
+      h2:first-of-type { margin-top: 0; }
+      .lead { font-size: 10.5pt; color: var(--muted); line-height: 1.45; max-width: 60ch; margin-bottom: 18px; }
+      h3 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; page-break-after: avoid; }
+      h4 { font-size: 9pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; page-break-after: avoid; }
+      p { margin-bottom: 7px; max-width: 66ch; }
+      ul, ol { padding-left: 1.2rem; margin-bottom: 10px; }
+      li { margin-bottom: 4px; }
+      .q { padding: 10px 14px; margin: 6px 0; border-left: 3px solid var(--q-border); background: var(--q-bg); border-radius: 0 4px 4px 0; font-size: 10.5pt; line-height: 1.45; page-break-inside: avoid; }
+      .q strong { color: var(--accent); }
+      .q-secondary { border-left-color: var(--line); background: var(--section-bg); font-size: 9.5pt; color: var(--muted); }
+      .script { padding: 14px 18px; background: var(--section-bg); border: 1px solid var(--line-light); border-radius: 4px; margin: 10px 0 14px; font-style: italic; line-height: 1.5; page-break-inside: avoid; }
+      .callout { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; margin: 10px 0 14px; page-break-inside: avoid; }
+      .callout p { margin-bottom: 0; }
+      .warning { padding: 10px 14px; border-left: 3px solid var(--warning-border); background: var(--warning-bg); border-radius: 0 4px 4px 0; margin: 10px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 14px; }
+      .card { padding: 10px 12px; border: 1px solid var(--line-light); border-radius: 4px; background: var(--section-bg); page-break-inside: avoid; }
+      .card h4 { margin-top: 0; margin-bottom: 5px; }
+      .card p, .card ul { font-size: 9pt; margin-bottom: 0; }
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 9pt; page-break-inside: avoid; }
+      th { text-align: left; padding: 6px 8px; background: var(--accent); color: white; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+      th:first-child { border-radius: 3px 0 0 0; } th:last-child { border-radius: 0 3px 0 0; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+      tr:nth-child(even) td { background: var(--section-bg); }
+      .timeline { margin: 12px 0 16px; padding-left: 0; list-style: none; }
+      .timeline li { position: relative; padding: 8px 0 8px 56px; border-bottom: 1px solid var(--line-light); font-size: 10pt; }
+      .timeline li .t { position: absolute; left: 0; top: 8px; font-size: 8pt; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+      hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+      .footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--muted); text-align: center; }
+      @media print { .cover { min-height: auto; padding: 80px 0; } .grid-2,.card,table { page-break-inside: avoid; } }
+      @media screen { body { max-width: 760px; margin: 0 auto; padding: 20px; } .cover { min-height: 70vh; } }
+    </style>
+  </head>
+  <body>
+
+    <div class="cover">
+      <p class="cover__eyebrow">Entrevista 1:1 &mdash; Documento interno</p>
+      <h1>Ruben Ferreiro</h1>
+      <p class="cover__subtitle">General Partner y cofundador de LANAI. CEO de VIKO Group. Presidente de YABA. Business angel desde 2010. Emprendedor del Ano Galicia 2025. El perfil empresario-operador del partnership.</p>
+      <div class="cover__meta">
+        498AS | Abril 2026<br>
+        Duracion: 40 minutos | Online<br>
+        No compartir con el cliente
+      </div>
+    </div>
+
+    <!-- FICHA + CONTEXTO -->
+    <h2>Ficha y contexto</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Perfil</h4>
+        <ul>
+          <li><strong>Rol en LANAI:</strong> General Partner, cofundador</li>
+          <li><strong>VIKO Group:</strong> CEO y fundador. Digital-business Factory. 220 personas, +10M netos, 20+ mercados, 5 continentes</li>
+          <li><strong>YABA:</strong> Cofundador y presidente. Agregador de marcas nativas digitales en sur de Europa. +75M financiados</li>
+          <li><strong>Exits:</strong> Elogia (accionista principal), Arengu (vendida a Okta por +12M$)</li>
+          <li><strong>Empresas VIKO:</strong> Marketing4eCommerce, Kraz, Candee, Optopus, Kaibos</li>
+          <li><strong>Angel desde 2010:</strong> 25+ inversiones (Glovo, Cabify, Housfy, Ulabox, Ritmo, Akiles, Guruwalk...)</li>
+          <li><strong>Formacion:</strong> Economia (Univ. Santiago de Compostela), 2 masters en E-commerce y Business</li>
+          <li><strong>Mentor:</strong> SeedRocket</li>
+          <li><strong>Reconocimiento:</strong> Emprendedor del Ano Galicia 2025</li>
+          <li><strong>Personal:</strong> Gallego, residente en Barcelona, conexion con Mexico. Gastronomia, viajes</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Por que importa esta entrevista</h4>
+        <ul>
+          <li>Es el socio con <strong>mayor trayectoria empresarial activa</strong>: VIKO (220 personas) + YABA (75M) + portfolio angel</li>
+          <li>Cofundador original de LANAI junto con Jeroen y Guille</li>
+          <li>Se autodefine como "perfil hibrido": empresario tradicional + emprendedor + inversor</li>
+          <li>Business angel desde 2010: el que mas anos lleva invirtiendo del partnership</li>
+          <li>Presencia en Espana y Mexico: perspectiva de mercado latino</li>
+          <li>Gestiona una empresa de 220 personas: sabe lo que es escala operativa real</li>
+          <li>Su portfolio angel incluye Glovo y Cabify: tiene referencia de marcas que escalaron</li>
+          <li>Es GP part-time: su nivel de dedicacion a LANAI es compartido con VIKO y YABA</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Perfil especifico:</strong> Ruben es el socio que mas "empresa real" gestiona (VIKO, 220 personas). No es un founder de startup que vende y se dedica a invertir; es un empresario activo que ademas invierte. Eso le da una perspectiva muy practica sobre que necesita un emprendedor y que no. Tambien puede ser el que menos tiempo dedica al dia a dia de LANAI. La pregunta clave es: como vive LANAI alguien que tiene la cabeza en tres sitios (VIKO, YABA, LANAI) y que rol juega la marca en cada uno. Ademas, como gallego emprendiendo desde Barcelona con presencia en Mexico, puede tener una lectura distinta de lo que "cercano" significa a escala.
+    </div>
+
+    <hr>
+
+    <!-- HIPOTESIS -->
+    <h2>Hipotesis a validar con Ruben</h2>
+
+    <table>
+      <thead><tr><th>Hipotesis del briefing</th><th>Angulo Ruben</th></tr></thead>
+      <tbody>
+        <tr><td>"Operadores, no financiadores"</td><td>Ruben es literalmente un operador: gestiona 220 personas y una empresa multimercado. Su definicion de "operador" puede ser la mas exigente del partnership.</td></tr>
+        <tr><td>"Cercano / chusquero"</td><td>Emprendedor desde 2001, gallego, gastronomia, mentor SeedRocket. Probablemente conecta con el concepto. Pero lo usaria ante un LP de YABA?</td></tr>
+        <tr><td>"80% LPs son founders"</td><td>Ruben tiene una red enorme de emprendedores digitales. Esos founders que invierte como angel son tambien el tipo de LP que busca LANAI?</td></tr>
+        <tr><td>"El protagonista es el emprendedor"</td><td>Gestiona VIKO donde los protagonistas son sus equipos. Entiende la dinamica de "no ser el centro". Pero aplica eso a LANAI?</td></tr>
+        <tr><td>"Visualmente como todos los demas"</td><td>Tiene Marketing4eCommerce en su grupo. Conoce branding digital de primera mano. Que nivel de exigencia tiene?</td></tr>
+        <tr><td>GP part-time</td><td>Dedica tiempo partido entre VIKO, YABA y LANAI. Como afecta eso a su conexion con la marca? La siente suya?</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- ESTRUCTURA -->
+    <h2>Estructura (40 min)</h2>
+    <ul class="timeline">
+      <li><span class="t">00-03'</span><strong>Apertura</strong> &mdash; Encuadre, confidencialidad, posicionar su perfil empresario-inversor</li>
+      <li><span class="t">03-14'</span><strong>LANAI desde el empresario</strong> &mdash; Por que cofundo LANAI, como la vive, que papel juega en su ecosistema</li>
+      <li><span class="t">14-24'</span><strong>Mercado, founders y diferenciacion</strong> &mdash; Que ven los founders, peer set, donde esta la diferencia real</li>
+      <li><span class="t">24-34'</span><strong>Tensiones y marca</strong> &mdash; Operador vs inversor, part-time vs full-time, local vs LATAM, persona vs firma</li>
+      <li><span class="t">34-40'</span><strong>Premortem y cierre</strong> &mdash; Riesgos, invariantes, pregunta abierta</li>
+    </ul>
+
+    <hr>
+
+    <!-- BLOQUE 1 -->
+    <h2>Apertura (0-3')</h2>
+    <p class="script">
+      "Ruben, gracias por el tiempo. Estamos hablando con cada persona del equipo por separado. Tu perspectiva me interesa especialmente: gestionas una empresa de 220 personas, has cofundado YABA, llevas invirtiendo como angel desde 2010 y cofundaste LANAI. Tienes una vision de empresario activo que ninguno de los otros socios tiene exactamente igual.
+      <br><br>
+      No busco respuestas oficiales. Me interesa tu lectura real de LANAI, desde tu posicion particular. Todo confidencial en su atribucion."
+    </p>
+
+    <div class="callout"><p><strong>Tono:</strong> Ruben es empresario, pragmatico y directo. No necesita grandes marcos conceptuales. Probablemente responde mejor a preguntas concretas y operativas que a preguntas abstractas sobre "esencia de marca". Ir al caso, al ejemplo, al founder real.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 2 -->
+    <h2>LANAI desde el empresario (3-14')</h2>
+    <p class="lead">Ruben tiene VIKO, YABA y LANAI. Explorar como encaja LANAI en su ecosistema y como la vive alguien con la cabeza en tres sitios.</p>
+
+    <h4>La fundacion y la evolucion</h4>
+    <div class="q"><strong>1.</strong> Cuando cofundaste LANAI con Jeroen y Guille, que queriais crear? Que vacio veiamos?</div>
+    <div class="q"><strong>2.</strong> De esa idea original, que se ha cumplido y que ha cambiado con los anos?</div>
+    <div class="q"><strong>3.</strong> Tu te defines como "perfil hibrido": empresario, emprendedor e inversor. Donde encaja LANAI en ese mapa?</div>
+
+    <h4>La experiencia desde VIKO</h4>
+    <div class="q"><strong>4.</strong> Gestionas VIKO con 220 personas en 20 mercados. Que has aprendido ahi sobre marca y posicionamiento que aplique a LANAI?</div>
+    <div class="q"><strong>5.</strong> Tienes Marketing4eCommerce en tu grupo. Cuando miras la marca de LANAI con esos ojos, que ves?</div>
+    <div class="q"><strong>6.</strong> Como empresario activo, que le dirias a un founder sobre LANAI que un socio que solo invierte no podria decir?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso lo puede decir cualquier fondo o es algo especifico de tu experiencia?" / "Cuando hablas con un founder sobre LANAI, usas las mismas palabras que cuando hablas de VIKO?" / "Si LANAI fuera una empresa de tu portfolio, que le dirias sobre su marca?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 3 -->
+    <h2>Mercado, founders y diferenciacion (14-24')</h2>
+    <p class="lead">Ruben lleva invirtiendo como angel desde 2010. Ha visto el ecosistema crecer. Su lectura del mercado es larga.</p>
+
+    <div class="q"><strong>7.</strong> Llevas 15 anos invirtiendo. Como ha cambiado la percepcion del mercado sobre LANAI desde el inicio?</div>
+    <div class="q"><strong>8.</strong> Cuando un founder llega a LANAI a traves de tu red, que impresion se lleva? Que te comentan despues?</div>
+    <div class="q"><strong>9.</strong> Con que fondos os confunde el mercado? Donde esta el error?</div>
+    <div class="q"><strong>10.</strong> Si comparas LANAI con JME, Kfund o 4Founders, donde esta la diferencia que un founder deberia ver?</div>
+    <div class="q"><strong>11.</strong> Has invertido temprano en Glovo y Cabify. Esas marcas crecieron mucho. Que aprendiste viendolas escalar que aplique a como LANAI deberia construir su marca?</div>
+    <div class="q"><strong>12.</strong> Que dice LANAI de si misma que cualquier fondo dice tambien? Donde estamos en lenguaje de categoria?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es diferenciacion real o es que nos conocen personalmente?" / "Un founder que no conozca a ninguno de los socios, que veria en LANAI?" / "Que fondo tiene la marca que nos gustaria tener?"</div>
+
+    <div class="callout"><p><strong>Atencion:</strong> Ruben tiene presencia en Mexico a traves de VIKO. Preguntar: "En el ecosistema mexicano o latino, LANAI se conoce? Deberia? O es un terreno que no nos corresponde?" Esa perspectiva LATAM es unica entre los socios.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 4 -->
+    <h2>Tensiones y marca (24-34')</h2>
+    <p class="lead">Las tensiones que Ruben encarna son distintas: empresario activo part-time, operador a escala real, cofundador con otra vida profesional dominante.</p>
+
+    <h4>Operador de verdad</h4>
+    <div class="q"><strong>13.</strong> LANAI dice que sus socios son "operadores". Tu gestionas 220 personas. Los demas socios son operadores en el mismo sentido que tu?</div>
+    <div class="q"><strong>14.</strong> Si un founder le preguntara a tu equipo de VIKO "como es Ruben como jefe", y luego le preguntara a un founder de portfolio "como es LANAI como inversor", dirian cosas parecidas?</div>
+
+    <h4>Part-time y dedicacion</h4>
+    <div class="q"><strong>15.</strong> Tienes VIKO, YABA y LANAI. Como repartes la cabeza? Y sobre todo: los founders y LPs de LANAI perciben eso como un problema o como una ventaja?</div>
+    <div class="q"><strong>16.</strong> La marca de LANAI refleja suficientemente lo que cada socio aporta, o refleja mas a unos que a otros?</div>
+
+    <h4>Cercano vs escala</h4>
+    <div class="q"><strong>17.</strong> Internamente se describe LANAI como "cercana", "directa", "chusquera". Esas palabras te representan?</div>
+    <div class="q"><strong>18.</strong> Gestionas una empresa en 20 mercados y 5 continentes. Desde esa escala, el posicionamiento boutique-cercano de LANAI funciona o se queda corto?</div>
+    <div class="q"><strong>19.</strong> Que perderia LANAI si se volviera mas "institucional"? Y que ganaria?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Usarias la palabra 'chusquero' en una reunion con LPs de YABA?" / "Si la marca de LANAI tuviera que funcionar sin ninguno de los socios, que deberia decir?" / "Donde esta la mayor distancia entre como LANAI se ve y como la ven?"</div>
+
+    <div class="warning"><strong>Zona clave:</strong> La pregunta 13 es potencialmente la mas reveladora. Si Ruben dice "yo soy operador, los demas son inversores-founder", hay una tension real en la narrativa "somos operadores". Si dice "todos somos operadores pero de distinto tipo", la narrativa es mas rica. Si dice "operador es una palabra grande", el claim "Operadores como tu" tiene un problema.</div>
+
+    <hr>
+
+    <!-- BLOQUE 5 -->
+    <h2>Premortem y cierre (34-40')</h2>
+
+    <div class="q"><strong>20.</strong> Imaginate 2028: el rebranding se hizo, parecia bien ejecutado. Pero fallo. Que crees que habria salido mal?</div>
+    <div class="q"><strong>21.</strong> Que deberia ser invariante en LANAI pase lo que pase? Que no se deberia tocar?</div>
+    <div class="q"><strong>22.</strong> Que nunca deberia parecer LANAI, aunque eso facilitara comercializarla?</div>
+    <div class="q"><strong>23.</strong> Si pudieras garantizar que una sola cosa se resuelva con este proyecto, cual seria?</div>
+    <div class="q"><strong>24.</strong> Hay algo que no te he preguntado y que crees que deberia saber?</div>
+
+    <p class="script">"Muchas gracias, Ruben. Tu perspectiva de empresario activo con escala real, cofundador y angel veterano es irreemplazable para que este proyecto no se quede en lo superficial. Todo confidencial en su atribucion."</p>
+
+    <div class="callout"><p><strong>Pregunta de reserva</strong> (si se queda en lo general): "Ruben, una pregunta directa: si un founder te llama para pedirte consejo, no dinero, te llama como Ruben de VIKO, como Ruben inversor angel, o como Ruben de LANAI? Y la marca de LANAI deberia importar en esa respuesta?"</p></div>
+
+    <hr>
+
+    <!-- CAPTURA -->
+    <h2>Captura en vivo</h2>
+
+    <table>
+      <thead><tr><th>Bloque</th><th>Afirmacion / cita</th><th>Evidencia</th><th>Tension</th><th>Implicacion marca</th></tr></thead>
+      <tbody>
+        <tr><td>Fundacion / vision</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>VIKO / experiencia empresa</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Founders / mercado</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Peer set</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Operador real vs narrativa</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Part-time / dedicacion</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Cercano vs escala</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Premortem</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Lenguaje espontaneo</h3>
+    <table>
+      <thead><tr><th>Palabra / expresion literal</th><th>Contexto</th></tr></thead>
+      <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody>
+    </table>
+
+    <hr>
+
+    <!-- VALIDACION CRUZADA -->
+    <h2>Validacion cruzada post-entrevista</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Guille</th><th>Jeroen</th><th>Ruben</th><th>Diego</th><th>Pau</th><th>Ignacio</th><th>Sandra</th><th>Patron?</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador principal</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion founders</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion LPs / red</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Lenguaje natural</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>"Operador" significa...</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tension principal</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Persona vs institucion</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Que nunca deberia parecer</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Aspiracion de marca</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">Entrevista 1:1 Ruben Ferreiro | LANAI | 498AS | Abril 2026 | Interno</div>
+  </body>
+</html>
