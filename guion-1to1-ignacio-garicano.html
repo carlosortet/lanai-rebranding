@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1:1 Ignacio Garicano | LANAI</title>
+    <style>
+      @page { size: A4; margin: 20mm 18mm 22mm 18mm; }
+      :root {
+        --ink: #1a1a1a; --muted: #5a6670; --accent: #0e5a52;
+        --accent-light: #e8f0ef; --accent-soft: rgba(14,90,82,0.07);
+        --line: #d4d8dc; --line-light: #e8eaed; --section-bg: #f7f8f9;
+        --warning-bg: #fef9f0; --warning-border: #e8a820;
+        --q-bg: #f0f7f6; --q-border: #0e5a52;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: "Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+        font-size: 10pt; line-height: 1.52; color: var(--ink); background: #fff;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .cover { page-break-after: always; padding: 72px 0; display: flex; flex-direction: column; justify-content: center; min-height: 100vh; }
+      .cover__eyebrow { font-size: 9.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+      .cover h1 { font-size: 34pt; font-weight: 600; line-height: 0.96; letter-spacing: -0.03em; margin-bottom: 12px; max-width: 20ch; }
+      .cover__subtitle { font-size: 14pt; color: var(--muted); line-height: 1.35; max-width: 46ch; margin-bottom: 44px; }
+      .cover__meta { font-size: 9pt; color: var(--muted); line-height: 1.7; border-top: 1px solid var(--line); padding-top: 16px; max-width: 36ch; }
+      h2 { font-size: 18pt; font-weight: 600; line-height: 1.08; letter-spacing: -0.02em; margin: 36px 0 6px; page-break-after: avoid; }
+      h2:first-of-type { margin-top: 0; }
+      .lead { font-size: 10.5pt; color: var(--muted); line-height: 1.45; max-width: 60ch; margin-bottom: 18px; }
+      h3 { font-size: 12pt; font-weight: 600; margin: 22px 0 8px; page-break-after: avoid; }
+      h4 { font-size: 9pt; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 6px; page-break-after: avoid; }
+      p { margin-bottom: 7px; max-width: 66ch; }
+      ul, ol { padding-left: 1.2rem; margin-bottom: 10px; }
+      li { margin-bottom: 4px; }
+      .q { padding: 10px 14px; margin: 6px 0; border-left: 3px solid var(--q-border); background: var(--q-bg); border-radius: 0 4px 4px 0; font-size: 10.5pt; line-height: 1.45; page-break-inside: avoid; }
+      .q strong { color: var(--accent); }
+      .q-secondary { border-left-color: var(--line); background: var(--section-bg); font-size: 9.5pt; color: var(--muted); }
+      .script { padding: 14px 18px; background: var(--section-bg); border: 1px solid var(--line-light); border-radius: 4px; margin: 10px 0 14px; font-style: italic; line-height: 1.5; page-break-inside: avoid; }
+      .callout { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 4px 4px 0; margin: 10px 0 14px; page-break-inside: avoid; }
+      .callout p { margin-bottom: 0; }
+      .warning { padding: 10px 14px; border-left: 3px solid var(--warning-border); background: var(--warning-bg); border-radius: 0 4px 4px 0; margin: 10px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0 14px; }
+      .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin: 10px 0 14px; }
+      .card { padding: 10px 12px; border: 1px solid var(--line-light); border-radius: 4px; background: var(--section-bg); page-break-inside: avoid; }
+      .card h4 { margin-top: 0; margin-bottom: 5px; }
+      .card p, .card ul { font-size: 9pt; margin-bottom: 0; }
+      table { width: 100%; border-collapse: collapse; margin: 10px 0 14px; font-size: 9pt; page-break-inside: avoid; }
+      th { text-align: left; padding: 6px 8px; background: var(--accent); color: white; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+      th:first-child { border-radius: 3px 0 0 0; } th:last-child { border-radius: 0 3px 0 0; }
+      td { padding: 6px 8px; border-bottom: 1px solid var(--line-light); vertical-align: top; }
+      tr:nth-child(even) td { background: var(--section-bg); }
+      .timeline { margin: 12px 0 16px; padding-left: 0; list-style: none; }
+      .timeline li { position: relative; padding: 8px 0 8px 56px; border-bottom: 1px solid var(--line-light); font-size: 10pt; }
+      .timeline li .t { position: absolute; left: 0; top: 8px; font-size: 8pt; font-weight: 700; color: var(--accent); background: var(--accent-light); padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+      hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+      .footer { margin-top: 36px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 8pt; color: var(--muted); text-align: center; }
+      @media print { .cover { min-height: auto; padding: 80px 0; } .grid-2,.grid-3,.card,table { page-break-inside: avoid; } }
+      @media screen { body { max-width: 760px; margin: 0 auto; padding: 20px; } .cover { min-height: 70vh; } }
+    </style>
+  </head>
+  <body>
+
+    <div class="cover">
+      <p class="cover__eyebrow">Entrevista 1:1 &mdash; Documento interno</p>
+      <h1>Ignacio Garicano</h1>
+      <p class="cover__subtitle">Associate en LANAI. +4 anos en VC. Fundador de Impact Angels. Ex-Bankinter Wealth Management. Perfil impacto y educacion.</p>
+      <div class="cover__meta">
+        498AS | Abril 2026<br>
+        Duracion: 40 minutos | Online<br>
+        No compartir con el cliente
+      </div>
+    </div>
+
+    <!-- FICHA + CONTEXTO -->
+    <h2>Ficha y contexto</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h4>Perfil</h4>
+        <ul>
+          <li><strong>Rol en LANAI:</strong> Associate</li>
+          <li><strong>Experiencia VC:</strong> +4 anos en inversiones venture capital</li>
+          <li><strong>Fundador:</strong> Impact Angels (primera red de business angels de impacto en Espana)</li>
+          <li><strong>Cofundador:</strong> Grota (marketplace de productos sostenibles)</li>
+          <li><strong>Background:</strong> Wealth Management en Bankinter (inmobiliario)</li>
+          <li><strong>Formacion:</strong> Master en Mercados Financieros (IEB), doble grado ADE + Relaciones Internacionales (IE University)</li>
+          <li><strong>Docencia:</strong> Colaborador en IE University, ICADE/ICAI, Deusto, ESADE</li>
+          <li><strong>Foco:</strong> Inversiones de impacto, sostenibilidad, educacion</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Por que importa esta entrevista</h4>
+        <ul>
+          <li>Trae una lente de <strong>impacto</strong> que ningun otro miembro del equipo tiene</li>
+          <li>Ha fundado su propia red de angels: sabe lo que es construir comunidad de inversores</li>
+          <li>Background en banca privada (Bankinter): conoce el lenguaje del LP institucional</li>
+          <li>Colabora con universidades top: tiene perspectiva de como el ecosistema percibe a LANAI desde fuera</li>
+          <li>Perfil hibrido: VC + impacto + banca + educacion. Puede revelar tensiones entre lo financiero y lo humano</li>
+          <li>Probablemente el miembro del equipo con la red academica mas amplia</li>
+          <li>No es socio fundador: perspectiva de alguien que "eligio" LANAI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>Perfil especifico:</strong> Ignacio viene del mundo del impacto y la sostenibilidad (Impact Angels, Grota) y del wealth management tradicional (Bankinter). Ese doble background lo posiciona como alguien que puede evaluar si la narrativa "chusquera" y "cercana" de LANAI tiene credibilidad real o si suena a buenas intenciones sin sustancia. Ademas, su actividad docente en IE, ICADE, Deusto y ESADE le da una lectura de como el talento joven percibe el ecosistema VC y donde se posiciona LANAI dentro de el.
+    </div>
+
+    <hr>
+
+    <!-- ESTRUCTURA -->
+    <h2>Estructura (40 min)</h2>
+    <ul class="timeline">
+      <li><span class="t">00-03'</span><strong>Apertura</strong> &mdash; Encuadre, confidencialidad, posicionar su perspectiva unica</li>
+      <li><span class="t">03-14'</span><strong>Por que LANAI y como se ve desde dentro</strong> &mdash; Eleccion personal, cultura real, dia a dia</li>
+      <li><span class="t">14-24'</span><strong>Mercado, founders y diferenciacion</strong> &mdash; Como perciben LANAI desde fuera, peer set, lenguaje</li>
+      <li><span class="t">24-34'</span><strong>Tensiones, impacto y narrativa</strong> &mdash; Lo que no encaja, la lente de impacto, lo que falta</li>
+      <li><span class="t">34-40'</span><strong>Premortem y cierre</strong> &mdash; Riesgos, invariantes, pregunta abierta</li>
+    </ul>
+
+    <hr>
+
+    <!-- BLOQUE 1 -->
+    <h2>Apertura (0-3')</h2>
+    <p class="script">
+      "Ignacio, gracias por el tiempo. Estamos hablando con cada persona del equipo por separado. Tu perspectiva me interesa especialmente: vienes del mundo del impacto, has fundado tu propia red de angels y has trabajado en banca privada. Esa combinacion te da una lectura de LANAI que nadie mas del equipo tiene.
+      <br><br>
+      No busco respuestas oficiales. Me interesa como ves la firma desde tu posicion, que funciona, que no y que oportunidades ves. Todo confidencial en su atribucion."
+    </p>
+
+    <div class="callout"><p><strong>Tono:</strong> Ignacio tiene un perfil academico y de impacto. Puede ser mas reflexivo y conceptual que otros miembros del equipo. Aprovechar esa capacidad analitica, pero anclar siempre en concreto: episodios, founders reales, situaciones.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 2 -->
+    <h2>Por que LANAI y como se ve desde dentro (3-14')</h2>
+    <p class="lead">Ignacio eligio LANAI. Esa decision revela que vio en la firma que le atrajo, y la distancia entre esa expectativa y la realidad.</p>
+
+    <h4>La eleccion</h4>
+    <div class="q"><strong>1.</strong> Por que LANAI? Cuando decidiste unirte, que te atrajo frente a otras opciones en VC?</div>
+    <div class="q"><strong>2.</strong> Una vez dentro, que confirmo tu expectativa y que te sorprendio?</div>
+    <div class="q"><strong>3.</strong> Vienes de fundar Impact Angels y de Bankinter. Que viste en LANAI que no existia en esos mundos?</div>
+
+    <h4>Cultura y dia a dia</h4>
+    <div class="q"><strong>4.</strong> Como describirias la cultura interna de LANAI a alguien que no la conoce? No la mision oficial, la cultura real del dia a dia.</div>
+    <div class="q"><strong>5.</strong> Los valores que LANAI declara (horizontales, respetuosos, autenticos) se viven realmente en el trabajo diario? Donde si y donde no?</div>
+    <div class="q"><strong>6.</strong> Si un analista junior te preguntara "como es trabajar en LANAI", que le dirias?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Que diferencia la cultura de LANAI de la de otros fondos donde hayas estado o que conozcas?" / "Dame un ejemplo concreto de esa cultura en accion." / "Hay algo de la cultura que te gustaria que cambiara?"</div>
+
+    <hr>
+
+    <!-- BLOQUE 3 -->
+    <h2>Mercado, founders y diferenciacion (14-24')</h2>
+    <p class="lead">Percepcion externa, peer set y donde esta la diferencia real.</p>
+
+    <h4>Percepcion de founders</h4>
+    <div class="q"><strong>7.</strong> Cuando un founder interactua con LANAI, que impresion se lleva? Que te suelen decir?</div>
+    <div class="q"><strong>8.</strong> Hay founders que deberian considerar LANAI y no lo hacen? Por que crees que no os tienen en el radar?</div>
+    <div class="q"><strong>9.</strong> Desde tu experiencia en Impact Angels, como se compara el tipo de founder que busca LANAI con el que busca impacto? Hay solapamiento?</div>
+
+    <h4>Peer set y diferenciacion</h4>
+    <div class="q"><strong>10.</strong> Con que fondos os confunde el mercado? Donde esta el error de esa confusion?</div>
+    <div class="q"><strong>11.</strong> Si comparas LANAI con JME, Kfund o 4Founders, donde esta la diferencia real? No la de marketing, la operativa.</div>
+    <div class="q"><strong>12.</strong> Que dice LANAI de si misma que cualquier fondo early-stage tambien podria decir?</div>
+    <div class="q"><strong>13.</strong> Si no pudierais mencionar track record ni AUM durante seis meses, que seguiria justificando que un founder os eligiera?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es diferenciacion o lo dice todo el mundo?" / "Como lo verificaria un founder desde fuera?" / "Que coste tiene mantener esa diferencia?"</div>
+
+    <div class="callout"><p><strong>Atencion:</strong> Ignacio colabora con IE, ICADE, Deusto y ESADE. Preguntar: "Cuando hablas de LANAI en esos entornos academicos, como reacciona la gente? Que entienden y que no?" Esa perspectiva de talento joven y ecosistema educativo es unica.</p></div>
+
+    <hr>
+
+    <!-- BLOQUE 4 -->
+    <h2>Tensiones, impacto y narrativa (24-34')</h2>
+    <p class="lead">Donde no encaja, la lente de impacto aplicada a la marca, lo que falta.</p>
+
+    <h4>Tensiones de marca</h4>
+    <div class="q"><strong>14.</strong> Que es lo que mas te chirria de como LANAI se presenta hoy? Web, materiales, discurso, lo que sea.</div>
+    <div class="q"><strong>15.</strong> Hay algo que LANAI dice de si misma que tu no dirias, o que formularias de otra manera?</div>
+    <div class="q"><strong>16.</strong> Que parte de la reputacion de LANAI depende demasiado de los socios fundadores? Se sostendria sin ellos?</div>
+
+    <h4>La lente de impacto</h4>
+    <div class="q"><strong>17.</strong> Vienes del mundo del impacto. LANAI no se posiciona ahi, pero hay algo de esa mentalidad que crees que la firma tiene de forma natural y no comunica?</div>
+    <div class="q"><strong>18.</strong> El ecosistema de impacto valora autenticidad y proposito. Desde esa lente, como de autentica es la narrativa actual de LANAI?</div>
+
+    <h4>Narrativa y ecosistema</h4>
+    <div class="q"><strong>19.</strong> Cuando hablas de LANAI en universidades o en entornos academicos, como reacciona la gente? Que entienden y que no?</div>
+    <div class="q"><strong>20.</strong> Que tipo de talento deberia querer trabajar en LANAI? La marca actual atrae a ese perfil?</div>
+
+    <div class="q q-secondary"><strong>Repreguntas:</strong> "Eso es un problema de marca o de operativa?" / "Si LANAI comunicara mejor, que cambiaria en concreto?" / "El concepto 'chusquero' te representa? Lo usarias tu?"</div>
+
+    <div class="warning"><strong>Zona interesante:</strong> La pregunta 17 puede revelar si hay una dimension de proposito en LANAI que no se esta comunicando. Ignacio, con su background de impacto, puede ver cosas que los socios fundadores dan por sentado. Si aparece algo, profundizar: podria ser un diferenciador no explotado.</div>
+
+    <hr>
+
+    <!-- BLOQUE 5 -->
+    <h2>Premortem y cierre (34-40')</h2>
+
+    <div class="q"><strong>21.</strong> Imaginate 2028: el rebranding se hizo, parecia bien ejecutado. Pero fallo. Que crees que habria salido mal?</div>
+    <div class="q"><strong>22.</strong> Que deberia ser invariante en LANAI pase lo que pase? Que no se deberia tocar?</div>
+    <div class="q"><strong>23.</strong> Que nunca deberia parecer LANAI, aunque eso la hiciera mas facil de vender?</div>
+    <div class="q"><strong>24.</strong> Si pudieras garantizar que una sola cosa se resuelva con este proyecto, cual seria?</div>
+    <div class="q"><strong>25.</strong> Hay algo que no te he preguntado y que crees que deberia saber?</div>
+
+    <p class="script">"Muchas gracias, Ignacio. Tu perspectiva de impacto, educacion y VC combinadas es exactamente lo que necesitamos para ver angulos que otros no ven. Todo confidencial en su atribucion."</p>
+
+    <div class="callout"><p><strong>Pregunta de reserva</strong> (si se queda en lo generico): "Ignacio, fundaste Impact Angels porque creias que faltaba algo en el ecosistema de inversion. Que crees que le falta a LANAI que nadie se atreve a decir?"</p></div>
+
+    <hr>
+
+    <!-- CAPTURA -->
+    <h2>Captura en vivo</h2>
+
+    <table>
+      <thead><tr><th>Bloque</th><th>Afirmacion / cita</th><th>Evidencia</th><th>Tension</th><th>Implicacion marca</th></tr></thead>
+      <tbody>
+        <tr><td>Por que LANAI</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Cultura interna</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion founders</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Peer set</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Impacto / proposito</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Ecosistema / talento</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Premortem</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Lenguaje espontaneo</h3>
+    <table>
+      <thead><tr><th>Palabra / expresion literal</th><th>Contexto</th></tr></thead>
+      <tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody>
+    </table>
+
+    <hr>
+
+    <!-- VALIDACION CRUZADA -->
+    <h2>Validacion cruzada post-entrevista</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Guille</th><th>Jeroen</th><th>Pau</th><th>Sandra</th><th>Ignacio</th><th>Patron?</th></tr></thead>
+      <tbody>
+        <tr><td>Diferenciador principal</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion founders</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Percepcion LPs</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Lenguaje natural</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Tension principal</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Persona vs institucion</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Cultura real vs declarada</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Que nunca deberia parecer</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Aspiracion</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer">Entrevista 1:1 Ignacio Garicano | LANAI | 498AS | Abril 2026 | Interno</div>
+  </body>
+</html>
