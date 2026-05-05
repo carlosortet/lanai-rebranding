@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LANAI Rebranding — Findings & Posicionamiento</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 1.5cm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .header {
+      border-bottom: 3px solid #000;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 24pt;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 11pt;
+      color: #666;
+      font-style: italic;
+    }
+
+    .header .date {
+      font-size: 9pt;
+      color: #999;
+      margin-top: 10px;
+    }
+
+    .exec-summary {
+      background: #f7f7f7;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      border-left: 4px solid #000;
+    }
+
+    .exec-summary h2 {
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .exec-summary p {
+      font-size: 11pt;
+      margin-bottom: 10px;
+    }
+
+    .exec-summary strong {
+      color: #c00;
+    }
+
+    .section {
+      margin-bottom: 35px;
+      page-break-inside: avoid;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    .section-number {
+      background: #000;
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12pt;
+      font-weight: 600;
+      margin-right: 12px;
+    }
+
+    .section-title {
+      font-size: 14pt;
+      font-weight: 600;
+    }
+
+    .section-time {
+      margin-left: auto;
+      font-size: 9pt;
+      color: #666;
+      background: #f0f0f0;
+      padding: 3px 10px;
+      border-radius: 3px;
+    }
+
+    .problem-box {
+      background: #fff5f5;
+      border: 1px solid #ffcccc;
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      font-size: 10pt;
+    }
+
+    .problem-box::before {
+      content: "TRAMPA: ";
+      font-weight: 700;
+      color: #c00;
+    }
+
+    .solution-box {
+      background: #f5fff5;
+      border: 1px solid #ccffcc;
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      font-size: 10pt;
+    }
+
+    .solution-box::before {
+      content: "RESOLUCIÓN: ";
+      font-weight: 700;
+      color: #060;
+    }
+
+    .insight-box {
+      background: #fff9e6;
+      border: 1px solid #ffe066;
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      font-size: 10pt;
+    }
+
+    .insight-box::before {
+      content: "INSIGHT: ";
+      font-weight: 700;
+      color: #996600;
+    }
+
+    .quote-box {
+      background: #fafafa;
+      border-left: 3px solid #000;
+      padding: 14px 18px;
+      margin: 10px 0;
+      font-size: 10.5pt;
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    .quote-box .quote-author {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 9pt;
+      color: #666;
+      letter-spacing: 0.3px;
+    }
+
+    .quote-box .quote-author strong {
+      color: #000;
+      font-weight: 600;
+    }
+
+    .reading {
+      font-size: 10pt;
+      color: #444;
+      margin-top: 6px;
+      padding-left: 4px;
+    }
+
+    .reading::before {
+      content: "→ ";
+      color: #000;
+      font-weight: 700;
+    }
+
+    .spec-block {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      padding: 22px 20px 18px;
+      margin: 14px 0;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 9pt;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      position: relative;
+      color: #1a1a1a;
+    }
+
+    .spec-block::before {
+      content: "ESPECIFICACIÓN · SKILL.md";
+      position: absolute;
+      top: -8px;
+      left: 14px;
+      background: #000;
+      color: #fff;
+      font-size: 7pt;
+      padding: 2px 10px;
+      font-family: 'Georgia', serif;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    .spec-block .yaml-frontmatter {
+      display: block;
+      color: #555;
+      border-left: 2px solid #999;
+      padding-left: 10px;
+      margin-bottom: 12px;
+    }
+
+    .inline-code {
+      background: #f0f0f0;
+      padding: 1px 6px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 9pt;
+    }
+
+    h4.subhead {
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 18px 0 10px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .copy-box {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 22px 26px;
+      margin: 18px 0;
+      font-family: 'Georgia', serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .copy-box::before {
+      content: "POSICIONAMIENTO";
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      background: #fff;
+      color: #000;
+      font-size: 7pt;
+      padding: 2px 8px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+
+    .copy-box .lead {
+      font-size: 16pt;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .copy-box .body {
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: #ddd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 10pt;
+    }
+
+    th {
+      background: #000;
+      color: #fff;
+      text-align: left;
+      padding: 8px 12px;
+      font-weight: 500;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      vertical-align: top;
+    }
+
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .td-label {
+      font-weight: 600;
+      width: 28%;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 15px 0;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      font-size: 10pt;
+    }
+
+    .checkbox {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #333;
+      margin-right: 10px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .timeline {
+      margin: 15px 0 5px;
+      padding-left: 20px;
+      border-left: 2px solid #000;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      padding-bottom: 15px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-size: 9pt;
+      color: #666;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-content {
+      font-size: 10pt;
+      margin-top: 3px;
+    }
+
+    .page-break {
+      page-break-before: always;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .final-section {
+      background: #f7f7f7;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 2px solid #000;
+    }
+
+    .footer-brands {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .footer-brand-url {
+      font-size: 9pt;
+      color: #666;
+      margin-left: 10px;
+    }
+
+    .footer-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: #999;
+    }
+
+    .footer-info strong {
+      color: #666;
+    }
+
+    .footer-info a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 8pt;
+      color: #999;
+      text-align: center;
+    }
+
+    .footer-note .internal {
+      font-size: 7pt;
+    }
+
+    @media print {
+      body { padding: 0; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>LANAI · Findings &amp; Posicionamiento</h1>
+    <div class="subtitle">Síntesis de cinco entrevistas 1:1 con socios y asociados</div>
+    <div class="date">Mayo 2026 · 5 entrevistas · ~5h de grabación · Mia Ortet (Zoopa) &amp; Carlos Ortet (Zoopa)</div>
+  </div>
+
+  <div class="exec-summary">
+    <h2>Resumen Ejecutivo</h2>
+    <p><strong>Diagnóstico:</strong> LANAI tiene la cultura, los comportamientos y el track record de un fondo top decile, pero comunica como un fondo emergente. La identidad ya existe; falta hacerla legible y defendible.</p>
+    <p><strong>Decisión estratégica:</strong> el nombre se mantiene. La imagen visual y la narrativa se reformulan para escapar del territorio saturado del "founder-friendly" y reclamar la silla del consejo, no la del cap table.</p>
+    <p><strong>Posicionamiento propuesto:</strong> <em>El fondo que querrás tener en la mesa de tu consejo</em>.</p>
+    <p><strong>Operativa:</strong> cada atributo se traduce en cláusula contractual, proceso operativo y pieza comunicativa. Un test de cinco filtros, formalizado como skill de Claude (<span class="inline-code">lanaizar</span>), decide si una acción es coherente con la marca antes de ejecutarla.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Contexto y método</div>
+      <div class="section-time">5 entrevistas</div>
+    </div>
+    <p style="font-size: 10.5pt; margin-bottom: 12px;">El proceso parte de una sesión institucional de tesis (no un briefing convencional) y se completa con cinco conversaciones 1:1 con la mesa decisoria del fondo. Las entrevistas se grabaron, transcribieron y leyeron íntegras antes de extraer los hallazgos siguientes.</p>
+    <table>
+      <tr>
+        <th>Interlocutor</th>
+        <th>Rol</th>
+        <th>Aportación clave</th>
+      </tr>
+      <tr>
+        <td class="td-label">Guillermo Llibre</td>
+        <td>GP, cofundador</td>
+        <td>Tesis institucional, goodwill como microacciones acumuladas</td>
+      </tr>
+      <tr>
+        <td class="td-label">Jeroen Merchiers</td>
+        <td>GP, cofundador (ex-Airbnb EMEA)</td>
+        <td>Capa de madurez, ética operativa, ángulo "antifondo"</td>
+      </tr>
+      <tr>
+        <td class="td-label">Diego Camilleri</td>
+        <td>GP (ex-Uber Strategy)</td>
+        <td>Personalismo vs institución, calendario de eventos, riesgo de escalar</td>
+      </tr>
+      <tr>
+        <td class="td-label">Ignacio Garicano</td>
+        <td>Associate</td>
+        <td>Diagnóstico del vacío comunicativo y tensión founder/LP</td>
+      </tr>
+      <tr>
+        <td class="td-label">Sandra Castells</td>
+        <td>Investment Analyst</td>
+        <td>Comportamiento real con founders en crisis, prueba verificable</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Voces del equipo</div>
+      <div class="section-time">5 frases</div>
+    </div>
+
+    <div class="quote-box">
+      "Nuestro problema de comunicación es que no hay comunicación. Lo que decimos creo que lo decimos bien, pero decimos muy poco o no decimos nada."
+      <span class="quote-author"><strong>Ignacio Garicano</strong> · Associate</span>
+    </div>
+    <p class="reading">El primer activo desperdiciado: estar en el top decile global de performance y ser invisible online. La marca no falla por mensaje equivocado, falla por mensaje ausente.</p>
+
+    <div class="quote-box">
+      "Hay fondos que no tienen personalidad. Tienen una marca reconocida, pero no hay una persona. Y seguro que la tuvieron en origen."
+      <span class="quote-author"><strong>Diego Camilleri</strong> · GP</span>
+    </div>
+    <p class="reading">El miedo legítimo al escalar: perder la materia. La marca futura debe codificar comportamientos para que no dependan del temperamento de los GPs originales.</p>
+
+    <div class="quote-box">
+      "Podría ser el antifondo. El fondo que no quiere que tú empieces tu negocio."
+      <span class="quote-author"><strong>Jeroen Merchiers</strong> · GP cofundador</span>
+    </div>
+    <p class="reading">La frase más fértil de toda la sesión. Empatía radical, contraintuitiva, defendible. Captura el ADN sin caer en el "founder friendly" saturado.</p>
+
+    <div class="quote-box">
+      "El goodwill no deixa de ser uns valors aterrats en microaccions que han passat durant deu anys."
+      <span class="quote-author"><strong>Guillermo Llibre</strong> · GP cofundador</span>
+    </div>
+    <p class="reading">La tesis institucional. La marca no es lo que prometes; es lo que has hecho repetidamente sin presión. La identidad ya existe — falta hacerla legible.</p>
+
+    <div class="quote-box">
+      "Vete al portfolio de hace cinco años, busca las compañías que han quebrado, y escribe al fundador a preguntar por el fondo. Cuando todo va bien, nadie tiene nada que decir; cuando una empresa quiebra, ahí ves cómo es realmente este inversor."
+      <span class="quote-author"><strong>Sandra Castells</strong> · Investment Analyst</span>
+    </div>
+    <p class="reading">La prueba que LANAI sí pasa — y nadie comunica. Ahí está el atributo verificable más diferenciador del fondo.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Insights principales</div>
+      <div class="section-time">6 hallazgos</div>
+    </div>
+
+    <div class="problem-box">El "founder-friendly" es lenguaje de categoría: todos los fondos lo dicen, ninguno lo demuestra antes del trato. Apoyarse ahí encadena a LANAI a una promesa intercambiable.</div>
+
+    <div class="insight-box">El relato dominante del sector ("un founder, un fondo, un matrimonio") niega la realidad: en cada cap table conviven 3–4 fondos durante 7–10 años. La silla disputada es la del <strong>consejero útil bajo presión</strong>, no la del primer cheque.</div>
+
+    <div class="problem-box">Vacío comunicativo: top decile global por DPI, top 5% europeo según Fondico, sin uso comercial. La mejor versión del fondo solo es visible una vez se entra al proceso.</div>
+
+    <div class="insight-box">Las marcas personales (Airbnb, Uber, Vico, Zazume, Habitissimo) son una pancarta sin explotar. Todos los GPs son low-profile por temperamento — la solución no es exhibición individual, sino canalizar autoridad personal a través de la institución y de los founders del portfolio.</div>
+
+    <div class="problem-box">Tensión founder vs LP no resuelta a nivel narrativo: Sandra y Diego ponen al emprendedor 100% en el centro; Ignacio reclama voz para el LP family-office tradicional. España: 2% de grandes patrimonios en VC vs 18% en EE.UU.</div>
+
+    <div class="insight-box">La salida no es elegir audiencia: es <strong>derivar la narrativa de inversor desde el éxito del emprendedor</strong>, añadiendo capa de madurez (números, DPI, Fondico) sin renunciar al ADN.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">Atributos verificables</div>
+      <div class="section-time">6 pruebas</div>
+    </div>
+    <p style="font-size: 10pt; color: #666; margin-bottom: 12px;">Solo se incluyen rasgos que pasan el test: formulación precisa, observable desde fuera, sostenible con evidencia, con coste o trade-off, no copiables sin cambiar la operación.</p>
+    <table>
+      <tr>
+        <th>Atributo</th>
+        <th>Prueba observable</th>
+      </tr>
+      <tr>
+        <td class="td-label">Mediación en cap table</td>
+        <td>Casos donde han contenido a coinversores agresivos a favor del founder (ej. quitar stock options a empleado de 7 años).</td>
+      </tr>
+      <tr>
+        <td class="td-label">Honestidad operativa</td>
+        <td>Mails de "no" argumentados incluso a deals entrados por formulario web. Ningún competidor lo hace.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Operadores con CV institucional</td>
+        <td>Construyeron Airbnb EU (Jeroen), Uber MEA (Diego), Vico/YABA (Rubén), Zazume (Yerón), Housell (Guille).</td>
+      </tr>
+      <tr>
+        <td class="td-label">Generosidad estructural</td>
+        <td>Cláusula colchón, ceder múltiplo (2,5× en lugar de 3×), vender por 1€ a un founder cuya empresa no remontó.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Comportamiento bajo crisis</td>
+        <td>El portfolio que ha quebrado habla bien del fondo. Sandra: "ahí ves cómo es realmente este inversor".</td>
+      </tr>
+      <tr>
+        <td class="td-label">Performance top-decil silenciada</td>
+        <td>Fondico lo confirma. Ningún material comercial lo refleja.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title">Tensiones que la marca no debe esconder</div>
+      <div class="section-time">4 fricciones</div>
+    </div>
+    <table>
+      <tr>
+        <th>Tensión</th>
+        <th>Cómo se vive</th>
+        <th>Riesgo si no se resuelve</th>
+      </tr>
+      <tr>
+        <td class="td-label">Cercanía vs profesionalidad</td>
+        <td>Leídos como "club de amigos" que toma decisiones tomando café.</td>
+        <td>LP serio descarta entrar; founder maduro busca un fondo "más institucional".</td>
+      </tr>
+      <tr>
+        <td class="td-label">Persona vs institución</td>
+        <td>4 GPs muy fuertes individualmente, sin pegamento de marca.</td>
+        <td>Marca dependiente de personas; pérdida de identidad al escalar (caso Fathom).</td>
+      </tr>
+      <tr>
+        <td class="td-label">Dos códigos internos</td>
+        <td>Madrid (camisa, contactos heredados) vs Barcelona (camiseta, sudadera, alternativo).</td>
+        <td>Inconsistencia visible en eventos, fotos, materiales.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Cutre actual vs ambición top-tier</td>
+        <td>Web "es una mierda" (Sandra dixit). Logo y paleta sin trabajar.</td>
+        <td>El contenedor visual contradice el contenido. Filtrado negativo previo a la primera reunión.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section page-break">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title">Posicionamiento único</div>
+      <div class="section-time">USP</div>
+    </div>
+
+    <div class="copy-box">
+      <div class="lead">LANAI: el fondo que querrás tener en la mesa de tu consejo.</div>
+      <div class="body">No el primero que entra. No el que más cheque firma. El que querrás tener cuando la conversación importe.</div>
+    </div>
+
+    <p style="font-size: 10.5pt; margin: 14px 0;">El relato del sector dice: <em>un founder, un fondo, un matrimonio</em>. La realidad: en la mesa de tu consejo se sentarán 3 o 4 fondos durante 7–10 años. Y ahí no decide el ticket — decide el criterio, la integridad bajo presión, y quién media cuando los demás aprietan.</p>
+
+    <p style="font-size: 10.5pt; margin: 14px 0 8px;">Esa es la silla que LANAI ocupa de verdad. Lo demuestra cuando:</p>
+    <ul class="checklist">
+      <li><div class="checkbox"></div>contiene a un coinversor agresivo que quiere quitarle stock options a un empleado de 7 años</li>
+      <li><div class="checkbox"></div>sostiene una valoración a la baja para que el founder no pierda dilución innecesaria</li>
+      <li><div class="checkbox"></div>te da feedback brutal y honesto por mail aunque no inviertan</li>
+      <li><div class="checkbox"></div>vende por 1€ una participada que no remontará para que el founder se quede con el negocio</li>
+      <li><div class="checkbox"></div>cede parte del múltiplo de salida (2,5× en lugar de 3×) cuando el karma pesa más que el contrato</li>
+    </ul>
+
+    <p style="font-size: 10.5pt; margin: 14px 0;">Ningún competidor del peer set (For Founders, Shilling, Beyond, Lof Vine, K-Fund, Enzo) está reclamando ese territorio. Todos compiten por la silla del primer fondo. <strong>LANAI puede reclamar la silla del consejero que toda startup necesita y casi ninguna sabe pedir.</strong></p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <div class="section-title">Test de diferenciación real</div>
+      <div class="section-time">6 criterios</div>
+    </div>
+    <p style="font-size: 10pt; color: #666; margin-bottom: 12px;">Una diferencia solo cuenta si pasa los seis criterios del test estratégico definido en la matriz de peer set.</p>
+    <table>
+      <tr>
+        <th>Criterio</th>
+        <th>Cumple</th>
+        <th>Cómo</th>
+      </tr>
+      <tr>
+        <td class="td-label">Se puede formular con precisión</td>
+        <td>Sí</td>
+        <td>"La silla del consejo, no la del cheque."</td>
+      </tr>
+      <tr>
+        <td class="td-label">Se puede observar desde fuera</td>
+        <td>Sí</td>
+        <td>Comportamientos en cap tables compartidos con coinversores.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Se puede sostener con evidencia</td>
+        <td>Sí</td>
+        <td>Testimonios del portfolio en crisis y de empresas quebradas.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Tiene coste / trade-off</td>
+        <td>Sí</td>
+        <td>Exige renunciar a la ficción del "fondo único" y ceder múltiplo.</td>
+      </tr>
+      <tr>
+        <td class="td-label">No depende solo de estilo verbal</td>
+        <td>Sí</td>
+        <td>Exige documentar conducta como manual, no como adjetivos.</td>
+      </tr>
+      <tr>
+        <td class="td-label">No copiable sin cambiar la operación</td>
+        <td>Sí</td>
+        <td>Requiere 10 años de microacciones acumuladas.</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <div class="section-title">Cómo desactiva las trampas detectadas</div>
+      <div class="section-time">4 trampas</div>
+    </div>
+
+    <div class="problem-box">Trampa "founder-friendly": territorio saturado, indistinguible.</div>
+    <div class="solution-box">Se evita por elevación. No competimos en cercanía declarativa; competimos en quién aguanta la presión cuando la cosa se complica.</div>
+
+    <div class="problem-box">Trampa "personalismo": dependencia excesiva de los GPs.</div>
+    <div class="solution-box">La institución reclama la silla, no las personas. Los GPs son evidencia de criterio, no producto comercial.</div>
+
+    <div class="problem-box">Trampa "cutre vs serio": el contenedor contradice el contenido.</div>
+    <div class="solution-box">Sentarse en consejos exige seriedad. La capa de madurez (números, DPI, Fondico) entra natural, no como añadido cosmético.</div>
+
+    <div class="problem-box">Trampa "founder vs LP": narrativa fragmentada.</div>
+    <div class="solution-box">Un fondo que se sienta bien en consejos es exactamente el que el LP family-office tradicional entiende sin traducción.</div>
+  </div>
+
+  <div class="section page-break">
+    <div class="section-header">
+      <div class="section-number">9</div>
+      <div class="section-title">Tangibilización — del atributo a la acción</div>
+      <div class="section-time">9 anclas</div>
+    </div>
+
+    <div class="insight-box">
+      El equipo es racional, no creativo. La marca no se sostiene sobre adjetivos: se sostiene sobre cláusulas, procesos y comportamientos verificables. Cada atributo debe tener una manifestación contractual, una operativa y una comunicativa concretas.
+    </div>
+
+    <table>
+      <tr>
+        <th style="width: 19%;">Ancla</th>
+        <th>Manifestación contractual</th>
+        <th>Manifestación operativa</th>
+        <th>Manifestación comunicativa</th>
+      </tr>
+      <tr>
+        <td class="td-label">Cláusula colchón</td>
+        <td>Línea fija en pacto de socios: €300K garantizados al founder antes de aplicar liquidity preferences.</td>
+        <td>Clausulado tipo en repositorio legal del fondo. Revisión obligatoria pre-firma.</td>
+        <td>Sección "Founder economics" en la web — clausulado tipo publicado.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Exit por 1€</td>
+        <td>Cláusula de buyback simbólico: si la participada cierra y LANAI ya retornó ≥1× a sus LPs, vende su % al founder por 1€.</td>
+        <td>Decisión documentada en acta de comité. Default cuando se cumple condición.</td>
+        <td>Reporte anual público: "Empresas que cerramos y a quién devolvimos qué".</td>
+      </tr>
+      <tr>
+        <td class="td-label">Cesión de múltiplo</td>
+        <td>Cláusula opcional en pacto: a partir de múltiplo 5×, hasta 0,5× se cede al equipo founder.</td>
+        <td>Decisión por unanimidad GP en acta de salida.</td>
+        <td>Cifra agregada anual ("cuánto cedió LANAI") sin nombrar empresas.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Mail de "no" argumentado</td>
+        <td>—</td>
+        <td>Plantilla obligatoria + SLA &lt;7 días + razón estructural en bullets + una conexión útil.</td>
+        <td>Web: "Cómo decimos que no" — 5 ejemplos reales anonimizados.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Reuniones LP trimestrales</td>
+        <td>Cláusula en LPA: quarterly LP meetings con reporting estandarizado.</td>
+        <td>Calendario fijo + orden del día publicado. Reporting idéntico en bonanza y crisis.</td>
+        <td>Newsletter LP con métricas comparables al peer set.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Eventos sin VCs externos</td>
+        <td>—</td>
+        <td>Política interna escrita: invitación restringida a founders del portfolio + LPs LANAI. Sin sponsors. Sin networking de fondos.</td>
+        <td>Cada evento bajo regla off-the-record. Resumen interno sin foto-oportunidad.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Mediación cap-table</td>
+        <td>Cláusula de protección de minoritarios: LANAI vota en contra de cualquier acción contraria al founder en consejo.</td>
+        <td>Protocolo de escalado: cuando un coinversor presiona, GP toma silla mediadora &lt;72h.</td>
+        <td>Caso anual: "La conversación que no quisimos ganar" — relato de un cap-table en tensión.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Due diligence con familia</td>
+        <td>Anexo al DD: solicitud formal de 3 referencias personales no profesionales (madre, hermana, jefe antiguo).</td>
+        <td>Pau lidera. Plantilla de preguntas estandarizada en repositorio.</td>
+        <td>Carta abierta firmada por Pau explicando por qué se hace.</td>
+      </tr>
+      <tr>
+        <td class="td-label">Reporting bajo crisis</td>
+        <td>LPA: misma cadencia y formato bajo cualquier estado de la participada.</td>
+        <td>Calendario fijo. Plantilla idéntica. Sección "Lo que va mal" obligatoria.</td>
+        <td>LP letter publicable como modelo de transparencia (con permisos).</td>
+      </tr>
+    </table>
+
+    <p style="font-size: 9.5pt; color: #666; margin-top: 12px;">Indicador agregado anual: cifra de múltiplo cedido + €s residuales devueltos a founders + % de founders quebrados que aceptan referencia pública. Sin necesidad de adjetivos.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <div class="section-title">El test LANAI</div>
+      <div class="section-time">5 filtros</div>
+    </div>
+
+    <p style="font-size: 10.5pt; margin-bottom: 14px;">Para evitar drift conforme la organización escale, cada acción nueva pasa por cinco filtros. Es una herramienta de criterio, no de creatividad. Diseñada para responder con sí/no, no con opinión.</p>
+
+    <table>
+      <tr>
+        <th style="width: 6%;">#</th>
+        <th style="width: 22%;">Filtro</th>
+        <th>Pregunta</th>
+      </tr>
+      <tr><td><strong>1</strong></td><td class="td-label">Simetría</td><td>¿Se vería igual esta acción si la startup va al 10× o si va a cero?</td></tr>
+      <tr><td><strong>2</strong></td><td class="td-label">Coste real</td><td>¿Tiene un coste tangible (€, tiempo, ego, óptica)? Si no, es retórica.</td></tr>
+      <tr><td><strong>3</strong></td><td class="td-label">Founder quebrado</td><td>¿La firmaría sin malestar un founder cuya empresa quebró del portfolio?</td></tr>
+      <tr><td><strong>4</strong></td><td class="td-label">Evidencia externa</td><td>¿Es observable desde fuera, sin que LANAI lo declare?</td></tr>
+      <tr><td><strong>5</strong></td><td class="td-label">No copiabilidad</td><td>¿Un competidor puede copiarla mañana sin cambiar su modelo económico?</td></tr>
+    </table>
+
+    <h4 class="subhead">Veredicto y acción</h4>
+    <table>
+      <tr>
+        <th style="width: 14%;">Score</th>
+        <th style="width: 22%;">Estado</th>
+        <th>Acción</th>
+      </tr>
+      <tr><td><strong>5/5</strong></td><td class="td-label">LANAI core</td><td>Manifestación canónica. Documentar como ancla operativa nueva.</td></tr>
+      <tr><td><strong>4/5</strong></td><td class="td-label">LANAI</td><td>Coherente. Identificar el filtro que falla y mitigar antes de ejecutar.</td></tr>
+      <tr><td><strong>3/5</strong></td><td class="td-label">Revisar</td><td>Falta tangibilización o tiene riesgo retórico. Reescribir.</td></tr>
+      <tr><td><strong>≤2/5</strong></td><td class="td-label">No es LANAI</td><td>Redirigir o descartar. No publicar, no firmar, no ejecutar.</td></tr>
+    </table>
+
+    <div class="insight-box">
+      Regla del test: si la acción no menciona explícitamente cómo se comportaría en el escenario de fracaso, el filtro de simetría falla por defecto. La carga de la prueba siempre recae en quien propone la acción.
+    </div>
+  </div>
+
+  <div class="section page-break">
+    <div class="section-header">
+      <div class="section-number">11</div>
+      <div class="section-title">Skill <span class="inline-code" style="font-size: 12pt;">lanaizar</span> — entregable del sistema de marca</div>
+      <div class="section-time">Spec</div>
+    </div>
+
+    <p style="font-size: 10.5pt; margin-bottom: 14px;">Igual que el sistema de marca incluye un sistema de diseño (componentes visuales, tipografía, paleta), incluirá un <strong>skill instalable de Claude</strong> distribuido a cada miembro del equipo. Su función: aplicar el test LANAI automáticamente sobre cualquier input — un copy, una cláusula, un mail, un evento — y devolver veredicto, reformulación y anclaje.</p>
+
+    <h4 class="subhead">Naturaleza del entregable</h4>
+    <ul class="checklist">
+      <li><div class="checkbox"></div>Archivo único: <span class="inline-code">.claude/skills/lanaizar/SKILL.md</span> con frontmatter YAML.</li>
+      <li><div class="checkbox"></div>Distribución: incluido en el repositorio del proyecto LANAI; cada miembro lo clona junto con el resto de assets de marca.</li>
+      <li><div class="checkbox"></div>Activación: invocación natural — pedir a Claude "lanaizar esto" o "filtrar esto contra LANAI".</li>
+      <li><div class="checkbox"></div>Mantenimiento: editado únicamente cuando se añade un ancla operativa nueva o se identifica una trampa nueva. No es un documento vivo abierto al equipo.</li>
+      <li><div class="checkbox"></div>Versionado: cambios commiteados al repo con justificación. La marca evoluciona en commits, no en reuniones.</li>
+    </ul>
+
+    <h4 class="subhead">Estructura del archivo</h4>
+
+    <div class="spec-block"><span class="yaml-frontmatter">---
+name: lanaizar
+description: Filtra cualquier acción, decisión, cláusula contractual o pieza
+de comunicación contra el ADN de LANAI. Devuelve si es coherente con la marca,
+qué falta para que lo sea, y la versión "LANAI" del input. Usar siempre que se
+proponga una cláusula, un copy, una decisión de inversión, un evento, un mail
+de "no", una respuesta a LP, o cualquier acción que represente al fondo.
+---</span>
+
+# Skill: lanaizar
+
+## Tesis de marca
+LANAI es el fondo que querrás tener en la mesa de tu consejo.
+Diferenciación nuclear: LANAI se comporta igual cuando la startup
+va al 10× o cuando va a cero.
+
+## El test LANAI — 5 filtros (sí/no)
+1. Simetría        — ¿igual en éxito y en fracaso?
+2. Coste real      — ¿coste tangible para LANAI?
+3. Founder quebrado— ¿la firmaría sin malestar?
+4. Evidencia       — ¿observable desde fuera?
+5. No copiable     — ¿requiere cambiar su modelo al competidor?
+
+Veredicto: 5/5 LANAI core · 4/5 LANAI · 3/5 revisar · ≤2/5 fuera.
+
+## Anclas operativas (referencia, no exhaustiva)
+- Cláusula colchón
+- Exit por 1€
+- Cesión de múltiplo
+- Mail de "no" argumentado
+- Reuniones LP trimestrales
+- Eventos sin VCs externos
+- Mediación cap-table
+- Due diligence con familia
+- Reporting bajo crisis
+
+## Trampas — vocabulario muerto (rojo automático)
+"founder-friendly" · "trusted partner" · "long-term"
+"hands-on" · "high conviction" · "ecosistema único"
+"humanos" · "cercanos" · "accesibles" sin prueba
+adjetivos sin verbos · promesas sin definición de fracaso
+
+## Formato de respuesta del skill
+INPUT
+[acción a evaluar, literal]
+
+TEST LANAI
+- Simetría:         [sí/no] — [una línea]
+- Coste real:       [sí/no] — [una línea]
+- Founder quebrado: [sí/no] — [una línea]
+- Evidencia:        [sí/no] — [una línea]
+- No copiable:      [sí/no] — [una línea]
+
+VEREDICTO
+[LANAI core | LANAI | revisar | no es LANAI] — [score]/5
+
+REFORMULACIÓN LANAI
+[versión reescrita que pase 4-5/5, si aplica]
+
+ANCLAJE
+[ancla operativa a la que se conecta, o ancla nueva que propone]
+
+## Regla nuclear
+Si el input no menciona cómo se comportaría en escenario de fracaso,
+el filtro de simetría falla por defecto. La carga de la prueba recae
+siempre en quien propone la acción.</div>
+
+    <h4 class="subhead">Casos de uso documentados en el skill</h4>
+    <table>
+      <tr>
+        <th style="width: 38%;">Input ejemplo</th>
+        <th style="width: 18%;">Veredicto</th>
+        <th>Acción</th>
+      </tr>
+      <tr>
+        <td>"Somos founder-friendly. Apoyamos a los emprendedores en cada paso."</td>
+        <td><strong>0/5</strong> — no es LANAI</td>
+        <td>Reemplazar por caso real (founder cuya empresa cerró, con su nombre, qué hizo LANAI bien y mal).</td>
+      </tr>
+      <tr>
+        <td>Cláusula buyback simbólico (1€) en pacto de socios.</td>
+        <td><strong>4-5/5</strong> — LANAI core</td>
+        <td>Documentar como cláusula tipo numerada. Publicar el clausulado en la web.</td>
+      </tr>
+      <tr>
+        <td>Evento Madrid 200 personas con VCs y prensa invitados.</td>
+        <td><strong>1/5</strong> — no es LANAI</td>
+        <td>Redimensionar a cena cerrada de 25 con founders quebrados invitados al panel.</td>
+      </tr>
+      <tr>
+        <td>Mail de "no" genérico "te deseamos mucho éxito".</td>
+        <td><strong>0-1/5</strong> — no es LANAI</td>
+        <td>Reescribir con razón estructural específica + una conexión útil + firma personal.</td>
+      </tr>
+      <tr>
+        <td>LP letter trimestral sin sección "lo que va mal".</td>
+        <td><strong>2/5</strong> — no es LANAI</td>
+        <td>Añadir sección obligatoria con métricas adversas y plan de mitigación.</td>
+      </tr>
+    </table>
+
+    <h4 class="subhead">Cuándo invocarlo</h4>
+    <ul class="checklist">
+      <li><div class="checkbox"></div>Antes de publicar copy en web, redes, deck o mail comercial.</li>
+      <li><div class="checkbox"></div>Al redactar o revisar pactos de socios y cláusulas tipo.</li>
+      <li><div class="checkbox"></div>Al planificar un evento o lista de invitados.</li>
+      <li><div class="checkbox"></div>Al redactar comunicación a LPs, especialmente bajo malas noticias.</li>
+      <li><div class="checkbox"></div>Cuando se debata una decisión de inversión polémica.</li>
+      <li><div class="checkbox"></div>Cuando aparezca "founder-friendly" o cualquier vocabulario de la lista de trampas.</li>
+      <li><div class="checkbox"></div>Al diseñar un material de marca o contratar a un colaborador externo.</li>
+    </ul>
+
+    <div class="solution-box">
+      Por qué este entregable importa para LANAI específicamente: el equipo es racional, no creativo. El skill convierte una intuición de marca en un protocolo verificable que cualquiera puede aplicar antes de publicar, firmar o ejecutar — sin necesidad de que un GP fundador esté en la sala. Es el mecanismo que evita el drift al escalar.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">12</div>
+      <div class="section-title">Próximos pasos</div>
+      <div class="section-time">Roadmap</div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Mayo 2026 — Plataforma de posicionamiento</div>
+        <div class="timeline-content">Validar el territorio "silla del consejo" con los 4 GPs. Redactar borrador purpose / promise / principles / proof.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Mayo–Junio 2026 — Validación externa</div>
+        <div class="timeline-content">2–3 entrevistas con founders del portfolio (incluyendo al menos uno cuya empresa quebró). Confirmar comportamientos reales.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Junio 2026 — Manual de conducta de marca</div>
+        <div class="timeline-content">Documentar comportamientos en lugar de adjetivos: cómo se da un "no", cómo se modera un consejo, qué cláusulas se proponen, qué eventos sí y cuáles no.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Junio–Julio 2026 — Identidad visual y narrativa</div>
+        <div class="timeline-content">Refresh visual completo (mantener nombre, sustituir pájaro/papiroflexia/naranja). Plan de activaciones: founders como cara, formato corto, eventos cuidados.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Julio–Septiembre 2026 — Lanzamiento por capas</div>
+        <div class="timeline-content">Web nueva + materiales LP + plan editorial. Apalancar performance top-decil en la capa de madurez sin perder ADN.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-section">
+    <div class="section-header" style="border-bottom: none; padding-bottom: 0;">
+      <div class="section-title">Frase de cierre</div>
+    </div>
+    <p style="font-size: 12pt; font-style: italic; line-height: 1.5; margin-top: 14px;">La futura marca de LANAI deberá expresar <strong>criterio bajo presión</strong>, evitar <strong>el lenguaje saturado del "founder-friendly"</strong>, sostener con evidencia <strong>su comportamiento en consejos compartidos y bajo crisis</strong>, y resolver inteligentemente la tensión entre <strong>cercanía humana</strong> y <strong>seriedad institucional</strong>.</p>
+  </div>
+
+  <footer>
+    <div class="footer-brands">
+      <div>
+        <span class="footer-brand">ZOOPA</span>
+        <span class="footer-brand-url">zoopa.es</span>
+      </div>
+      <div>
+        <span class="footer-brand">498AS</span>
+        <span class="footer-brand-url">498as.com</span>
+      </div>
+    </div>
+    <div class="footer-info">
+      <div>
+        <strong>ZOOPA</strong> — Innovation &amp; Creative Technology<br>
+        <a href="https://zoopa.es">zoopa.es</a> · carlos.ortet@zoopa.es
+      </div>
+      <div style="text-align: right;">
+        <strong>498AS Innovation Lab</strong> — AI R&amp;D Division<br>
+        <a href="https://498as.com">498as.com</a> · <a href="https://georadar.app">georadar.app</a>
+      </div>
+    </div>
+    <div class="footer-note">
+      Documento generado el 5 de mayo de 2026 · Síntesis de cinco entrevistas 1:1 (Ignacio Garicano, Diego Camilleri, Jeroen Merchiers, Guillermo Llibre, Sandra Castells)<br>
+      <span class="internal">Documento interno — Proyecto rebranding LANAI · Confidencial</span>
+    </div>
+  </footer>
+
+</body>
+</html>
